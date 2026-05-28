@@ -392,16 +392,33 @@
     }
 
     .dark-toggle {
-      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
       color: var(--muted);
       cursor: pointer;
       background: none;
-      border: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 14px;
       font-family: inherit;
-      padding: 0;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
     }
 
-    .dark-toggle:hover { color: var(--text); }
+    .dark-toggle:hover {
+      color: var(--text);
+      border-color: var(--text);
+      background: color-mix(in srgb, var(--border) 35%, transparent);
+    }
+
+    .footer-copy {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
 
     /* ── Skills ── */
     .skills-grid {
@@ -528,6 +545,7 @@
             <line x1="10" y1="14" x2="21" y2="3"/>
           </svg>
         </a>
+        <button class="dark-toggle" id="toggleDark">Dark</button>
       </div>
     </div>
 
@@ -608,7 +626,7 @@
         <div class="pub-desc">AI-powered system that helps educators analyze student science drawings and accelerate classroom feedback loops. End-to-end applied AI workflow — data, model inference, and user-facing output.</div>
         <div class="pub-links">
           <a class="pub-link" href="https://arxiv.org/abs/2602.01578" target="_blank" rel="noopener">paper</a>
-          <a class="pub-link" href="https://vilab-group.com/project/DrawSim-PD/" target="_blank" rel="noopener">project page</a>
+          <a class="pub-link" href="https://vilab-group.com/project/drawsim-pd/" target="_blank" rel="noopener">project page</a>
         </div>
       </div>
     </section>
@@ -717,7 +735,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
       </nav>
-      <button class="dark-toggle" id="toggleDark">Dark</button>
+      <span class="footer-copy">© Ariji Chakma 2026</span>
     </footer>
 
   </main>
