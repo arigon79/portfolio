@@ -40,9 +40,9 @@ export default function Work() {
 
                 <div className="bp-route">
                   <div className="bp-route-col">
-                    <div className="bp-route-label">FROM</div>
+                    <div className="bp-route-label">Company</div>
                     <div className="bp-route-code">{w.code}</div>
-                    <div className="bp-route-name">{w.location}</div>
+                    <div className="bp-route-name">{w.company}</div>
                   </div>
 
                   <div className="bp-route-line" aria-hidden="true">
@@ -50,20 +50,15 @@ export default function Work() {
                   </div>
 
                   <div className="bp-route-col">
-                    <div className="bp-route-label">ROLE</div>
-                    <div className="bp-route-code">{w.role.split(' ').slice(-1)[0].slice(0, 3).toUpperCase()}</div>
-                    <div className="bp-route-name">{w.role}</div>
+                    <div className="bp-route-label">Position</div>
+                    <div className="bp-route-role">{w.role}</div>
                   </div>
                 </div>
 
                 <div className="bp-row bp-row--meta">
                   <div className="bp-meta">
-                    <div className="bp-meta-label">Passenger</div>
-                    <div className="bp-meta-value">{info.work.passenger}</div>
-                  </div>
-                  <div className="bp-meta">
-                    <div className="bp-meta-label">Carrier</div>
-                    <div className="bp-meta-value">{w.company}</div>
+                    <div className="bp-meta-label">Location</div>
+                    <div className="bp-meta-value">{w.location}</div>
                   </div>
                   <div className="bp-meta">
                     <div className="bp-meta-label">Date</div>

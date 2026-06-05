@@ -35,6 +35,14 @@ function GlobeIcon() {
   );
 }
 
+function ScholarIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 3L1 9.5l4 2.18V18l7 3.82 7-3.82v-6.32l2-1.09V17h2V9.5L12 3zm6.82 6.05L12 11.72 5.18 9.05 12 5.28l6.82 3.77zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
+    </svg>
+  );
+}
+
 const hero = info.hero;
 const navLinks = hero.navLinks;
 const heroIconMap = {
@@ -42,6 +50,7 @@ const heroIconMap = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
   web: GlobeIcon,
+  scholar: ScholarIcon,
 };
 const TYPING_LINES = [{ key: 'cmd', text: hero.command, speed: 70 }];
 const ROLE_LINES = hero.roles;
