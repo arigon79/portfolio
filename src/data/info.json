@@ -45,10 +45,6 @@
         "href": "#about"
       },
       {
-        "label": "Now",
-        "href": "#now"
-      },
-      {
         "label": "Experience",
         "href": "#experience"
       },
@@ -59,6 +55,10 @@
       {
         "label": "Misc",
         "href": "#miscellaneous"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
       }
     ],
     "socials": [
@@ -70,7 +70,7 @@
       {
         "label": "LinkedIn",
         "icon": "linkedin",
-        "href": "https://www.linkedin.com/in/arijitchakma/"
+        "href": "https://www.linkedin.com/in/arijichakma/"
       },
       {
         "label": "Email",
@@ -81,6 +81,11 @@
         "label": "Website",
         "icon": "web",
         "href": "https://arijichakma.com"
+      },
+      {
+        "label": "Google Scholar",
+        "icon": "scholar",
+        "href": "https://scholar.google.com/citations?hl=en&authuser=7&user=ue5rhwoAAAAJ"
       }
     ]
   },
@@ -103,12 +108,6 @@
         "label": "Simpsons",
         "tag": "Simpsons inspired",
         "color": "oklch(0.88 0.17 90)"
-      },
-      {
-        "src": "/profile_pic/minecraft.png",
-        "label": "Minecraft",
-        "tag": "Minecraft inspired",
-        "color": "oklch(0.65 0.14 145)"
       },
       {
         "src": "/profile_pic/one-piece.png",
@@ -140,47 +139,32 @@
       },
       {
         "from": "me",
-        "text": "interning at KBRA until september — building financial data tooling 💼"
+        "text": "interning at KBRA until September"
       },
-      {
-        "from": "me",
-        "text": "forward deployed SWE stuff, close to product"
-      },
+
       {
         "from": "friend",
         "text": "nice!! anything else going on?"
       },
       {
         "from": "me",
-        "text": "yeah still doing research at the Visual Intelligence Lab"
-      },
-      {
-        "from": "me",
-        "text": "just got a paper published too 📄"
+        "text": "yeah still doing research at the Visual Intelligence Lab aiming for AAAI submission"
       },
       {
         "from": "friend",
-        "text": "wait no way 😭😭 and hackathons??"
+        "text": "wait no way 😭😭 and are you building anything new?"
       },
       {
         "from": "me",
-        "text": "always lol"
-      },
-      {
-        "from": "me",
-        "text": "20+ done, 7 wins 🏆 always looking for the next one"
+        "text": "always lol, currently building Cognica, a intelligence layer for researchers 💀"
       },
       {
         "from": "friend",
-        "text": "and after graduation??"
+        "text": "that sounds cool! are you learning anything new?"
       },
       {
         "from": "me",
-        "text": "class of '27 at drexel, looking for full-time roles"
-      },
-      {
-        "from": "me",
-        "text": "SWE, ML engineering, or product — hit me up 👋"
+        "text": "i am always learning 😂, currently learning Mandarin and Korean. Also learning about the latest in AI and ML."
       }
     ]
   },
@@ -247,6 +231,7 @@
   "publication": {
     "archive": "AIED",
     "year": "2026",
+    "venue": "International Conference on Artificial Intelligence in Education",
     "status": "In proceedings",
     "tags": [
       "Applied AI",
@@ -278,7 +263,7 @@
         "name": "F. Liu"
       }
     ],
-    "abstract": "AI-powered system that helps educators analyze student science drawings and accelerate classroom feedback loops. End-to-end applied AI workflow — data, model inference, and user-facing output.",
+    "abstract": "A generative framework that simulates student-like science drawings, reasoning narratives, and diagnostic concept maps with realistic misconceptions to help K-12 teachers practice and improve their diagnostic reasoning skills.",
     "bibtex": "@inproceedings{chakma2026drawsim,\n  title={DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning},\n  author={Chakma, Arijit and He, Peng and Wang, Zeyuan and Liu, Honglu and Li, Tingting and Do, Tiffany D and Liu, Feng},\n  booktitle={In Proceedings of International Conference on AI in Education (AIED)},\n  year={2026}\n}",
     "actions": [
       {
@@ -426,6 +411,19 @@
       "tags": []
     }
   ],
+  "contact": {
+    "tagline": "Let's build something together.",
+    "sub": "Open to 2027 full-time roles in SWE, ML engineering, and product. Also always happy to chat about research, hackathons, or side projects.",
+    "availability": "Open to opportunities",
+    "email": "ac4393@drexel.edu",
+    "links": [
+      { "label": "Discord", "icon": "discord", "href": "https://discord.com/users/1017958837204025345" },
+      { "label": "Email", "icon": "email", "href": "mailto:ac4393@drexel.edu" },
+      { "label": "LinkedIn", "icon": "linkedin", "href": "https://www.linkedin.com/in/arijichakma/" },
+      { "label": "X", "icon": "x", "href": "https://x.com/arigon79" },
+      { "label": "WeChat", "icon": "wechat", "href": "#" }
+    ]
+  },
   "awards": [
     {
       "year": "2024",
