@@ -53,9 +53,11 @@ export default function NowSection() {
       <div className="section-label">What I&apos;m up to</div>
 
       <div className="im-wrap">
+        <div className="im-phone-outer">
         <div className="im-phone">
           <div className="im-status-bar">
             <span className="im-time">9:41</span>
+            <div className="im-dynamic-island" aria-hidden="true" />
             <div className="im-status-icons">
               <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
                 <rect x="0" y="4" width="3" height="8" rx="1" opacity="0.4" />
@@ -169,6 +171,8 @@ export default function NowSection() {
               </svg>
             </button>
           </div>
+          <div className="im-home-indicator" aria-hidden="true" />
+        </div>
         </div>
       </div>
     </section>
