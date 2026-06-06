@@ -8,6 +8,7 @@ export default function NowSection() {
   const [showTyping, setShowTyping] = useState(false);
   const sectionRef = useRef(null);
   const timerRef = useRef([]);
+  const bodyRef = useRef(null);
   const msgs = useMemo(() => MESSAGES.map((m, i) => ({
     ...m,
     isFirst: i === 0 || MESSAGES[i - 1].from !== m.from,
@@ -22,7 +23,7 @@ export default function NowSection() {
 
         setShowTyping(true);
         const BASE = 600;
-        const STEP = 310;
+        const STEP = 1000;
 
         msgs.forEach((_, i) => {
           const t = setTimeout(() => {
@@ -40,6 +41,12 @@ export default function NowSection() {
       timerRef.current.forEach(clearTimeout);
     };
   }, [msgs]);
+
+  useEffect(() => {
+    if (bodyRef.current) {
+      bodyRef.current.scrollTo({ top: bodyRef.current.scrollHeight, behavior: 'smooth' });
+    }
+  }, [visibleCount, showTyping]);
 
   return (
     <section id="now" ref={sectionRef}>
@@ -77,7 +84,11 @@ export default function NowSection() {
             </button>
             <div className="im-contact">
               <div className="im-contact-avatar">
-                <img src={info.now.contactAvatar} alt={info.now.contactName} />
+                {info.now.contactAvatar.startsWith('/') ? (
+                  <img src={info.now.contactAvatar} alt={info.now.contactName} />
+                ) : (
+                  <span>{info.now.contactAvatar}</span>
+                )}
               </div>
               <div className="im-contact-info">
                 <div className="im-contact-name">{info.now.contactName}</div>
@@ -101,21 +112,24 @@ export default function NowSection() {
             </div>
           </div>
 
-          <div className="im-body">
+          <div className="im-body" ref={bodyRef}>
             <div className="im-timestamp">{info.now.timestamp}</div>
 
-            {msgs.map((m, i) => {
-              const visible = i < visibleCount;
+            {msgs.slice(0, visibleCount).map((m, i) => {
               const isMe = m.from === 'me';
               return (
                 <div
                   key={`${m.from}-${m.text}`}
-                  className={`im-row${isMe ? ' im-row--me' : ' im-row--friend'}${visible ? ' is-visible' : ''}`}
-                  style={{ '--delay': `${i * 0.04}s` }}
+                  className={`im-row${isMe ? ' im-row--me' : ' im-row--friend'} is-visible`}
+                  style={{ '--delay': '0s' }}
                 >
                   {!isMe && (
                     <div className={`im-avatar${m.isFirst ? '' : ' im-avatar--ghost'}`} aria-hidden="true">
-                      {m.isFirst && <span>👤</span>}
+                      {m.isFirst && (info.now.contactAvatar.startsWith('/') ? (
+                        <img src={info.now.contactAvatar} alt={info.now.contactName} />
+                      ) : (
+                        <span>{info.now.contactAvatar}</span>
+                      ))}
                     </div>
                   )}
 
@@ -128,7 +142,7 @@ export default function NowSection() {
 
             {showTyping && visibleCount < msgs.length && (
               <div className="im-row im-row--friend is-visible">
-                <div className="im-avatar" aria-hidden="true"><span>👤</span></div>
+                <div className="im-avatar" aria-hidden="true"><span>{info.now.contactAvatar.startsWith('/') ? '' : info.now.contactAvatar}</span></div>
                 <div className="im-bubble im-bubble--typing">
                   <span /><span /><span />
                 </div>
