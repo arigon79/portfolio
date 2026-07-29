@@ -14,81 +14,68 @@ export default function Publication() {
   };
 
   return (
-    <section>
-      <div className="section-label">Publication</div>
+    <section id="research">
+      <div className="section-label">Research</div>
 
-      <article className="pub-paper">
-        <div className="pub-header">
-          <div className="pub-header-left">
-            <span className="pub-archive">{publication.archive}</span>
-            <span className="pub-id">{publication.year}</span>
-            <span className="pub-venue-name">{publication.venue}</span>
-          </div>
-          <div className="pub-header-right">
-            <span className="pub-status">
-              <span className="pub-status-dot" />
-              {publication.status}
-            </span>
-          </div>
-        </div>
+      <article className="rp-card">
+        <div className="rp-side">
+          <span className="rp-badge">{publication.archive} {publication.year}</span>
+          <span className="rp-status">
+            <span className="rp-status-dot" />
+            {publication.status}
+          </span>
 
-        <div className="pub-body">
-          <div className="pub-meta-top">
+          <div className="rp-tags">
             {publication.tags.map((tag) => (
-              <span key={tag} className="pub-meta-pill">{tag}</span>
+              <span key={tag} className="rp-tag">{tag}</span>
             ))}
           </div>
 
-          <h3 className="pub-paper-title">{publication.title}</h3>
-
-          <div className="pub-authors">
-            {publication.authors.map((author, i) => (
-              <span key={author.name} className="pub-author-entry">
-                <span className={`pub-author${author.isMe ? ' pub-author--me' : ''}`}>
-                  {author.name}
-                </span>
-                {i < publication.authors.length - 1 && (
-                  <span className="pub-author-sep">,</span>
-                )}
-              </span>
-            ))}
-          </div>
-
-          <div className="pub-abstract">
-            {publication.abstract}
-          </div>
-
-          <div className="pub-cite">
-            <div className="pub-cite-head">
-              <div className="pub-cite-head-left">
-                <span className="pub-cite-label">BibTeX</span>
-                <span className="pub-cite-lang">.bib</span>
-              </div>
-              <button
-                className={`pub-cite-copy${copied ? ' is-copied' : ''}`}
-                onClick={handleCopy}
-                type="button"
-              >
-                {copied ? '✓ Copied' : 'Copy'}
-              </button>
-            </div>
-            <pre className="pub-cite-body">{publication.bibtex}</pre>
-          </div>
-
-          <div className="pub-actions">
+          <div className="rp-actions">
             {publication.actions.map((action) => (
               <a
                 key={action.href}
-                className={`pub-action${action.primary ? ' pub-action--primary' : ''}`}
+                className={`rp-btn${action.primary ? ' rp-btn--primary' : ''}`}
                 href={action.href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span>{action.label}</span>
-                <span className="pub-action-arrow">↗</span>
+                {action.label} ↗
               </a>
             ))}
           </div>
+        </div>
+
+        <div className="rp-main">
+          <h3 className="rp-title">{publication.title}</h3>
+
+          <p className="rp-authors">
+            {publication.authors.map((author, i) => (
+              <span key={author.name} className={author.isMe ? 'rp-author is-me' : 'rp-author'}>
+                {author.name}{i < publication.authors.length - 1 ? ', ' : ''}
+              </span>
+            ))}
+          </p>
+
+          <p className="rp-venue">{publication.venue}</p>
+
+          <p className="rp-abstract">
+            <span className="rp-abstract-label">Abstract.</span> {publication.abstract}
+          </p>
+
+          <details className="rp-bibtex">
+            <summary>
+              BibTeX
+              <button
+                type="button"
+                className={`rp-copy${copied ? ' is-copied' : ''}`}
+                onClick={(e) => { e.preventDefault(); handleCopy(); }}
+              >
+                {copied ? '✓ Copied' : 'Copy'}
+              </button>
+            </summary>
+            <pre>{publication.bibtex}</pre>
+          </details>
         </div>
       </article>
     </section>
