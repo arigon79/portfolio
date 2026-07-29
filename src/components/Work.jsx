@@ -1,13 +1,8 @@
 import { useState } from 'react';
 import info from '../data/info.json';
+import { useLanguage } from '../context/LanguageContext';
 
 const WORK = info.work.items;
-
-const STATUS = {
-  upcoming: 'Upcoming',
-  active: 'Current',
-  completed: 'Past',
-};
 
 function JobLogo({ w }) {
   const [failed, setFailed] = useState(false);
@@ -29,9 +24,12 @@ function JobLogo({ w }) {
 }
 
 export default function Work() {
+  const { t } = useLanguage();
+  const STATUS = t.work.status;
+
   return (
     <section id="experience">
-      <div className="section-label">Work</div>
+      <div className="section-label">{t.section.work}</div>
 
       <div className="job-timeline">
         {WORK.map((w) => {

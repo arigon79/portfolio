@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import info from '../data/info.json';
+import { useLanguage } from '../context/LanguageContext';
 
 const PROJECTS = info.projects;
 
@@ -13,6 +14,7 @@ const TAGS = Array.from(new Set(PROJECTS.flatMap((p) => cleanTags(p.tags)))).sor
 const FILTERS = ['Featured', 'All', ...TAGS];
 
 export default function ProjectCards() {
+  const { t } = useLanguage();
   const [filter, setFilter] = useState('Featured');
 
   const list = useMemo(() => {
@@ -23,7 +25,7 @@ export default function ProjectCards() {
 
   return (
     <section id="projects">
-      <div className="section-label">Projects</div>
+      <div className="section-label">{t.section.projects}</div>
 
       <div className="proj-filters">
         {FILTERS.map((f) => (
@@ -33,7 +35,7 @@ export default function ProjectCards() {
             className={`proj-filter${filter === f ? ' is-active' : ''}`}
             onClick={() => setFilter(f)}
           >
-            {f}
+            {t.projects.filters[f] ?? f}
           </button>
         ))}
       </div>
@@ -52,7 +54,7 @@ export default function ProjectCards() {
             >
               <div className="proj-thumb">
                 <img src={`/assets/projects/${p.image}`} alt={p.title} loading="lazy" />
-                {p.featured && <span className="proj-star">★ Featured</span>}
+                {p.featured && <span className="proj-star">★ {t.projects.filters.Featured}</span>}
               </div>
               <div className="proj-body">
                 <div className="proj-head">
