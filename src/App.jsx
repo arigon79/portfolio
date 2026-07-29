@@ -6,11 +6,13 @@ import Work from './components/Work';
 import Publication from './components/Publication';
 import Contact from './components/Contact';
 import info from './data/info.json';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
 
-export default function App() {
+function AppContent() {
   const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark');
   const { awards, profile } = info;
+  const { t } = useLanguage();
 
   useEffect(() => {
     document.body.classList.toggle('dark', dark);
@@ -61,12 +63,12 @@ export default function App() {
         <ProjectCards />
 
         <section id="miscellaneous">
-          <div className="section-label">Achievements</div>
-          <p className="ach-lead">{awards.length} awards across hackathons and scholarships.</p>
+          <div className="section-label">{t.section.achievements}</div>
+          <p className="ach-lead">{t.achievements.lead(awards.length)}</p>
           <div className="ach-columns">
             {[
-              { key: 'hackathon', heading: 'Hackathons & Competitions' },
-              { key: 'academic', heading: 'Academic & Scholarships' },
+              { key: 'hackathon', heading: t.achievements.hackathons },
+              { key: 'academic', heading: t.achievements.academic },
             ].map((group) => {
               const items = awards.filter((a) => a.category === group.key);
               if (!items.length) return null;
@@ -104,5 +106,13 @@ export default function App() {
         </footer>
       </main>
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import info from '../data/info.json';
+import { useLanguage } from '../context/LanguageContext';
 
 function EmailIcon() {
   return (
@@ -55,6 +56,13 @@ const heroIconMap = {
 const TYPING_LINES = [{ key: 'cmd', text: hero.command, speed: 70 }];
 const ROLE_LINES = hero.roles;
 const HEADING_TRANSLATIONS = hero.headingTranslations;
+const NAV_KEY_BY_HREF = {
+  '#about': 'about',
+  '#experience': 'experience',
+  '#projects': 'projects',
+  '#miscellaneous': 'misc',
+  '#contact': 'contact',
+};
 
 function scrollTo(href) {
   const el = document.querySelector(href);
@@ -66,6 +74,7 @@ function wait(ms) {
 }
 
 export default function Hero({ dark, onToggleDark }) {
+  const { t, lang, toggleLang } = useLanguage();
   const [typed, setTyped] = useState({ cmd: '', heading: '', role: '' });
   const [typingDone, setTypingDone] = useState(false);
   const [cursorOn, setCursorOn] = useState(true);
@@ -217,18 +226,29 @@ export default function Hero({ dark, onToggleDark }) {
                 className={activeSection === link.href.slice(1) ? 'is-active' : ''}
                 onClick={(e) => { e.preventDefault(); revealAndScrollTo(link.href); }}
               >
-                {link.label}
+                {t.nav[NAV_KEY_BY_HREF[link.href]] ?? link.label}
               </a>
             ))}
           </nav>
-          <button
-            className="hero-dark-toggle"
-            type="button"
-            onClick={onToggleDark}
-            aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {dark ? 'Light' : 'Dark'}
-          </button>
+          <div className="hero-toggle-group">
+            <button
+              className="hero-dark-toggle hero-lang-toggle"
+              type="button"
+              onClick={toggleLang}
+              aria-label={t.langToggle.ariaLabel}
+              lang={lang === 'en' ? 'zh' : 'en'}
+            >
+              {t.langToggle.label}
+            </button>
+            <button
+              className="hero-dark-toggle"
+              type="button"
+              onClick={onToggleDark}
+              aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {dark ? t.darkToggle.light : t.darkToggle.dark}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -287,7 +307,7 @@ export default function Hero({ dark, onToggleDark }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Résumé
+                    {t.resume}
                   </a>
                 </div>
               </div>
