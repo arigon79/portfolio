@@ -65,7 +65,7 @@ function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export default function Hero() {
+export default function Hero({ dark, onToggleDark }) {
   const [typed, setTyped] = useState({ cmd: '', heading: '', role: '' });
   const [typingDone, setTypingDone] = useState(false);
   const [cursorOn, setCursorOn] = useState(true);
@@ -221,6 +221,14 @@ export default function Hero() {
               </a>
             ))}
           </nav>
+          <button
+            className="hero-dark-toggle"
+            type="button"
+            onClick={onToggleDark}
+            aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {dark ? 'Light' : 'Dark'}
+          </button>
         </div>
       </header>
 
@@ -287,15 +295,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <a
-        className="hero-scroll"
-        href="#about"
-        onClick={(e) => { e.preventDefault(); revealAndScrollTo('#about'); }}
-      >
-        <span>Scroll</span>
-        <span className="hero-scroll-arrow" aria-hidden="true">↓</span>
-      </a>
     </section>
   );
 }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Hero from './components/Hero';
 import About from './components/About';
-import NowSection from './components/NowSection';
 import ProjectCards from './components/ProjectCards';
 import Work from './components/Work';
 import Publication from './components/Publication';
@@ -50,12 +49,10 @@ export default function App() {
 
   return (
     <>
-      <Hero />
+      <Hero dark={dark} onToggleDark={() => setDark((d) => !d)} />
 
       <main className="page page-content">
         <About />
-
-        <NowSection />
 
         <Work />
 
@@ -64,38 +61,39 @@ export default function App() {
         <ProjectCards />
 
         <section id="miscellaneous">
-          <div className="section-label">Awards</div>
-          <div className="pk-header">
-            <span className="pk-dex-label">Pokédex</span>
-            <span className="pk-dex-count">
-              <span className="pk-dex-caught">{awards.length}</span>
-              <span className="pk-dex-sep"> / </span>
-              <span>{awards.length}</span>
-              <span className="pk-dex-word"> caught</span>
-            </span>
-          </div>
-          <div className="pk-grid">
-            {awards.map((a, i) => (
-              <div key={a.title} className="pk-item" style={{ '--i': i }}>
-                <div className={`pk-ball pk-ball--${a.ball}`}>
-                  <span className="pk-shine" aria-hidden="true" />
-                </div>
-                <span className="pk-num">#{String(i + 1).padStart(2, '0')}</span>
-                <div className="pk-card" role="tooltip">
-                  <div className={`pk-card-ball pk-ball pk-ball--${a.ball} pk-ball--sm`}>
-                    <span className="pk-shine" aria-hidden="true" />
+          <div className="section-label">Achievements</div>
+          <p className="ach-lead">{awards.length} awards across hackathons and scholarships.</p>
+          <div className="ach-columns">
+            {[
+              { key: 'hackathon', heading: 'Hackathons & Competitions' },
+              { key: 'academic', heading: 'Academic & Scholarships' },
+            ].map((group) => {
+              const items = awards.filter((a) => a.category === group.key);
+              if (!items.length) return null;
+              return (
+                <div className="ach-col" key={group.key}>
+                  <h3 className="ach-col-heading">{group.heading}</h3>
+                  <div className="ach-list">
+                    {items.map((a, i) => (
+                      <article key={a.title} className="ach" style={{ '--i': i }}>
+                        <span className={`ach-medal ach-medal--${a.ball}`} aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M7 4.5h10v3a5 5 0 0 1-10 0z" />
+                            <path d="M7 5.5H4.5v1.5A2.5 2.5 0 0 0 7 9.5M17 5.5h2.5v1.5A2.5 2.5 0 0 1 17 9.5" />
+                            <path d="M12 12.5V15M9 20h6M10 20l.5-3.5h3l.5 3.5" />
+                          </svg>
+                        </span>
+                        <div className="ach-body">
+                          <h3 className="ach-title">{a.title}</h3>
+                          <p className="ach-sub">{a.sub} · {a.org}</p>
+                        </div>
+                        <span className="ach-year">{a.year}</span>
+                      </article>
+                    ))}
                   </div>
-                  <div className="pk-card-body">
-                    <div className="pk-card-title">{a.title}</div>
-                    <div className="pk-card-row">
-                      <span className={`pk-type pk-type--${a.ball}`}>{a.ball}</span>
-                      <span className="pk-card-year">{a.year}</span>
-                    </div>
-                    <div className="pk-card-sub">{a.sub} · {a.org}</div>
-                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
@@ -103,9 +101,6 @@ export default function App() {
 
         <footer>
           <span className="footer-copy">{profile.footerCopyright}</span>
-          <button className="dark-toggle" type="button" onClick={() => setDark((d) => !d)}>
-            {dark ? 'Light' : 'Dark'}
-          </button>
         </footer>
       </main>
     </>
