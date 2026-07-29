@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import info from '../data/info.json';
+import { useLanguage } from '../context/LanguageContext';
 
 const publication = info.publication;
 
 export default function Publication() {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -15,7 +17,7 @@ export default function Publication() {
 
   return (
     <section id="research">
-      <div className="section-label">Research</div>
+      <div className="section-label">{t.section.research}</div>
 
       <article className="rp-card">
         <div className="rp-side">

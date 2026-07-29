@@ -1,8 +1,11 @@
 import info from '../data/info.json';
+import { useLanguage } from '../context/LanguageContext';
 
 const SPOTIFY_EMBED = info.about.spotifyEmbed;
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <div id="about" className="about-wrap">
       <div className="about-photo-col">
@@ -12,9 +15,9 @@ export default function About() {
       </div>
 
       <div className="about-text-col">
-        <div className="section-label">About me</div>
+        <div className="section-label">{t.section.about}</div>
         <div className="bio">
-          {info.about.bio.map((line) => (
+          {t.about.bio.map((line) => (
             <p key={line}>{line}</p>
           ))}
         </div>

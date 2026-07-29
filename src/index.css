@@ -2451,16 +2451,9 @@
       gap: 18px;
       flex-wrap: wrap;
       margin-left: auto;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-6px);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .hero-nav.is-scrolled .hero-nav-actions {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0);
+      transform: none;
     }
 
     .hero-nav-links {
@@ -2532,6 +2525,13 @@
     .hero-nav.is-scrolled .hero-nav-links a.is-active::after {
       background: var(--accent);
       opacity: 0.85;
+    }
+
+    .hero-toggle-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
     }
 
     .hero-dark-toggle {
@@ -3010,12 +3010,25 @@
         position: absolute;
         top: calc(100% + 8px);
         right: 18px;
-        width: min(220px, calc(100vw - 36px));
+        width: min(240px, calc(100vw - 36px));
         margin-left: 0;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 10px;
         opacity: 0;
         pointer-events: none;
         transform: translateY(-6px);
+        border: 1px solid color-mix(in oklab, var(--border) 72%, transparent);
+        border-radius: 14px;
+        background:
+          linear-gradient(135deg, color-mix(in oklab, var(--surface) 92%, transparent), color-mix(in oklab, var(--bg-2) 80%, transparent)),
+          radial-gradient(circle at 20% 0%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 42%);
+        backdrop-filter: blur(18px) saturate(1.25);
+        -webkit-backdrop-filter: blur(18px) saturate(1.25);
+        box-shadow: 0 22px 54px -34px oklch(0.1 0.04 150 / 0.8);
+        transition: opacity 0.2s ease, transform 0.2s ease;
       }
 
       .hero-nav.is-scrolled .hero-nav-actions {
@@ -3035,15 +3048,6 @@
         flex-direction: column;
         align-items: stretch;
         gap: 2px;
-        padding: 8px;
-        border: 1px solid color-mix(in oklab, var(--border) 72%, transparent);
-        border-radius: 12px;
-        background:
-          linear-gradient(135deg, color-mix(in oklab, var(--surface) 90%, transparent), color-mix(in oklab, var(--bg-2) 78%, transparent)),
-          radial-gradient(circle at 20% 0%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 42%);
-        backdrop-filter: blur(18px) saturate(1.25);
-        -webkit-backdrop-filter: blur(18px) saturate(1.25);
-        box-shadow: 0 22px 54px -34px oklch(0.1 0.04 150 / 0.8);
       }
 
       .hero-nav-links a,
@@ -3051,6 +3055,7 @@
         width: 100%;
         justify-content: flex-start;
         padding: 9px 10px;
+        border-radius: 8px;
         color: var(--text);
         text-shadow: none;
       }
@@ -3058,6 +3063,31 @@
       .hero-nav-links a.is-active::after {
         left: 10px;
         right: 10px;
+      }
+
+      .hero-toggle-group {
+        gap: 8px;
+        padding-top: 10px;
+        border-top: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
+      }
+
+      .hero-toggle-group .hero-dark-toggle,
+      .hero-nav.is-scrolled .hero-toggle-group .hero-dark-toggle {
+        flex: 1;
+        justify-content: center;
+        padding: 9px 10px;
+        border-radius: 8px;
+        color: var(--text);
+        border-color: var(--border);
+        text-shadow: none;
+        background: color-mix(in oklab, var(--surface) 60%, transparent);
+      }
+
+      .hero-toggle-group .hero-dark-toggle:hover,
+      .hero-nav.is-scrolled .hero-toggle-group .hero-dark-toggle:hover {
+        color: var(--text);
+        border-color: var(--text);
+        background: color-mix(in oklab, var(--accent) 18%, var(--surface));
       }
 
       .hero-center {
