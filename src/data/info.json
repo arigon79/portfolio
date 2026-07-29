@@ -2,7 +2,7 @@
   "profile": {
     "name": "Ariji Chakma",
     "footerCopyright": "© Ariji Chakma 2026",
-    "resumeHref": "/assets/resume.pdf",
+    "resumeHref": "https://forms.gle/MpDYA5uUDxg87SrM6",
     "socials": [
       {
         "label": "GitHub",
@@ -90,83 +90,13 @@
     ]
   },
   "about": {
-    "slides": [
-      {
-        "src": "/profile_pic/original.jpg",
-        "label": "Real",
-        "tag": "just me",
-        "color": "oklch(0.72 0.095 205)"
-      },
-      {
-        "src": "/profile_pic/ghibli.png",
-        "label": "Ghibli",
-        "tag": "Ghibli inspired",
-        "color": "oklch(0.72 0.14 55)"
-      },
-      {
-        "src": "/profile_pic/simpsons.png",
-        "label": "Simpsons",
-        "tag": "Simpsons inspired",
-        "color": "oklch(0.88 0.17 90)"
-      },
-      {
-        "src": "/profile_pic/one-piece.png",
-        "label": "One Piece",
-        "tag": "One Piece inspired",
-        "color": "oklch(0.68 0.18 25)"
-      }
-    ],
+    "photo": "/profile_pic/profile.jpg",
     "bio": [
       "Hi there, I'm a senior CS student at Drexel seeking 2027 full-time roles in full-stack SWE, forward deployed engineering, ML engineering, and product management.",
       "I build at the intersection of software, AI, and product, with experience in full-stack development, backend APIs, computer vision, VLM research, and AI prototypes.",
       "I've joined 20+ hackathons at schools including Stanford, MIT, UPenn, and Columbia, winning 7 awards."
     ],
     "spotifyEmbed": ""
-  },
-  "now": {
-    "contactName": "Elon",
-    "contactStatus": "iMessage",
-    "contactAvatar": "/elon.png",
-    "timestamp": "Today 9:41 AM",
-    "messages": [
-      {
-        "from": "friend",
-        "text": "hey! what are you up to these days? 👀"
-      },
-      {
-        "from": "me",
-        "text": "oh honestly a lot 😅"
-      },
-      {
-        "from": "me",
-        "text": "interning at KBRA until September"
-      },
-
-      {
-        "from": "friend",
-        "text": "nice!! anything else going on?"
-      },
-      {
-        "from": "me",
-        "text": "yeah still doing research at the Visual Intelligence Lab aiming for AAAI submission"
-      },
-      {
-        "from": "friend",
-        "text": "wait no way 😭😭 and are you building anything new?"
-      },
-      {
-        "from": "me",
-        "text": "always lol, currently building Cognica, a intelligence layer for researchers 💀"
-      },
-      {
-        "from": "friend",
-        "text": "that sounds cool! are you learning anything new?"
-      },
-      {
-        "from": "me",
-        "text": "i am always learning 😂, currently learning Mandarin and Korean. Also learning about the latest in AI and ML."
-      }
-    ]
   },
   "work": {
     "passenger": "Ariji Chakma",
@@ -184,26 +114,32 @@
         "code": "KBR",
         "location": "New York",
         "href": "https://www.kbra.com/",
-        "status": "upcoming",
+        "logo": "/work_logos/kbra.png",
+        "status": "active",
         "color": "oklch(0.72 0.14 55)"
       },
       {
-        "company": "Visual Intelligence Lab",
+        "company": "VILab & DIVA Lab",
         "role": "Undergraduate Researcher",
         "dates": "Apr 2025 – Present",
         "code": "VIL",
         "location": "Drexel",
-        "href": "https://vilab-group.com/",
+        "logo": "/work_logos/drexel_logo.png",
         "status": "active",
-        "color": "oklch(0.72 0.095 205)"
+        "color": "oklch(0.72 0.095 205)",
+        "links": [
+          { "label": "VILab", "href": "https://vilab-group.com/" },
+          { "label": "DIVA Lab", "href": "https://divalab.cci.drexel.edu/" }
+        ]
       },
       {
         "company": "Drexel CCI",
-        "role": "Course Assistant",
+        "role": "Teaching Assistant",
         "dates": "Sep 2025 – Mar 2026",
         "code": "CCI",
         "location": "Drexel",
-        "status": "active",
+        "logo": "/work_logos/drexel_logo.png",
+        "status": "completed",
         "color": "oklch(0.65 0.14 145)"
       },
       {
@@ -213,6 +149,7 @@
         "code": "BMS",
         "location": "Princeton",
         "href": "https://www.bms.com/",
+        "logo": "/work_logos/bms_logo.png",
         "status": "completed",
         "color": "oklch(0.68 0.18 25)"
       },
@@ -223,6 +160,7 @@
         "code": "DFG",
         "location": "Remote",
         "href": "https://www.developforgood.org/",
+        "logo": "/work_logos/dfg.png",
         "status": "completed",
         "color": "oklch(0.72 0.14 295)"
       }
@@ -430,70 +368,80 @@
       "title": "Best Overall — 1st Place",
       "sub": "PennApps",
       "org": "University of Pennsylvania",
-      "ball": "master"
+      "ball": "master",
+      "category": "hackathon"
     },
     {
       "year": "2025",
       "title": "Best Social Impact Hack",
       "sub": "DragonHacks",
       "org": "Drexel University",
-      "ball": "ultra"
+      "ball": "ultra",
+      "category": "hackathon"
     },
     {
       "year": "2025",
       "title": "Beginner Quantum Computing — 2nd Place",
       "sub": "BitCamps",
       "org": "UMD College Park",
-      "ball": "ultra"
+      "ball": "ultra",
+      "category": "hackathon"
     },
     {
       "year": "2024",
       "title": "General Prize — 2nd Place",
       "sub": "HopHacks",
       "org": "Johns Hopkins University",
-      "ball": "ultra"
+      "ball": "ultra",
+      "category": "hackathon"
     },
     {
       "year": "2024",
       "title": "Bloomberg Philanthropic Hack — 3rd Prize",
       "sub": "HopHacks",
       "org": "Johns Hopkins University",
-      "ball": "great"
+      "ball": "great",
+      "category": "hackathon"
     },
     {
       "year": "2025",
       "title": "Best Beginner Project",
       "sub": "DevFest",
       "org": "Columbia University",
-      "ball": "great"
+      "ball": "great",
+      "category": "hackathon"
     },
     {
       "year": "2024",
       "title": "Best Interactive & Multimedia Track",
       "sub": "DragonHacks",
       "org": "Drexel University",
-      "ball": "pokeball"
+      "ball": "pokeball",
+      "category": "hackathon"
     },
     {
       "year": "——",
       "title": "Dean's List",
       "sub": "All quarters",
       "org": "GPA above 3.70",
-      "ball": "premier"
+      "ball": "premier",
+      "category": "academic"
     },
     {
       "year": "——",
       "title": "Drexel Global Scholarship",
       "sub": "1 of 13 international",
       "org": "Drexel University",
-      "ball": "premier"
+      "ball": "premier",
+      "category": "academic"
     },
     {
       "year": "2022",
       "title": "Eisenhower Scholarship (declined)",
       "sub": "Awarded 2022",
       "org": "declined to attend Drexel",
-      "ball": "master"
+      "ball": "master",
+      "category": "academic"
     }
   ]
 }

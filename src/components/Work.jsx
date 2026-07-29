@@ -1,9 +1,31 @@
+import { useState } from 'react';
 import info from '../data/info.json';
 
 const WORK = info.work.items;
 
-function statusLabel(s) {
-  return info.work.statusLabels[s] ?? info.work.statusLabels.completed;
+const STATUS = {
+  upcoming: 'Upcoming',
+  active: 'Current',
+  completed: 'Past',
+};
+
+function JobLogo({ w }) {
+  const [failed, setFailed] = useState(false);
+
+  if (!w.logo || failed) {
+    return <span className="job-code" aria-hidden="true">{w.code}</span>;
+  }
+
+  return (
+    <span className="job-code job-code--logo" aria-hidden="true">
+      <img
+        src={w.logo}
+        alt=""
+        loading="lazy"
+        onError={() => setFailed(true)}
+      />
+    </span>
+  );
 }
 
 export default function Work() {
@@ -11,78 +33,56 @@ export default function Work() {
     <section id="experience">
       <div className="section-label">Work</div>
 
-      <div className="bp-list">
-        {WORK.map((w, i) => {
+      <div className="job-timeline">
+        {WORK.map((w) => {
           const Tag = w.href ? 'a' : 'div';
           return (
-            <Tag
-              key={w.company}
-              className={`bp-pass bp-pass--${w.status}`}
-              href={w.href}
-              target={w.href ? '_blank' : undefined}
-              rel={w.href ? 'noopener noreferrer' : undefined}
-              style={{
-                '--bp-color': w.color,
-                '--bp-delay': `${i * 0.07}s`,
-              }}
-            >
-              <div className="bp-main">
-                <div className="bp-row bp-row--head">
-                  <div className="bp-brand">
-                    <span className="bp-logo">✈</span>
-                    <span className="bp-airline">{info.work.airline}</span>
-                  </div>
-                  <div className={`bp-status bp-status--${w.status}`}>
-                    {w.status === 'active' && <span className="bp-pulse" />}
-                    {statusLabel(w.status)}
-                  </div>
-                </div>
-
-                <div className="bp-route">
-                  <div className="bp-route-col">
-                    <div className="bp-route-label">Company</div>
-                    <div className="bp-route-code">{w.code}</div>
-                    <div className="bp-route-name">{w.company}</div>
-                  </div>
-
-                  <div className="bp-route-line" aria-hidden="true">
-                    <span className="bp-route-plane">✈</span>
-                  </div>
-
-                  <div className="bp-route-col">
-                    <div className="bp-route-label">Position</div>
-                    <div className="bp-route-role">{w.role}</div>
-                  </div>
-                </div>
-
-                <div className="bp-row bp-row--meta">
-                  <div className="bp-meta">
-                    <div className="bp-meta-label">Location</div>
-                    <div className="bp-meta-value">{w.location}</div>
-                  </div>
-                  <div className="bp-meta">
-                    <div className="bp-meta-label">Date</div>
-                    <div className="bp-meta-value bp-meta-value--mono">{w.dates}</div>
-                  </div>
-                </div>
+            <div className="job-row" key={w.company} style={{ '--job-color': w.color }}>
+              <div className="job-rail" aria-hidden="true">
+                <span className="job-dot" />
+                <span className="job-line" />
               </div>
 
-              <div className="bp-perf" aria-hidden="true">
-                <span className="bp-notch bp-notch--top" />
-                <span className="bp-notch bp-notch--bot" />
-              </div>
+              <Tag
+                className="job"
+                href={w.href}
+                target={w.href ? '_blank' : undefined}
+                rel={w.href ? 'noopener noreferrer' : undefined}
+              >
+                <JobLogo w={w} />
 
-              <div className="bp-stub">
-                <div className="bp-stub-label">SEAT</div>
-                <div className="bp-stub-seat">{(i + 1).toString().padStart(2, '0')}<span>A</span></div>
-                <div className="bp-stub-code">{w.code}</div>
-                <div className="bp-barcode" aria-hidden="true">
-                  {Array.from({ length: 28 }).map((_, j) => (
-                    <span key={j} style={{ width: `${1 + (j * 7919 % 4)}px` }} />
-                  ))}
+                <div className="job-info">
+                  <div className="job-top">
+                    <h3 className="job-company">{w.company}</h3>
+                    <span className={`job-badge job-badge--${w.status}`}>
+                      {w.status === 'active' && <span className="job-badge-dot" />}
+                      {STATUS[w.status] ?? 'Past'}
+                    </span>
+                  </div>
+                  <p className="job-role">{w.role}</p>
+                  <p className="job-meta">{w.dates} · {w.location}</p>
+
+                  {w.links && (
+                    <div className="job-links">
+                      {w.links.map((l) => (
+                        <a
+                          key={l.href}
+                          className="job-link"
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {l.label} ↗
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </div>
-            </Tag>
+
+                {w.href && <span className="job-arrow" aria-hidden="true">↗</span>}
+              </Tag>
+            </div>
           );
         })}
       </div>
