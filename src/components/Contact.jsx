@@ -1,4 +1,5 @@
 import info from '../data/info.json';
+import { useLanguage } from '../context/LanguageContext';
 
 const { contact } = info;
 
@@ -52,18 +53,20 @@ const iconMap = {
 };
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact">
-      <div className="section-label">Contact</div>
+      <div className="section-label">{t.section.contact}</div>
 
       <div className="contact-card">
         <div className="contact-left">
           <div className="contact-status">
             <span className="contact-status-dot" />
-            {contact.availability}
+            {t.contact.availability}
           </div>
-          <p className="contact-heading">{contact.tagline}</p>
-          <p className="contact-sub">{contact.sub}</p>
+          <p className="contact-heading">{t.contact.tagline}</p>
+          <p className="contact-sub">{t.contact.sub}</p>
         </div>
 
         <div className="contact-right">
