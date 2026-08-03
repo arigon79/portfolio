@@ -108,6 +108,17 @@
     },
     "items": [
       {
+        "company": "Nalanda Labs",
+        "role": "Founder",
+        "dates": "Aug 2026 – Present",
+        "code": "NAL",
+        "location": "Philadelphia, PA",
+        "href": "https://github.com/Nalanda-AI",
+        "logo": "/work_logos/nalanda-mark-1024.png",
+        "status": "active",
+        "color": "oklch(0.68 0.15 220)"
+      },
+      {
         "company": "KBRA",
         "role": "Software Engineer Intern",
         "dates": "Apr 2026 – Sep 2026",
@@ -128,8 +139,14 @@
         "status": "active",
         "color": "oklch(0.72 0.095 205)",
         "links": [
-          { "label": "VILab", "href": "https://vilab-group.com/" },
-          { "label": "DIVA Lab", "href": "https://divalab.cci.drexel.edu/" }
+          {
+            "label": "VILab",
+            "href": "https://vilab-group.com/"
+          },
+          {
+            "label": "DIVA Lab",
+            "href": "https://divalab.cci.drexel.edu/"
+          }
         ]
       },
       {
@@ -355,11 +372,31 @@
     "availability": "Open to opportunities",
     "email": "ac4393@drexel.edu",
     "links": [
-      { "label": "Discord", "icon": "discord", "href": "https://discord.com/users/1017958837204025345" },
-      { "label": "Email", "icon": "email", "href": "mailto:ac4393@drexel.edu" },
-      { "label": "LinkedIn", "icon": "linkedin", "href": "https://www.linkedin.com/in/arijichakma/" },
-      { "label": "X", "icon": "x", "href": "https://x.com/arigon79" },
-      { "label": "WeChat", "icon": "wechat", "href": "#" }
+      {
+        "label": "Discord",
+        "icon": "discord",
+        "href": "https://discord.com/users/1017958837204025345"
+      },
+      {
+        "label": "Email",
+        "icon": "email",
+        "href": "mailto:ac4393@drexel.edu"
+      },
+      {
+        "label": "LinkedIn",
+        "icon": "linkedin",
+        "href": "https://www.linkedin.com/in/arijichakma/"
+      },
+      {
+        "label": "X",
+        "icon": "x",
+        "href": "https://x.com/arigon79"
+      },
+      {
+        "label": "WeChat",
+        "icon": "wechat",
+        "href": "#"
+      }
     ]
   },
   "awards": [

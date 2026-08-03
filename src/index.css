@@ -2235,7 +2235,7 @@
       display: grid;
       grid-template-columns: 290px 1fr;
       gap: 40px;
-      align-items: center;
+      align-items: start;
       margin-bottom: 52px;
     }
 
@@ -2272,6 +2272,59 @@
     }
 
     .about-text-col .bio { margin-bottom: 0; }
+
+    .about-now {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .about-now-head {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .about-now-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 0 var(--lime);
+      animation: pub-blink 2s ease-out infinite;
+      flex-shrink: 0;
+    }
+
+    .about-now-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .about-now-list li {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: border-color 0.15s, transform 0.15s;
+    }
+
+    .about-now-list li:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
 
     /* Spotify embed */
     .about-spotify { border-radius: 14px; overflow: hidden; }
