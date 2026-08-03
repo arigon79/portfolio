@@ -22,6 +22,20 @@ export default function About() {
           ))}
         </div>
 
+        {t.about.now?.items?.length > 0 && (
+          <div className="about-now">
+            <div className="about-now-head">
+              <span className="about-now-dot" aria-hidden="true" />
+              <span className="about-now-label">{t.about.now.label}</span>
+            </div>
+            <ul className="about-now-list">
+              {t.about.now.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {SPOTIFY_EMBED && (
           <div className="about-spotify">
             <iframe

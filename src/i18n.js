@@ -24,6 +24,15 @@ export const translations = {
         'I build at the intersection of software, AI, and product, with experience in full-stack development, backend APIs, computer vision, VLM research, and AI prototypes.',
         "I've joined 20+ hackathons at schools including Stanford, MIT, UPenn, and Columbia, winning 7 awards.",
       ],
+      now: {
+        label: 'Currently',
+        items: [
+          'Building Nalanda Labs as founder.',
+          'Interning as a Software Engineer at KBRA.',
+          'Researching applied AI & HCI at VILab and DIVA Lab.',
+          'Learning Japanese.',
+        ],
+      },
     },
     work: {
       status: { upcoming: 'Upcoming', active: 'Current', completed: 'Past' },
@@ -67,6 +76,15 @@ export const translations = {
         '我的工作专注于软件、人工智能与产品的交汇处，拥有全栈开发、后端 API、计算机视觉、视觉语言模型（VLM）研究和 AI 原型开发的经验。',
         '我参加过 20 多场黑客松，足迹遍布斯坦福、麻省理工、宾夕法尼亚大学和哥伦比亚大学等高校，共获得 7 项奖项。',
       ],
+      now: {
+        label: '目前',
+        items: [
+          '作为创始人打造 Nalanda Labs。',
+          '在 KBRA 担任软件工程实习生。',
+          '在 VILab 与 DIVA Lab 研究应用人工智能与人机交互。',
+          '正在学习日语。',
+        ],
+      },
     },
     work: {
       status: { upcoming: '即将开始', active: '进行中', completed: '已完成' },
