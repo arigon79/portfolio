@@ -23,7 +23,7 @@
   },
   "hero": {
     "logoSrc": "/ariji-logo.png",
-    "portraitSrc": "/hero-me.png",
+    "portraitSrc": "/avatar.png",
     "terminalTitle": "ariji@portfolio — zsh",
     "promptUser": "ariji@dev",
     "command": "whoami",
