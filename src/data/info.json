@@ -22,7 +22,7 @@
     ]
   },
   "spotify": {
-    "endpoint": ""
+    "endpoint": "https://portfolio-xi-flax-24.vercel.app/api/now-playing"
   },
   "hero": {
     "logoSrc": "/ariji-logo.png",
