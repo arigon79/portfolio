@@ -21,6 +21,9 @@
       }
     ]
   },
+  "spotify": {
+    "endpoint": ""
+  },
   "hero": {
     "logoSrc": "/ariji-logo.png",
     "portraitSrc": "/avatar.png",
