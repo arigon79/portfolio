@@ -1,4 +1,5 @@
 import info from '../data/info.json';
+import Spotify from './Spotify';
 import { useLanguage } from '../context/LanguageContext';
 
 const SPOTIFY_EMBED = info.about.spotifyEmbed;
@@ -12,6 +13,8 @@ export default function About() {
         <div className="about-frame about-frame--static">
           <img src={info.about.photo} alt="Ariji Chakma" className="about-photo" />
         </div>
+
+        <Spotify />
       </div>
 
       <div className="about-text-col">
