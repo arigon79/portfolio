@@ -13,6 +13,7 @@ export const translations = {
       research: 'Research',
       projects: 'Projects',
       achievements: 'Achievements',
+      listening: 'Listening',
       contact: 'Contact',
     },
     resume: 'Résumé',
@@ -45,6 +46,9 @@ export const translations = {
       hackathons: 'Hackathons & Competitions',
       academic: 'Academic & Scholarships',
     },
+    listening: {
+      now: 'Playing now',
+    },
     contact: {
       availability: 'Open to opportunities',
       tagline: "Let's build something together.",
@@ -65,6 +69,7 @@ export const translations = {
       research: '研究',
       projects: '项目',
       achievements: '成就',
+      listening: '正在听',
       contact: '联系方式',
     },
     resume: '简历',
@@ -96,6 +101,9 @@ export const translations = {
       lead: (n) => `${n} 项黑客松与奖学金奖项。`,
       hackathons: '黑客松与竞赛',
       academic: '学术与奖学金',
+    },
+    listening: {
+      now: '正在播放',
     },
     contact: {
       availability: '欢迎合作机会',

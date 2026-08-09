@@ -4,6 +4,7 @@ import About from './components/About';
 import ProjectCards from './components/ProjectCards';
 import Work from './components/Work';
 import Publication from './components/Publication';
+import Spotify from './components/Spotify';
 import Contact from './components/Contact';
 import info from './data/info.json';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
@@ -98,6 +99,8 @@ function AppContent() {
             })}
           </div>
         </section>
+
+        <Spotify />
 
         <Contact />
 
