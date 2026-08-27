@@ -60,6 +60,10 @@
         "href": "#miscellaneous"
       },
       {
+        "label": "Memories",
+        "href": "#memories"
+      },
+      {
         "label": "Contact",
         "href": "#contact"
       }
@@ -119,18 +123,28 @@
         "href": "https://github.com/Nalanda-AI",
         "logo": "/work_logos/nalanda-mark-1024.png",
         "status": "active",
-        "color": "oklch(0.68 0.15 220)"
+        "color": "oklch(0.68 0.15 220)",
+        "skills": [
+          "Founding",
+          "Applied AI",
+          "Agentic Systems"
+        ]
       },
       {
         "company": "KBRA",
         "role": "Software Engineer Intern",
         "dates": "Apr 2026 – Sep 2026",
         "code": "KBR",
-        "location": "New York",
+        "location": "New York, NY",
         "href": "https://www.kbra.com/",
         "logo": "/work_logos/kbra.png",
         "status": "active",
-        "color": "oklch(0.72 0.14 55)"
+        "color": "oklch(0.72 0.14 55)",
+        "skills": [
+          "Software Engineering",
+          "Full-Stack",
+          "Financial Tech"
+        ]
       },
       {
         "company": "VILab & DIVA Lab",
@@ -141,6 +155,11 @@
         "logo": "/work_logos/drexel_logo.png",
         "status": "active",
         "color": "oklch(0.72 0.095 205)",
+        "skills": [
+          "Generative AI",
+          "HCI",
+          "Vision-Language Models"
+        ],
         "links": [
           {
             "label": "VILab",
@@ -160,18 +179,28 @@
         "location": "Drexel",
         "logo": "/work_logos/drexel_logo.png",
         "status": "completed",
-        "color": "oklch(0.65 0.14 145)"
+        "color": "oklch(0.65 0.14 145)",
+        "skills": [
+          "Algorithms",
+          "Data Structures",
+          "Mentorship"
+        ]
       },
       {
         "company": "Bristol Myers Squibb",
         "role": "Software Engineer Intern",
         "dates": "Apr 2024 – Sep 2024",
         "code": "BMS",
-        "location": "Princeton",
+        "location": "Princeton, NJ",
         "href": "https://www.bms.com/",
         "logo": "/work_logos/bms_logo.png",
         "status": "completed",
-        "color": "oklch(0.68 0.18 25)"
+        "color": "oklch(0.68 0.18 25)",
+        "skills": [
+          "Cloud Infrastructure",
+          "APIs",
+          "Data Pipelines"
+        ]
       },
       {
         "company": "Develop For Good",
@@ -182,7 +211,12 @@
         "href": "https://www.developforgood.org/",
         "logo": "/work_logos/dfg.png",
         "status": "completed",
-        "color": "oklch(0.72 0.14 295)"
+        "color": "oklch(0.72 0.14 295)",
+        "skills": [
+          "Non-Profit Tech",
+          "Web Applications",
+          "UI/UX"
+        ]
       }
     ]
   },
@@ -191,10 +225,12 @@
     "year": "2026",
     "venue": "International Conference on Artificial Intelligence in Education",
     "status": "In proceedings",
+    "image": "/assets/projects/drawsim.jpg",
     "tags": [
       "Applied AI",
       "HCI",
-      "Education"
+      "Multimodal LLMs",
+      "Science Education"
     ],
     "title": "DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning",
     "authors": [
@@ -222,16 +258,23 @@
       }
     ],
     "abstract": "A generative framework that simulates student-like science drawings, reasoning narratives, and diagnostic concept maps with realistic misconceptions to help K-12 teachers practice and improve their diagnostic reasoning skills.",
+    "highlights": [
+      "Simulates 10,000+ multimodal student science drawings across 100 NGSS curriculum standards.",
+      "Synthesizes first-person student reasoning narratives and diagnostic concept maps.",
+      "Designed & evaluated to calibrate K-12 educator visual diagnostic reasoning."
+    ],
     "bibtex": "@inproceedings{chakma2026drawsim,\n  title={DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning},\n  author={Chakma, Arijit and He, Peng and Wang, Zeyuan and Liu, Honglu and Li, Tingting and Do, Tiffany D and Liu, Feng},\n  booktitle={In Proceedings of International Conference on AI in Education (AIED)},\n  year={2026}\n}",
     "actions": [
       {
-        "label": "Read paper",
+        "label": "Read Paper",
         "href": "https://arxiv.org/abs/2602.01578",
-        "primary": true
+        "primary": true,
+        "icon": "pdf"
       },
       {
-        "label": "Project page",
-        "href": "https://vilab-group.com/project/drawsim-pd/"
+        "label": "Project Page",
+        "href": "https://vilab-group.com/project/drawsim-pd/",
+        "icon": "web"
       }
     ]
   },
@@ -482,6 +525,118 @@
       "org": "declined to attend Drexel",
       "ball": "master",
       "category": "academic"
+    }
+  ],
+  "memories": [
+    {
+      "id": "hackmit",
+      "title": "HackMIT",
+      "location": "Cambridge, MA",
+      "date": "Fall 2025",
+      "image": "/memories/mit.JPG",
+      "format": "square",
+      "rotation": "-3.5deg",
+      "pinStyle": "pin-top",
+      "stamp": "MIT ENTRY"
+    },
+    {
+      "id": "stanford",
+      "title": "TreeHacks @ Stanford",
+      "location": "Stanford, CA",
+      "date": "Feb 2026",
+      "image": "/memories/treehacks.jpg",
+      "format": "square",
+      "rotation": "4.2deg",
+      "pinStyle": "tape-diagonal",
+      "stamp": "SF/CA TRIP"
+    },
+    {
+      "id": "columbia",
+      "title": "At Columbia",
+      "location": "New York, NY",
+      "date": "Spring 2025",
+      "image": "/memories/col.JPG",
+      "format": "square",
+      "rotation": "-2.5deg",
+      "pinStyle": "tape-top",
+      "stamp": "NYC TRIP"
+    },
+    {
+      "id": "hackprinceton",
+      "title": "HackPrinceton",
+      "location": "Princeton, NJ",
+      "date": "Spring 2026",
+      "image": "/memories/hackp.JPG",
+      "format": "square",
+      "rotation": "3.2deg",
+      "pinStyle": "pin-top",
+      "stamp": "LARPING"
+    },
+    {
+      "id": "first-hackathon",
+      "title": "First Hackathon Robot",
+      "location": "Washington, DC",
+      "date": "Jan 2024",
+      "image": "/memories/first_hackathon_project.jpg",
+      "format": "square",
+      "rotation": "-3.6deg",
+      "pinStyle": "tape-diagonal",
+      "stamp": "DEV LOG"
+    },
+    {
+      "id": "first-day-drexel",
+      "title": "First Day at Drexel",
+      "location": "Philadelphia, PA",
+      "date": "Sep 2022",
+      "image": "/memories/first_day_drexel.jpg",
+      "format": "square",
+      "rotation": "2.8deg",
+      "pinStyle": "corner-clips",
+      "stamp": "HOME BASE"
+    },
+    {
+      "id": "bms-coop",
+      "title": "Bristol Myers Squibb Co-op",
+      "location": "Princeton, NJ",
+      "date": "Summer 2024",
+      "image": "/memories/last_day_bms.JPG",
+      "format": "square",
+      "rotation": "-4deg",
+      "pinStyle": "pin-top",
+      "stamp": "BMS ARCHIVE"
+    },
+    {
+      "id": "kpot",
+      "title": "NYC Friends & Food",
+      "location": "New York City, NY",
+      "date": "May 2026",
+      "image": "/memories/kpot.jpg",
+      "format": "square",
+      "rotation": "3.5deg",
+      "pinStyle": "tape-top",
+      "stamp": "FEAST"
+    },
+    {
+      "id": "dogs-park",
+      "title": "Sunny Days at the Park",
+      "location": "New York City, NY",
+      "date": "Aug 2026",
+      "image": "/memories/me_and_dohgs.JPG",
+      "format": "square",
+      "rotation": "-3deg",
+      "pinStyle": "tape-diagonal",
+      "stamp": "SUNSHINE"
+    },
+    {
+      "id": "childhood",
+      "title": "Mini Me",
+      "location": "CHT, BD",
+      "date": "2004",
+      "image": "/memories/childhood.JPEG",
+      "format": "square",
+      "rotation": "3.8deg",
+      "pinStyle": "corner-clips",
+      "stamp": "ORIGIN STORY"
     }
   ]
 }

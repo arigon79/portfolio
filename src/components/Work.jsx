@@ -60,6 +60,14 @@ export default function Work() {
                   <p className="job-role">{w.role}</p>
                   <p className="job-meta">{w.dates} · {w.location}</p>
 
+                  {w.skills && (
+                    <div className="job-skills">
+                      {w.skills.map((s) => (
+                        <span key={s} className="job-skill-tag">{s}</span>
+                      ))}
+                    </div>
+                  )}
+
                   {w.links && (
                     <div className="job-links">
                       {w.links.map((l) => (

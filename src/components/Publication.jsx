@@ -6,6 +6,7 @@ const publication = info.publication;
 
 export default function Publication() {
   const { t } = useLanguage();
+  const [showBibtex, setShowBibtex] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -19,67 +20,93 @@ export default function Publication() {
     <section id="research">
       <div className="section-label">{t.section.research}</div>
 
-      <article className="rp-card">
-        <div className="rp-side">
-          <span className="rp-badge">{publication.archive} {publication.year}</span>
-          <span className="rp-status">
-            <span className="rp-status-dot" />
-            {publication.status}
-          </span>
+      <div className="pub-list">
+        <article className="pub-row">
+          {publication.image && (
+            <div className="pub-thumb">
+              <img
+                src={publication.image}
+                alt={publication.title}
+                loading="lazy"
+              />
+              <span className="pub-thumb-badge">{publication.archive} {publication.year}</span>
+            </div>
+          )}
 
-          <div className="rp-tags">
-            {publication.tags.map((tag) => (
-              <span key={tag} className="rp-tag">{tag}</span>
-            ))}
-          </div>
-
-          <div className="rp-actions">
-            {publication.actions.map((action) => (
+          <div className="pub-content">
+            <h3 className="pub-title">
               <a
-                key={action.href}
-                className={`rp-btn${action.primary ? ' rp-btn--primary' : ''}`}
-                href={action.href}
+                href={publication.actions?.[0]?.href || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {action.label} ↗
+                {publication.title}
               </a>
-            ))}
-          </div>
-        </div>
+            </h3>
 
-        <div className="rp-main">
-          <h3 className="rp-title">{publication.title}</h3>
+            <p className="pub-authors">
+              {publication.authors.map((author, i) => (
+                <span
+                  key={author.name}
+                  className={author.isMe ? 'pub-author is-me' : 'pub-author'}
+                >
+                  {author.name}{author.isMe ? '*' : ''}
+                  {i < publication.authors.length - 1 ? ', ' : ''}
+                </span>
+              ))}
+            </p>
 
-          <p className="rp-authors">
-            {publication.authors.map((author, i) => (
-              <span key={author.name} className={author.isMe ? 'rp-author is-me' : 'rp-author'}>
-                {author.name}{i < publication.authors.length - 1 ? ', ' : ''}
-              </span>
-            ))}
-          </p>
+            <p className="pub-venue">
+              <em>{publication.venue}</em> ({publication.archive} {publication.year})
+              {publication.status && (
+                <span className="pub-status-tag">{publication.status}</span>
+              )}
+            </p>
 
-          <p className="rp-venue">{publication.venue}</p>
+            <p className="pub-desc">{publication.abstract}</p>
 
-          <p className="rp-abstract">
-            <span className="rp-abstract-label">Abstract.</span> {publication.abstract}
-          </p>
+            <div className="pub-links">
+              {publication.actions.map((action) => (
+                <a
+                  key={action.href}
+                  className="pub-pill"
+                  href={action.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {action.label} ↗
+                </a>
+              ))}
 
-          <details className="rp-bibtex">
-            <summary>
-              BibTeX
               <button
                 type="button"
-                className={`rp-copy${copied ? ' is-copied' : ''}`}
-                onClick={(e) => { e.preventDefault(); handleCopy(); }}
+                className={`pub-pill pub-pill--btn${showBibtex ? ' is-active' : ''}`}
+                onClick={() => setShowBibtex((s) => !s)}
               >
-                {copied ? '✓ Copied' : 'Copy'}
+                {showBibtex ? 'BibTeX ▴' : 'BibTeX ▾'}
               </button>
-            </summary>
-            <pre>{publication.bibtex}</pre>
-          </details>
-        </div>
-      </article>
+            </div>
+
+            {showBibtex && (
+              <div className="pub-bibtex-box">
+                <div className="pub-bibtex-top">
+                  <span>BibTeX</span>
+                  <button
+                    type="button"
+                    className={`pub-copy-link${copied ? ' is-copied' : ''}`}
+                    onClick={handleCopy}
+                  >
+                    {copied ? '✓ Copied' : 'Copy'}
+                  </button>
+                </div>
+                <pre>{publication.bibtex}</pre>
+              </div>
+            )}
+          </div>
+        </article>
+      </div>
     </section>
   );
 }
+
+

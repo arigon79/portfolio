@@ -61,6 +61,7 @@ const NAV_KEY_BY_HREF = {
   '#experience': 'experience',
   '#projects': 'projects',
   '#miscellaneous': 'misc',
+  '#memories': 'memories',
   '#contact': 'contact',
 };
 
