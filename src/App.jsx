@@ -4,7 +4,10 @@ import About from './components/About';
 import ProjectCards from './components/ProjectCards';
 import Work from './components/Work';
 import Publication from './components/Publication';
+import MemoryBoard from './components/MemoryBoard';
 import Contact from './components/Contact';
+import PixelBackground from './components/PixelBackground';
+import PixelDrexelDragon from './components/PixelDrexelDragon';
 import info from './data/info.json';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
@@ -50,7 +53,9 @@ function AppContent() {
   }, []);
 
   return (
-    <>
+    <div className="portfolio-app-root">
+      <PixelBackground dark={dark} />
+      <PixelDrexelDragon />
       <Hero dark={dark} onToggleDark={() => setDark((d) => !d)} />
 
       <main className="page page-content">
@@ -78,18 +83,25 @@ function AppContent() {
                   <div className="ach-list">
                     {items.map((a, i) => (
                       <article key={a.title} className="ach" style={{ '--i': i }}>
-                        <span className={`ach-medal ach-medal--${a.ball}`} aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M7 4.5h10v3a5 5 0 0 1-10 0z" />
-                            <path d="M7 5.5H4.5v1.5A2.5 2.5 0 0 0 7 9.5M17 5.5h2.5v1.5A2.5 2.5 0 0 1 17 9.5" />
-                            <path d="M12 12.5V15M9 20h6M10 20l.5-3.5h3l.5 3.5" />
+                        <div className={`ach-medal ach-medal--${a.ball}`} aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                            <path d="M4 22h16" />
+                            <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34" />
+                            <path d="M6 4h12a2 2 0 0 1 2 2v3a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6V6a2 2 0 0 1 2-2Z" />
                           </svg>
-                        </span>
-                        <div className="ach-body">
-                          <h3 className="ach-title">{a.title}</h3>
-                          <p className="ach-sub">{a.sub} · {a.org}</p>
                         </div>
-                        <span className="ach-year">{a.year}</span>
+                        <div className="ach-body">
+                          <div className="ach-top-row">
+                            <h4 className="ach-title">{a.title}</h4>
+                            <span className="ach-year">{a.year}</span>
+                          </div>
+                          <p className="ach-sub">{a.sub}</p>
+                          <div className="ach-footer-row">
+                            <span className="ach-org-tag">{a.org}</span>
+                          </div>
+                        </div>
                       </article>
                     ))}
                   </div>
@@ -99,13 +111,15 @@ function AppContent() {
           </div>
         </section>
 
+        <MemoryBoard />
+
         <Contact />
 
         <footer>
           <span className="footer-copy">{profile.footerCopyright}</span>
         </footer>
       </main>
-    </>
+    </div>
   );
 }
 
