@@ -5233,3 +5233,226 @@
 
 
 
+
+    /* ══════════════════════════════════════════════════
+       Pixel Critters — pettable cats, dogs & pandas
+       ══════════════════════════════════════════════════ */
+    .pixel-critter-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .pixel-critter {
+      position: absolute;
+      pointer-events: auto;
+      opacity: 0.78;
+      will-change: transform;
+      transition: opacity 0.25s ease, filter 0.25s ease;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.22));
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* cute pixel hand instead of the default pointer */
+    .pixel-critter,
+    .side-pixel-dragon {
+      cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2016%2016'%20shape-rendering='crispEdges'%3E%3Crect%20x='3'%20y='1'%20width='2'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='6'%20y='1'%20width='2'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='9'%20y='1'%20width='2'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='2'%20y='2'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='3'%20y='2'%20width='2'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='5'%20y='2'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='6'%20y='2'%20width='2'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='8'%20y='2'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='9'%20y='2'%20width='2'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='11'%20y='2'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='2'%20y='3'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='3'%20y='3'%20width='2'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='5'%20y='3'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='6'%20y='3'%20width='2'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='8'%20y='3'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='9'%20y='3'%20width='2'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='11'%20y='3'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='1'%20y='4'%20width='2'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='3'%20y='4'%20width='8'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='11'%20y='4'%20width='2'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='0'%20y='5'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='1'%20y='5'%20width='11'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='12'%20y='5'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='0'%20y='6'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='1'%20y='6'%20width='11'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='12'%20y='6'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='0'%20y='7'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='1'%20y='7'%20width='11'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='12'%20y='7'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='1'%20y='8'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='2'%20y='8'%20width='10'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='12'%20y='8'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='1'%20y='9'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='2'%20y='9'%20width='9'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='11'%20y='9'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='2'%20y='10'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='3'%20y='10'%20width='7'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='10'%20y='10'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='3'%20y='11'%20width='7'%20height='1'%20fill='%235b3f2c'/%3E%3C/svg%3E") 14 3, pointer;
+    }
+
+    .pixel-critter:active,
+    .side-pixel-dragon:active {
+      cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2016%2016'%20shape-rendering='crispEdges'%3E%3Crect%20x='3'%20y='3'%20width='6'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='2'%20y='4'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='3'%20y='4'%20width='6'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='9'%20y='4'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='1'%20y='5'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='2'%20y='5'%20width='8'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='10'%20y='5'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='0'%20y='6'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='1'%20y='6'%20width='10'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='11'%20y='6'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='0'%20y='7'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='1'%20y='7'%20width='10'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='11'%20y='7'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='1'%20y='8'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='2'%20y='8'%20width='8'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='10'%20y='8'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='2'%20y='9'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='3'%20y='9'%20width='6'%20height='1'%20fill='%23f6cda3'/%3E%3Crect%20x='9'%20y='9'%20width='1'%20height='1'%20fill='%235b3f2c'/%3E%3Crect%20x='3'%20y='10'%20width='6'%20height='1'%20fill='%235b3f2c'/%3E%3C/svg%3E") 12 6, pointer;
+    }
+
+    .pixel-critter:hover,
+    .pixel-critter:focus-visible {
+      opacity: 1;
+      filter: drop-shadow(0 0 10px color-mix(in oklab, var(--accent-2) 70%, transparent));
+      outline: none;
+    }
+
+    .pixel-critter.is-flipped .critter-svg {
+      transform: scaleX(-1);
+    }
+
+    .pixel-critter.is-bonded {
+      opacity: 0.95;
+    }
+
+    /* ── Per-critter idle animations ── */
+    .critter-anim-float { animation: critterFloat 7s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
+    .critter-anim-hop { animation: critterHop 3.4s cubic-bezier(0.3, 0.7, 0.4, 1) infinite; }
+    .critter-anim-sway { animation: critterSway 5.4s ease-in-out infinite; }
+    .critter-anim-bob { animation: critterBob 4.4s ease-in-out infinite; }
+    .critter-anim-drift { animation: critterDrift 9.5s ease-in-out infinite; }
+    .critter-anim-wobble { animation: critterWobble 4.6s ease-in-out infinite; }
+
+    /* Petting reaction wins over the idle animation */
+    .pixel-critter.is-happy,
+    .pixel-critter.is-happy.critter-anim-float,
+    .pixel-critter.is-happy.critter-anim-hop,
+    .pixel-critter.is-happy.critter-anim-sway,
+    .pixel-critter.is-happy.critter-anim-bob,
+    .pixel-critter.is-happy.critter-anim-drift,
+    .pixel-critter.is-happy.critter-anim-wobble {
+      animation: critterHappy 0.9s cubic-bezier(0.2, 0.8, 0.4, 1);
+    }
+
+    .critter-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      image-rendering: pixelated;
+    }
+
+    .critter-eye {
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 0.18s ease;
+    }
+
+    .pixel-critter.is-happy .critter-eye {
+      transform: scaleY(0.2);
+    }
+
+    .critter-heart {
+      position: absolute;
+      left: 50%;
+      top: 6%;
+      font-size: 13px;
+      line-height: 1;
+      color: #ff6b8b;
+      pointer-events: none;
+      animation: critterHeartRise 1.1s ease-out forwards;
+    }
+
+    .critter-bond {
+      position: absolute;
+      left: 50%;
+      top: -14%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      line-height: 1;
+      color: #ff6b8b;
+      pointer-events: none;
+      animation: critterBondPulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes critterFloat {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    @keyframes critterHop {
+      0%, 62%, 100% { transform: translateY(0) scaleY(1) scaleX(1); }
+      68% { transform: translateY(0) scaleY(0.82) scaleX(1.12); }
+      80% { transform: translateY(-20px) scaleY(1.12) scaleX(0.92); }
+      92% { transform: translateY(0) scaleY(0.9) scaleX(1.08); }
+    }
+
+    @keyframes critterSway {
+      0%, 100% { transform: rotate(-8deg) translateY(0); }
+      50% { transform: rotate(8deg) translateY(-5px); }
+    }
+
+    @keyframes critterBob {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-7px) scale(1.07); }
+    }
+
+    @keyframes critterDrift {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(16px, -8px) rotate(4deg); }
+      50% { transform: translate(0, -14px) rotate(0deg); }
+      75% { transform: translate(-16px, -8px) rotate(-4deg); }
+    }
+
+    @keyframes critterWobble {
+      0%, 100% { transform: rotate(0deg) translateY(0); }
+      20% { transform: rotate(9deg) translateY(-3px); }
+      45% { transform: rotate(-7deg) translateY(-6px); }
+      70% { transform: rotate(5deg) translateY(-2px); }
+    }
+
+    @keyframes critterHappy {
+      0% { transform: translateY(0) scale(1) rotate(0deg); }
+      25% { transform: translateY(-8px) scale(1.14) rotate(-7deg); }
+      55% { transform: translateY(-2px) scale(1.08) rotate(6deg); }
+      80% { transform: translateY(-5px) scale(1.1) rotate(-3deg); }
+      100% { transform: translateY(0) scale(1) rotate(0deg); }
+    }
+
+    @keyframes critterHeartRise {
+      0% { opacity: 0; transform: translate(-50%, 0) scale(0.5); }
+      20% { opacity: 1; transform: translate(-50%, -8px) scale(1.1); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--drift, 0px)), -46px) scale(0.85); }
+    }
+
+    @keyframes critterBondPulse {
+      0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.75; }
+      50% { transform: translateX(-50%) scale(1.25); opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pixel-critter,
+      .pixel-critter.is-happy,
+      .critter-bond {
+        animation: none;
+      }
+    }
+
+    /* Gutters get too tight to host critters below these widths */
+    @media (max-width: 1200px) {
+      .pixel-critter[data-lane="inner"] { display: none; }
+    }
+
+    @media (max-width: 980px) {
+      .pixel-critter-layer { display: none; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       Big screens (≥ 1280px) — use the gutters, keep the
+       reading measure (and the work timeline) as-is
+       ══════════════════════════════════════════════════ */
+    @media (min-width: 1280px) {
+      .hero-center { width: min(1040px, 92vw); }
+      .terminal { max-width: 1040px; }
+
+      /* Projects break out of the 740px column into 3 columns */
+      .proj-polaroid-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 46px 30px;
+        width: min(86vw, 1120px);
+        margin-left: calc(50% - min(43vw, 560px));
+        margin-right: calc(50% - min(43vw, 560px));
+      }
+
+      .mem-photos-grid { gap: 76px 44px; }
+      .ach-columns { gap: 30px; }
+      .pixel-critter { opacity: 0.85; }
+    }
+
+    @media (min-width: 1600px) {
+      .hero-center { width: min(1180px, 88vw); }
+      .terminal { max-width: 1180px; }
+
+      .proj-polaroid-grid {
+        width: min(80vw, 1320px);
+        margin-left: calc(50% - min(40vw, 660px));
+        margin-right: calc(50% - min(40vw, 660px));
+        gap: 52px 36px;
+      }
+
+      .mem-section-wrap {
+        width: min(88vw, 1560px);
+        margin-left: calc(50% - min(44vw, 780px));
+        margin-right: calc(50% - min(44vw, 780px));
+      }
+    }
