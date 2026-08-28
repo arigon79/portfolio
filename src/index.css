@@ -5417,6 +5417,42 @@
       .pixel-critter-layer { display: none; }
     }
 
+    /* ── Phone screens: a strip of critters along the bottom edge ── */
+    .critter-strip {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 12;
+      justify-content: space-around;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 0 12px calc(4px + env(safe-area-inset-bottom, 0px));
+      pointer-events: none;
+    }
+
+    .pixel-critter--strip {
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      flex: 0 0 auto;
+      opacity: 0.82;
+    }
+
+    @media (max-width: 980px) {
+      .critter-strip { display: flex; }
+
+      /* keep the strip off the footer text at the end of the page */
+      .page-content { padding-bottom: 116px; }
+    }
+
+    /* Very narrow phones only have room for three */
+    @media (max-width: 400px) {
+      .critter-strip .pixel-critter--strip:last-child { display: none; }
+    }
+
     /* ══════════════════════════════════════════════════
        Big screens (≥ 1280px) — use the gutters, keep the
        reading measure (and the work timeline) as-is
