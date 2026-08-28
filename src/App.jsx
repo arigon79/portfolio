@@ -8,6 +8,7 @@ import MemoryBoard from './components/MemoryBoard';
 import Contact from './components/Contact';
 import PixelBackground from './components/PixelBackground';
 import PixelDrexelDragon from './components/PixelDrexelDragon';
+import PixelCritters from './components/PixelCritters';
 import info from './data/info.json';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
@@ -56,6 +57,7 @@ function AppContent() {
     <div className="portfolio-app-root">
       <PixelBackground dark={dark} />
       <PixelDrexelDragon />
+      <PixelCritters />
       <Hero dark={dark} onToggleDark={() => setDark((d) => !d)} />
 
       <main className="page page-content">
