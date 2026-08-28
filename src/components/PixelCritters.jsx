@@ -127,9 +127,18 @@ const CRITTERS = [
   { id: 'c17', kind: 'panda', skin: 'panda',  top: '97%', left: '3vw',    size: 38, anim: 'hop',    duration: 3.8, delay: 0.5, flip: false },
 ];
 
+// Phone-sized screens have no gutters, so a few critters walk a strip
+// pinned to the bottom of the viewport instead.
+const STRIP_CRITTERS = [
+  { id: 's1', kind: 'cat',   skin: 'ginger', size: 34, anim: 'hop',    duration: 3.2, delay: 0.2, flip: false },
+  { id: 's2', kind: 'dog',   skin: 'shiba',  size: 32, anim: 'bob',    duration: 4.0, delay: 1.1, flip: true },
+  { id: 's3', kind: 'panda', skin: 'panda',  size: 34, anim: 'wobble', duration: 4.6, delay: 0.6, flip: false },
+  { id: 's4', kind: 'cat',   skin: 'smoke',  size: 30, anim: 'sway',   duration: 5.2, delay: 1.8, flip: true },
+];
+
 const BOND_AT = 5;
 
-function CritterItem({ c }) {
+function CritterItem({ c, variant = 'gutter' }) {
   const [pets, setPets] = useState(0);
   const [happy, setHappy] = useState(false);
   const [hearts, setHearts] = useState([]);
@@ -168,21 +177,23 @@ function CritterItem({ c }) {
   const palette = PALETTES[c.skin];
   const bonded = pets >= BOND_AT;
   // Critters parked further from the edge need a wider gutter to stay off the text.
-  const lane = parseFloat(c.left ?? c.right) >= 6 ? 'inner' : 'outer';
+  const strip = variant === 'strip';
+  const lane = !strip && parseFloat(c.left ?? c.right) >= 6 ? 'inner' : 'outer';
 
   return (
     <div
       className={
         'pixel-critter' +
+        (strip ? ' pixel-critter--strip' : '') +
         ` critter-anim-${c.anim}` +
         (happy ? ' is-happy' : '') +
         (bonded ? ' is-bonded' : '') +
         (c.flip ? ' is-flipped' : '')
       }
       style={{
-        top: c.top,
-        left: c.left,
-        right: c.right,
+        top: strip ? undefined : c.top,
+        left: strip ? undefined : c.left,
+        right: strip ? undefined : c.right,
         width: `${c.size}px`,
         height: `${c.size}px`,
         animationDuration: `${c.duration}s`,
@@ -223,10 +234,18 @@ function CritterItem({ c }) {
 
 export default function PixelCritters() {
   return (
-    <aside className="pixel-critter-layer" aria-label="Pixel cats, dogs and pandas — click to pet">
-      {CRITTERS.map((c) => (
-        <CritterItem key={c.id} c={c} />
-      ))}
-    </aside>
+    <>
+      <aside className="pixel-critter-layer" aria-label="Pixel cats, dogs and pandas — click to pet">
+        {CRITTERS.map((c) => (
+          <CritterItem key={c.id} c={c} />
+        ))}
+      </aside>
+
+      <aside className="critter-strip" aria-label="Pixel cats, dogs and pandas — tap to pet">
+        {STRIP_CRITTERS.map((c) => (
+          <CritterItem key={c.id} c={c} variant="strip" />
+        ))}
+      </aside>
+    </>
   );
 }
