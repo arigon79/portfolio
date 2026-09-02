@@ -2441,6 +2441,128 @@
       margin-bottom: 56px;
     }
 
+    .about-facts {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 6px;
+      max-width: 100%;
+    }
+
+    .about-facts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      min-height: 132px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      width: 100%;
+    }
+
+    .about-facts-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.18s ease, transform 0.18s ease;
+    }
+
+    .about-facts-trigger::before {
+      content: "";
+      width: 16px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--lime);
+      flex-shrink: 0;
+    }
+
+    .about-facts-trigger::after {
+      content: "+";
+      display: inline-grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      color: var(--lime);
+      border: 1px solid color-mix(in oklab, var(--lime) 55%, var(--border));
+      font-size: 13px;
+      line-height: 1;
+      transition: transform 0.18s ease;
+    }
+
+    .about-facts.is-open .about-facts-trigger::after {
+      transform: rotate(45deg);
+    }
+
+    .about-facts-trigger:hover,
+    .about-facts-trigger:focus-visible {
+      color: var(--accent);
+      outline: none;
+      transform: translateX(2px);
+    }
+
+    .about-facts-item {
+      --fact-delay: calc(var(--fact-index) * 120ms);
+      position: relative;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.45;
+      max-width: 100%;
+      transform: translateX(-18px);
+      opacity: 0;
+    }
+
+    .about-facts-item::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 6px var(--lime);
+      flex: 0 0 auto;
+    }
+
+    .about-facts.is-open .about-facts-item {
+      animation: about-fact-slide 420ms cubic-bezier(0.18, 1, 0.24, 1) forwards;
+      animation-delay: var(--fact-delay);
+    }
+
+    .about-facts-item:nth-child(2n) {
+      transform: translateX(18px);
+    }
+
+    .about-facts-item:nth-child(3n) {
+      transform: translateX(-14px);
+    }
+
+    @keyframes about-fact-slide {
+      0% {
+        opacity: 0;
+        transform: translateX(-18px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
     .about-main {
       display: grid;
       grid-template-columns: 300px 1fr;
@@ -2704,109 +2826,6 @@
       gap: 14px;
     }
 
-    /* ── Currently Live Ticker Tape ── */
-    .about-ticker-wrap {
-      margin-top: 32px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: color-mix(in oklab, var(--surface) 80%, transparent);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .about-ticker-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-family: "JetBrains Mono", monospace;
-      padding-right: 14px;
-      border-right: 1px solid var(--border);
-      flex-shrink: 0;
-      z-index: 2;
-    }
-
-    .about-now-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--lime);
-      box-shadow: 0 0 8px var(--lime);
-      animation: pub-blink 2s ease-out infinite;
-      flex-shrink: 0;
-    }
-
-    .about-ticker-track {
-      flex: 1;
-      overflow: hidden;
-      position: relative;
-      mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 20px), transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 20px), transparent);
-    }
-
-    .about-ticker-content {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      width: max-content;
-      animation: about-ticker 24s linear infinite;
-    }
-
-    .about-ticker-wrap:hover .about-ticker-content {
-      animation-play-state: paused;
-    }
-
-    @keyframes about-ticker {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .about-ticker-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: color-mix(in oklab, var(--bg) 60%, var(--surface));
-      border: 1px solid var(--border);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      white-space: nowrap;
-      transition: border-color 0.15s, transform 0.15s, background 0.15s;
-      cursor: default;
-    }
-
-    .about-ticker-pill:hover {
-      border-color: var(--border-strong);
-      background: var(--surface);
-      transform: translateY(-1px);
-    }
-
-    .about-ticker-pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--lime);
-      box-shadow: 0 0 6px var(--lime);
-      flex-shrink: 0;
-    }
-
     /* Spotify embed */
     .about-spotify {
       margin-top: 24px;
@@ -2817,6 +2836,15 @@
 
     /* Responsive */
     @media (max-width: 640px) {
+      .about-facts {
+        gap: 12px;
+      }
+      .about-facts-list {
+        min-height: 166px;
+      }
+      .about-facts-item {
+        max-width: 100%;
+      }
       .about-main {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -2825,20 +2853,6 @@
       .about-frame--static {
         width: 240px;
         margin: 0 auto;
-      }
-      .about-ticker-wrap {
-        border-radius: 18px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 12px 14px;
-      }
-      .about-ticker-label {
-        border-right: none;
-        padding-right: 0;
-        padding-bottom: 6px;
-        border-bottom: 1px solid var(--border);
-        width: 100%;
       }
     }
 
@@ -4404,566 +4418,6 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
-    /* ── Memory Board (Panoramic 90vw Colorful World Map Canvas) ── */
-    .mem-section-wrap {
-      width: min(90vw, 1340px);
-      margin-left: calc(50% - min(45vw, 670px));
-      margin-right: calc(50% - min(45vw, 670px));
-      margin-bottom: 64px;
-    }
-
-    .mem-header-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-
-    .mem-header-left {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .mem-lead {
-      font-size: 13.5px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .mem-drag-hint {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 10.5px;
-      color: var(--accent);
-      opacity: 0.9;
-      font-weight: 500;
-    }
-
-    .mem-header-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .mem-reset-btn {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--muted);
-      background: var(--surface);
-      border: 1px dashed var(--border);
-      padding: 4px 10px;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .mem-reset-btn:hover {
-      color: var(--text);
-      border-color: var(--border-strong);
-      background: color-mix(in oklab, var(--text) 6%, var(--surface));
-    }
-
-    .mem-counter {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--text);
-      background: color-mix(in oklab, var(--accent) 18%, var(--surface));
-      border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
-      padding: 4px 12px;
-      border-radius: 14px;
-    }
-
-    .mem-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 26px;
-    }
-
-    .mem-filter-btn {
-      font-size: 12px;
-      font-weight: 600;
-      padding: 5px 14px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .mem-filter-btn:hover {
-      color: var(--text);
-      border-color: var(--border-strong);
-    }
-
-    .mem-filter-btn.is-active {
-      background: var(--text);
-      color: var(--bg);
-      border-color: var(--text);
-      box-shadow: 0 2px 8px -2px oklch(0 0 0 / 0.25);
-    }
-
-    /* Panoramic Scenic Landscape Board (Mountains, Sky, River & Cool Shapes) */
-    .mem-map-board {
-      position: relative;
-      border-radius: 26px;
-      border: 1px solid var(--border);
-      background: color-mix(in oklab, var(--surface) 75%, transparent);
-      box-shadow: var(--shadow);
-      padding: 44px 32px 38px;
-      overflow: hidden;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    /* Scenic Nature Vector Background */
-    .mem-scenic-bg {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      color: var(--muted);
-      opacity: 0.95;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    body.dark .mem-scenic-bg {
-      opacity: 0.9;
-    }
-
-    .mem-scenic-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Light Mode Scenic Mountain & River Palette */
-    .scenic-sky-rect { fill: url(#sky-light); }
-    .scenic-sun-circle { fill: url(#sun-light); }
-    .scenic-mount-distant { fill: url(#mount-dist-light); stroke: #cbd5e1; }
-    .scenic-mount-mid { fill: url(#mount-mid-light); stroke: #94a3b8; }
-    .scenic-mount-fore { fill: url(#mount-fore-light); stroke: #64748b; }
-    .scenic-river-path { fill: url(#river-light); stroke: #0284c7; }
-
-    /* Dark Mode Scenic Mountain & River Palette */
-    body.dark .scenic-sky-rect { fill: url(#sky-dark); }
-    body.dark .scenic-sun-circle { fill: url(#sun-dark); }
-    body.dark .scenic-mount-distant { fill: url(#mount-dist-dark); stroke: #312e81; }
-    body.dark .scenic-mount-mid { fill: url(#mount-mid-dark); stroke: #1e293b; }
-    body.dark .scenic-mount-fore { fill: url(#mount-fore-dark); stroke: #0f172a; }
-    body.dark .scenic-river-path { fill: url(#river-dark); stroke: #06b6d4; }
-
-    .mem-map-badge {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 10px;
-      color: var(--muted);
-      opacity: 0.88;
-      letter-spacing: 0.05em;
-    }
-
-    .mem-map-badge--tl { top: 14px; left: 20px; }
-    .mem-map-badge--tr { top: 14px; right: 20px; text-align: right; }
-    .mem-map-badge--br { bottom: 14px; right: 20px; }
-
-    /* Pinned Photographs Grid (Unevenly Scattered 3-Column Layout) */
-    .mem-photos-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 68px 38px;
-      padding: 32px 16px 68px;
-      justify-items: center;
-      align-items: start;
-    }
-
-    .mem-photo-item {
-      position: relative;
-      width: 100%;
-      max-width: 320px;
-      cursor: grab;
-      touch-action: none;
-      user-select: none;
-      -webkit-user-select: none;
-      transform: translate(var(--offset-x, 0px), var(--offset-y, 0px)) rotate(var(--photo-rot, 0deg));
-      transform-origin: center center;
-      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
-    }
-
-    .mem-photo-item:hover {
-      transform: translate(var(--offset-x, 0px), calc(var(--offset-y, 0px) - 8px)) rotate(0deg) scale(1.03);
-      z-index: 25;
-    }
-
-    .mem-photo-item.is-dragging {
-      cursor: grabbing !important;
-      transform: translate(var(--offset-x, 0px), var(--offset-y, 0px)) rotate(0deg) scale(1.08) !important;
-      transition: none !important;
-      z-index: 100 !important;
-    }
-
-    .mem-photo-item.is-dragging .mem-photo-card {
-      box-shadow: 0 32px 70px -10px rgba(0, 0, 0, 0.45), 0 12px 28px rgba(0, 0, 0, 0.2) !important;
-    }
-
-    /* Photograph Card Base (1:1 True Square Polaroid Frame - Bigger Card Size) */
-    .mem-photo-card {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background: #f8f8f6;
-      color: #1a1a1a;
-      border-radius: 6px;
-      padding: 14px 14px 16px;
-      border: 1px solid rgba(0, 0, 0, 0.09);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.07);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: box-shadow 0.28s ease, border-color 0.28s ease;
-    }
-
-    body.dark .mem-photo-card {
-      background: #18191c;
-      color: #ececec;
-      border: 1px solid oklch(1 0 0 / 0.12);
-      box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.65);
-    }
-
-    .mem-photo-item:hover .mem-photo-card {
-      box-shadow: 0 26px 56px -10px rgba(0, 0, 0, 0.28), 0 8px 18px rgba(0, 0, 0, 0.1);
-    }
-
-    body.dark .mem-photo-item:hover .mem-photo-card {
-      border-color: oklch(1 0 0 / 0.25);
-      box-shadow: 0 28px 64px -12px oklch(0 0 0 / 0.85);
-    }
-
-    /* Pushpin Marker on Top */
-    .mem-pin {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 18px;
-      height: 18px;
-      z-index: 16;
-      pointer-events: none;
-    }
-
-    .mem-pin-head {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #ff7b7b, #d93838 70%, #991b1b);
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-    }
-
-    .mem-pin-shadow {
-      position: absolute;
-      bottom: -4px;
-      left: 2px;
-      width: 14px;
-      height: 6px;
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 50%;
-      filter: blur(2px);
-    }
-
-    /* Corner Tape Clips */
-    .mem-corner-tape {
-      position: absolute;
-      width: 68px;
-      height: 20px;
-      background: rgba(255, 255, 255, 0.62);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      z-index: 15;
-      pointer-events: none;
-      border-radius: 2px;
-    }
-
-    body.dark .mem-corner-tape {
-      background: rgba(255, 255, 255, 0.14);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .mem-corner-tape--tl {
-      top: -9px;
-      left: -12px;
-      transform: rotate(-18deg);
-    }
-
-    .mem-corner-tape--br {
-      bottom: -9px;
-      right: -12px;
-      transform: rotate(14deg);
-    }
-
-    /* Single Top Tape Strip */
-    .mem-tape-top {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%) rotate(-2deg);
-      width: 76px;
-      height: 20px;
-      background: rgba(255, 255, 255, 0.68);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border: 1px dashed rgba(0, 0, 0, 0.18);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      z-index: 15;
-      pointer-events: none;
-      border-radius: 2px;
-    }
-
-    body.dark .mem-tape-top {
-      background: rgba(255, 255, 255, 0.16);
-      border-color: rgba(255, 255, 255, 0.25);
-    }
-
-    /* Vintage Photo Corner Mounting Brackets */
-    .mem-corner-brackets {
-      position: absolute;
-      inset: 8px;
-      pointer-events: none;
-      z-index: 15;
-    }
-
-    .mem-cb {
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-style: solid;
-      border-color: rgba(0, 0, 0, 0.45);
-    }
-
-    body.dark .mem-cb {
-      border-color: rgba(255, 255, 255, 0.45);
-    }
-
-    .mem-cb--tl { top: 0; left: 0; border-width: 3px 0 0 3px; }
-    .mem-cb--tr { top: 0; right: 0; border-width: 3px 3px 0 0; }
-    .mem-cb--bl { bottom: 0; left: 0; border-width: 0 0 3px 3px; }
-    .mem-cb--br { bottom: 0; right: 0; border-width: 0 3px 3px 0; }
-
-    /* Photograph Image Frame (Smaller Inset Frame Fitting ANY Aspect Ratio) */
-    .mem-img-frame {
-      position: relative;
-      width: 100%;
-      flex: 1;
-      min-height: 0;
-      border-radius: 4px;
-      overflow: hidden;
-      background: #0d0e11;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3px;
-    }
-
-    body.dark .mem-img-frame {
-      background: #090a0c;
-    }
-
-    .mem-photo-img {
-      max-width: 100%;
-      max-height: 100%;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      border-radius: 2px;
-      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.4, 1);
-    }
-
-    .mem-photo-item:hover .mem-photo-img {
-      transform: scale(1.04);
-    }
-
-    /* Camera Crop / Viewfinder Reticle */
-    .mem-viewfinder {
-      position: absolute;
-      inset: 12px;
-      pointer-events: none;
-      opacity: 0.85;
-      transition: inset 0.3s ease, opacity 0.3s ease;
-    }
-
-    .mem-photo-item:hover .mem-viewfinder {
-      inset: 8px;
-      opacity: 1;
-    }
-
-    .mem-vf-corner {
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-color: #e15858;
-      border-style: solid;
-    }
-
-    .mem-vf-tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
-    .mem-vf-tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
-    .mem-vf-bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
-    .mem-vf-br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
-
-    .mem-vf-cross {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 8px;
-      height: 8px;
-      opacity: 0.55;
-    }
-
-    .mem-vf-cross::before,
-    .mem-vf-cross::after {
-      content: "";
-      position: absolute;
-      background: #e15858;
-    }
-
-    .mem-vf-cross::before { top: 3px; left: 0; width: 8px; height: 2px; }
-    .mem-vf-cross::after { top: 0; left: 3px; width: 2px; height: 8px; }
-
-    .mem-zoom-badge {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.65);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-size: 11px;
-      opacity: 0;
-      transform: scale(0.8);
-      transition: opacity 0.2s, transform 0.2s;
-    }
-
-    .mem-photo-item:hover .mem-zoom-badge {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* Passport / Travel Rubber Stamp */
-    .mem-travel-stamp {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #e15858;
-      border: 1.5px solid #e15858;
-      padding: 2px 6px;
-      border-radius: 3px;
-      transform: rotate(-7deg);
-      opacity: 0.9;
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(4px);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    body.dark .mem-travel-stamp {
-      background: rgba(20, 20, 24, 0.85);
-      color: #ff7878;
-      border-color: #ff7878;
-    }
-
-    .mem-date-pill {
-      position: absolute;
-      bottom: 7px;
-      left: 7px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 10px;
-      font-weight: 700;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.75);
-      padding: 2px 7px;
-      border-radius: 4px;
-      backdrop-filter: blur(4px);
-    }
-
-    /* Square Polaroid Chin / Bottom Signature Zone (1-Line Description + Location & Year) */
-    .mem-card-body {
-      padding-top: 9px;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .mem-card-desc-line {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Caveat", "Architects Daughter", cursive, sans-serif;
-      font-size: 13.5px;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 1.25;
-      margin: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transform: rotate(-1.5deg);
-      transform-origin: left center;
-    }
-
-    body.dark .mem-card-desc-line {
-      color: #f5f5f5;
-    }
-
-    .mem-card-meta-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 10.5px;
-      color: #666;
-      margin-top: 1px;
-    }
-
-    body.dark .mem-card-meta-row {
-      color: #999;
-    }
-
-    .mem-photo-loc {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      font-size: 10.5px;
-      font-weight: 500;
-    }
-
-    .mem-card-date {
-      font-size: 10px;
-      opacity: 0.85;
-    }
-
     /* ── Ambient Pixel Drexel Dragon Constellation (Multi-dragon swarm) ── */
     :root {
       --dragon-body: #1e3a8a;
@@ -5077,128 +4531,6 @@
       }
     }
 
-    /* Lightbox Modal */
-    .mem-modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.82);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      animation: modalFade 0.2s ease;
-    }
-
-    @keyframes modalFade {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .mem-modal-content {
-      position: relative;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      max-width: 640px;
-      width: 100%;
-      overflow: hidden;
-      box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.6);
-      animation: modalScale 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
-    }
-
-    @keyframes modalScale {
-      from { transform: scale(0.92); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    .mem-modal-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      display: grid;
-      place-items: center;
-      font-size: 14px;
-      cursor: pointer;
-      z-index: 10;
-      transition: background 0.15s;
-    }
-
-    .mem-modal-close:hover {
-      background: rgba(0, 0, 0, 0.9);
-    }
-
-    .mem-modal-img-wrap {
-      width: 100%;
-      max-height: 400px;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .mem-modal-img {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: contain;
-      display: block;
-    }
-
-    .mem-modal-info {
-      padding: 18px 22px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .mem-modal-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: 12px;
-      font-family: "JetBrains Mono", monospace;
-      color: var(--muted);
-    }
-
-    .mem-modal-tag {
-      padding: 2px 8px;
-      border-radius: 10px;
-      background: color-mix(in oklab, var(--lime) 20%, transparent);
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .mem-modal-title {
-      font-size: 18px;
-      font-weight: 750;
-      margin: 0;
-      color: var(--text);
-    }
-
-    .mem-modal-desc {
-      font-size: 13.5px;
-      line-height: 1.6;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    @media (max-width: 1060px) {
-      .mem-photos-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 36px 24px;
-      }
-    }
-
     @media (max-width: 860px) {
       .pub-header { flex-direction: column; align-items: flex-start; }
       .pub-footer { flex-direction: column; align-items: stretch; }
@@ -5207,21 +4539,9 @@
     }
 
     @media (max-width: 640px) {
-      .mem-section-wrap {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-      }
       .proj-polaroid-grid {
         grid-template-columns: 1fr;
         gap: 32px;
-      }
-      .mem-photos-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .mem-map-board {
-        padding: 28px 16px 24px;
       }
     }
 
@@ -5470,7 +4790,6 @@
         margin-right: calc(50% - min(43vw, 560px));
       }
 
-      .mem-photos-grid { gap: 76px 44px; }
       .ach-columns { gap: 30px; }
       .pixel-critter { opacity: 0.85; }
     }
@@ -5484,11 +4803,5 @@
         margin-left: calc(50% - min(40vw, 660px));
         margin-right: calc(50% - min(40vw, 660px));
         gap: 52px 36px;
-      }
-
-      .mem-section-wrap {
-        width: min(88vw, 1560px);
-        margin-left: calc(50% - min(44vw, 780px));
-        margin-right: calc(50% - min(44vw, 780px));
       }
     }

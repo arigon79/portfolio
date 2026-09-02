@@ -4,7 +4,6 @@ import About from './components/About';
 import ProjectCards from './components/ProjectCards';
 import Work from './components/Work';
 import Publication from './components/Publication';
-import MemoryBoard from './components/MemoryBoard';
 import Contact from './components/Contact';
 import PixelBackground from './components/PixelBackground';
 import PixelDrexelDragon from './components/PixelDrexelDragon';
@@ -112,8 +111,6 @@ function AppContent() {
             })}
           </div>
         </section>
-
-        <MemoryBoard />
 
         <Contact />
 
