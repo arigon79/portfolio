@@ -60,10 +60,6 @@
         "href": "#miscellaneous"
       },
       {
-        "label": "Memories",
-        "href": "#memories"
-      },
-      {
         "label": "Contact",
         "href": "#contact"
       }
@@ -525,118 +521,6 @@
       "org": "declined to attend Drexel",
       "ball": "master",
       "category": "academic"
-    }
-  ],
-  "memories": [
-    {
-      "id": "hackmit",
-      "title": "HackMIT",
-      "location": "Cambridge, MA",
-      "date": "Fall 2025",
-      "image": "/memories/mit.JPG",
-      "format": "square",
-      "rotation": "-3.5deg",
-      "pinStyle": "pin-top",
-      "stamp": "MIT ENTRY"
-    },
-    {
-      "id": "stanford",
-      "title": "TreeHacks @ Stanford",
-      "location": "Stanford, CA",
-      "date": "Feb 2026",
-      "image": "/memories/treehacks.jpg",
-      "format": "square",
-      "rotation": "4.2deg",
-      "pinStyle": "tape-diagonal",
-      "stamp": "SF/CA TRIP"
-    },
-    {
-      "id": "columbia",
-      "title": "At Columbia",
-      "location": "New York, NY",
-      "date": "Spring 2025",
-      "image": "/memories/col.JPG",
-      "format": "square",
-      "rotation": "-2.5deg",
-      "pinStyle": "tape-top",
-      "stamp": "NYC TRIP"
-    },
-    {
-      "id": "hackprinceton",
-      "title": "HackPrinceton",
-      "location": "Princeton, NJ",
-      "date": "Spring 2026",
-      "image": "/memories/hackp.JPG",
-      "format": "square",
-      "rotation": "3.2deg",
-      "pinStyle": "pin-top",
-      "stamp": "LARPING"
-    },
-    {
-      "id": "first-hackathon",
-      "title": "First Hackathon Robot",
-      "location": "Washington, DC",
-      "date": "Jan 2024",
-      "image": "/memories/first_hackathon_project.jpg",
-      "format": "square",
-      "rotation": "-3.6deg",
-      "pinStyle": "tape-diagonal",
-      "stamp": "DEV LOG"
-    },
-    {
-      "id": "first-day-drexel",
-      "title": "First Day at Drexel",
-      "location": "Philadelphia, PA",
-      "date": "Sep 2022",
-      "image": "/memories/first_day_drexel.jpg",
-      "format": "square",
-      "rotation": "2.8deg",
-      "pinStyle": "corner-clips",
-      "stamp": "HOME BASE"
-    },
-    {
-      "id": "bms-coop",
-      "title": "Bristol Myers Squibb Co-op",
-      "location": "Princeton, NJ",
-      "date": "Summer 2024",
-      "image": "/memories/last_day_bms.JPG",
-      "format": "square",
-      "rotation": "-4deg",
-      "pinStyle": "pin-top",
-      "stamp": "BMS ARCHIVE"
-    },
-    {
-      "id": "kpot",
-      "title": "NYC Friends & Food",
-      "location": "New York City, NY",
-      "date": "May 2026",
-      "image": "/memories/kpot.jpg",
-      "format": "square",
-      "rotation": "3.5deg",
-      "pinStyle": "tape-top",
-      "stamp": "FEAST"
-    },
-    {
-      "id": "dogs-park",
-      "title": "Sunny Days at the Park",
-      "location": "New York City, NY",
-      "date": "Aug 2026",
-      "image": "/memories/me_and_dohgs.JPG",
-      "format": "square",
-      "rotation": "-3deg",
-      "pinStyle": "tape-diagonal",
-      "stamp": "SUNSHINE"
-    },
-    {
-      "id": "childhood",
-      "title": "Mini Me",
-      "location": "CHT, BD",
-      "date": "2004",
-      "image": "/memories/childhood.JPEG",
-      "format": "square",
-      "rotation": "3.8deg",
-      "pinStyle": "corner-clips",
-      "stamp": "ORIGIN STORY"
     }
   ]
 }

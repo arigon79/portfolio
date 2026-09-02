@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import info from '../data/info.json';
 import Spotify from './Spotify';
 import { useLanguage } from '../context/LanguageContext';
@@ -6,7 +7,17 @@ const SPOTIFY_EMBED = info.about.spotifyEmbed;
 
 export default function About() {
   const { t } = useLanguage();
-  const nowItems = t.about.now?.items ?? [];
+  const facts = t.about.facts ?? [];
+  const [factsVisible, setFactsVisible] = useState(false);
+  const [factRun, setFactRun] = useState(0);
+
+  const revealFacts = () => {
+    setFactsVisible(false);
+    window.setTimeout(() => {
+      setFactRun((run) => run + 1);
+      setFactsVisible(true);
+    }, 20);
+  };
 
   return (
     <section id="about">
@@ -28,28 +39,33 @@ export default function About() {
               <p key={line}>{line}</p>
             ))}
           </div>
+
+          {facts.length > 0 && (
+            <div className={`about-facts${factsVisible ? ' is-open' : ''}`}>
+              <button
+                type="button"
+                className="about-facts-trigger"
+                onClick={revealFacts}
+                aria-expanded={factsVisible}
+              >
+                {t.about.factTrigger}
+              </button>
+
+              <ul className="about-facts-list" aria-label="Interesting facts">
+                {facts.map((fact, idx) => (
+                  <li
+                    key={`${fact}-${factRun}`}
+                    className="about-facts-item"
+                    style={{ '--fact-index': idx }}
+                  >
+                    {fact}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
-
-      {nowItems.length > 0 && (
-        <div className="about-ticker-wrap">
-          <div className="about-ticker-label">
-            <span className="about-now-dot" aria-hidden="true" />
-            <span>{t.about.now.label}</span>
-          </div>
-
-          <div className="about-ticker-track">
-            <div className="about-ticker-content">
-              {nowItems.concat(nowItems).map((item, idx) => (
-                <div key={`${item}-${idx}`} className="about-ticker-pill">
-                  <span className="about-ticker-pill-dot" aria-hidden="true" />
-                  <span className="about-ticker-pill-text">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
 
       {SPOTIFY_EMBED && (
         <div className="about-spotify">

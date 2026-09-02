@@ -16,7 +16,7 @@ const DRAGONS = [
   { id: 'd6', top: '60%', right: '3vw', size: 76, duration: 8.8, delay: 1.9, flip: false, opacity: 0.42 },
   // 7. Awards & Achievements (Left Gutter)
   { id: 'd7', top: '74%', left: '3vw', size: 52, duration: 6.6, delay: 2.8, flip: true, opacity: 0.38 },
-  // 8. Memory Board Area (Right Gutter)
+  // 8. Lower Page Area (Right Gutter)
   { id: 'd8', top: '86%', right: '2.5vw', size: 62, duration: 7.6, delay: 1.5, flip: false, opacity: 0.4 },
   // 9. Contact / Footer (Left Gutter)
   { id: 'd9', top: '96%', left: '3.2vw', size: 40, duration: 9.0, delay: 3.5, flip: true, opacity: 0.35 },

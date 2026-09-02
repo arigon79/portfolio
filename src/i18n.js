@@ -5,7 +5,6 @@ export const translations = {
       experience: 'Experience',
       projects: 'Projects',
       misc: 'Misc',
-      memories: 'Memories',
       contact: 'Contact',
     },
     section: {
@@ -14,7 +13,6 @@ export const translations = {
       research: 'Research',
       projects: 'Projects',
       achievements: 'Achievements',
-      memories: 'Memory Board',
       contact: 'Contact',
     },
     resume: 'Résumé',
@@ -26,15 +24,13 @@ export const translations = {
         'I build at the intersection of software, AI, and product, with experience in full-stack development, backend APIs, computer vision, VLM research, and AI prototypes.',
         "I've joined 20+ hackathons at schools including Stanford, MIT, UPenn, and Columbia, winning 7 awards.",
       ],
-      now: {
-        label: 'Currently',
-        items: [
-          'Building Nalanda Labs as founder.',
-          'Interning as a Software Engineer at KBRA.',
-          'Researching applied AI & HCI at VILab and DIVA Lab.',
-          'Learning Japanese.',
-        ],
-      },
+      factTrigger: 'Some facts about me',
+      facts: [
+        'ENFJ-T',
+        'polymath',
+        'speak 6 languages',
+        'Things I pour my time into: swimming, taekwondo, illustration, One Piece, K-dramas, gym.',
+      ],
     },
     work: {
       status: { upcoming: 'Upcoming', active: 'Current', completed: 'Past' },
@@ -46,11 +42,6 @@ export const translations = {
       lead: (n) => `${n} awards across hackathons and scholarships.`,
       hackathons: 'Hackathons & Competitions',
       academic: 'Academic & Scholarships',
-    },
-    memories: {
-      lead: 'Snapshots, travels, hackathons, and moments along the journey.',
-      filterAll: 'All',
-      clickToZoom: 'Click to expand photo',
     },
     listening: {
       now: 'Playing now',
@@ -67,7 +58,6 @@ export const translations = {
       experience: '经历',
       projects: '项目',
       misc: '更多',
-      memories: '回忆',
       contact: '联系',
     },
     section: {
@@ -76,7 +66,6 @@ export const translations = {
       research: '研究',
       projects: '项目',
       achievements: '成就',
-      memories: '回忆画板',
       contact: '联系方式',
     },
     resume: '简历',
@@ -88,15 +77,13 @@ export const translations = {
         '我的工作专注于软件、人工智能与产品的交汇处，拥有全栈开发、后端 API、计算机视觉、视觉语言模型（VLM）研究和 AI 原型开发的经验。',
         '我参加过 20 多场黑客松，足迹遍布斯坦福、麻省理工、宾夕法尼亚大学和哥伦比亚大学等高校，共获得 7 项奖项。',
       ],
-      now: {
-        label: '目前',
-        items: [
-          '作为创始人打造 Nalanda Labs。',
-          '在 KBRA 担任软件工程实习生。',
-          '在 VILab 与 DIVA Lab 研究应用人工智能与人机交互。',
-          '正在学习日语。',
-        ],
-      },
+      factTrigger: '关于我的一些趣事',
+      facts: [
+        'ENFJ-T',
+        '跨领域学习者',
+        '会说 6 种语言',
+        '我投入时间的事：游泳、跆拳道、插画、One Piece、韩剧、健身。',
+      ],
     },
     work: {
       status: { upcoming: '即将开始', active: '进行中', completed: '已完成' },
@@ -108,11 +95,6 @@ export const translations = {
       lead: (n) => `${n} 项黑客松与奖学金奖项。`,
       hackathons: '黑客松与竞赛',
       academic: '学术与奖学金',
-    },
-    memories: {
-      lead: '旅途快照、黑客松探索与生活印记。',
-      filterAll: '全部',
-      clickToZoom: '点击查看大图',
     },
     listening: {
       now: '正在播放',
