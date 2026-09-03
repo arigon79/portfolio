@@ -36,6 +36,16 @@ function GlobeIcon() {
   );
 }
 
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" />
+      <path d="M17.5 6.5h.01" />
+    </svg>
+  );
+}
+
 function ScholarIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -51,6 +61,7 @@ const heroIconMap = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
   web: GlobeIcon,
+  instagram: InstagramIcon,
   scholar: ScholarIcon,
 };
 const TYPING_LINES = [{ key: 'cmd', text: hero.command, speed: 70 }];
@@ -63,33 +74,73 @@ const NAV_KEY_BY_HREF = {
   '#miscellaneous': 'misc',
   '#contact': 'contact',
 };
+const MISC_SUBLINKS = [
+  { key: 'blogs', href: '/blogs' },
+  { key: 'art', href: '/art' },
+];
 
 function scrollTo(href) {
   const el = document.querySelector(href);
   if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
+function scrollToWhenReady(href) {
+  let attempts = 0;
+  const tryScroll = () => {
+    if (document.querySelector(href) || attempts > 8) {
+      scrollTo(href);
+      return;
+    }
+    attempts += 1;
+    window.requestAnimationFrame(tryScroll);
+  };
+
+  window.requestAnimationFrame(tryScroll);
+}
+
+function navigateToPage(href) {
+  window.history.pushState({}, '', href);
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function navigateToHome() {
+  window.history.pushState({}, '', '/');
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export default function Hero({ dark, onToggleDark }) {
+export default function Hero({ dark, onToggleDark, navOnly = false }) {
   const { t, lang, toggleLang } = useLanguage();
   const [typed, setTyped] = useState({ cmd: '', heading: '', role: '' });
   const [typingDone, setTypingDone] = useState(false);
   const [cursorOn, setCursorOn] = useState(true);
   const [showCursor, setShowCursor] = useState(false);
-  const [navScrolled, setNavScrolled] = useState(false);
+  const [navScrolled, setNavScrolled] = useState(navOnly);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   const revealAndScrollTo = (href) => {
     setNavScrolled(true);
     setMenuOpen(false);
-    scrollTo(href);
+
+    if (document.querySelector(href)) {
+      scrollTo(href);
+      return;
+    }
+
+    window.history.pushState({}, '', `/${href}`);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    scrollToWhenReady(href);
   };
 
   useEffect(() => {
+    if (navOnly) return undefined;
+
     let cancelled = false;
 
     const typeLine = async (key, text, speed) => {
@@ -156,7 +207,7 @@ export default function Hero({ dark, onToggleDark }) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [navOnly]);
 
   useEffect(() => {
     const id = setInterval(() => setCursorOn((v) => !v), 530);
@@ -164,17 +215,27 @@ export default function Hero({ dark, onToggleDark }) {
   }, []);
 
   useEffect(() => {
+    if (navOnly) {
+      setNavScrolled(true);
+      return undefined;
+    }
+
     const check = () => setNavScrolled(window.scrollY > 24);
     check();
     window.addEventListener('scroll', check, { passive: true });
     return () => window.removeEventListener('scroll', check);
-  }, []);
+  }, [navOnly]);
 
   useEffect(() => {
     if (!navScrolled) setMenuOpen(false);
   }, [navScrolled]);
 
   useEffect(() => {
+    if (navOnly) {
+      setActiveSection('');
+      return undefined;
+    }
+
     const sectionIds = navLinks.map((l) => l.href.slice(1));
 
     const update = () => {
@@ -192,65 +253,96 @@ export default function Hero({ dark, onToggleDark }) {
     window.addEventListener('scroll', update, { passive: true });
     update();
     return () => window.removeEventListener('scroll', update);
-  }, []);
+  }, [navOnly]);
+
+  const header = (
+    <header className={`hero-nav${navScrolled ? ' is-scrolled' : ''}${menuOpen ? ' is-menu-open' : ''}`}>
+      <a href="/" className="hero-brand" onClick={(e) => { e.preventDefault(); navigateToHome(); }}>
+        <span className="hero-logo" aria-hidden="true">
+          <img src={hero.logoSrc} alt="" />
+        </span>
+      </a>
+      <button
+        className="hero-menu-toggle"
+        type="button"
+        aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-expanded={menuOpen}
+        aria-controls="hero-nav-links"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+      <div className="hero-nav-actions">
+        <nav id="hero-nav-links" className="hero-nav-links" aria-label="Primary">
+          {navLinks.map((link) => {
+            const label = t.nav[NAV_KEY_BY_HREF[link.href]] ?? link.label;
+            const isMisc = link.href === '#miscellaneous';
+            const topLink = (
+              <a
+                href={link.href}
+                className={activeSection === link.href.slice(1) ? 'is-active' : ''}
+                aria-haspopup={isMisc ? 'true' : undefined}
+                onClick={(e) => { e.preventDefault(); revealAndScrollTo(link.href); }}
+              >
+                {label}
+              </a>
+            );
+
+            if (!isMisc) {
+              return <span className="hero-nav-item" key={link.href}>{topLink}</span>;
+            }
+
+            return (
+              <span className="hero-nav-item hero-nav-item--has-menu" key={link.href}>
+                {topLink}
+                <span className="hero-nav-dropdown" role="menu" aria-label={`${label} sections`}>
+                  {MISC_SUBLINKS.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      role="menuitem"
+                      onClick={(e) => { e.preventDefault(); setMenuOpen(false); navigateToPage(item.href); }}
+                    >
+                      {t.nav.miscLinks?.[item.key] ?? item.key}
+                    </a>
+                  ))}
+                </span>
+              </span>
+            );
+          })}
+        </nav>
+        <div className="hero-toggle-group">
+          <button
+            className="hero-dark-toggle hero-lang-toggle"
+            type="button"
+            onClick={toggleLang}
+            aria-label={t.langToggle.ariaLabel}
+            lang={lang === 'en' ? 'zh' : 'en'}
+          >
+            {t.langToggle.label}
+          </button>
+          <button
+            className="hero-dark-toggle"
+            type="button"
+            onClick={onToggleDark}
+            aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {dark ? t.darkToggle.light : t.darkToggle.dark}
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+
+  if (navOnly) return header;
 
   return (
     <section className="hero" aria-label="Introduction">
       <div className="hero-bg" aria-hidden="true" />
       <div className="hero-fade" aria-hidden="true" />
-
-      <header className={`hero-nav${navScrolled ? ' is-scrolled' : ''}${menuOpen ? ' is-menu-open' : ''}`}>
-        <a href="#" className="hero-brand" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-          <span className="hero-logo" aria-hidden="true">
-            <img src={hero.logoSrc} alt="" />
-          </span>
-        </a>
-        <button
-          className="hero-menu-toggle"
-          type="button"
-          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={menuOpen}
-          aria-controls="hero-nav-links"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-        <div className="hero-nav-actions">
-          <nav id="hero-nav-links" className="hero-nav-links" aria-label="Primary">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={activeSection === link.href.slice(1) ? 'is-active' : ''}
-                onClick={(e) => { e.preventDefault(); revealAndScrollTo(link.href); }}
-              >
-                {t.nav[NAV_KEY_BY_HREF[link.href]] ?? link.label}
-              </a>
-            ))}
-          </nav>
-          <div className="hero-toggle-group">
-            <button
-              className="hero-dark-toggle hero-lang-toggle"
-              type="button"
-              onClick={toggleLang}
-              aria-label={t.langToggle.ariaLabel}
-              lang={lang === 'en' ? 'zh' : 'en'}
-            >
-              {t.langToggle.label}
-            </button>
-            <button
-              className="hero-dark-toggle"
-              type="button"
-              onClick={onToggleDark}
-              aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {dark ? t.darkToggle.light : t.darkToggle.dark}
-            </button>
-          </div>
-        </div>
-      </header>
+      {header}
 
       <div className="hero-center">
         <div className="terminal">

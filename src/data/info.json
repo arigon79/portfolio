@@ -81,11 +81,6 @@
         "href": "mailto:ac4393@drexel.edu"
       },
       {
-        "label": "Website",
-        "icon": "web",
-        "href": "https://arijichakma.com"
-      },
-      {
         "label": "Google Scholar",
         "icon": "scholar",
         "href": "https://scholar.google.com/citations?hl=en&authuser=7&user=ue5rhwoAAAAJ"
@@ -95,9 +90,10 @@
   "about": {
     "photo": "/profile_pic/profile.jpg",
     "bio": [
-      "Hi there, I'm a senior CS student at Drexel seeking 2027 full-time roles in full-stack SWE, forward deployed engineering, ML engineering, and product management.",
-      "I build at the intersection of software, AI, and product, with experience in full-stack development, backend APIs, computer vision, VLM research, and AI prototypes.",
-      "I've joined 20+ hackathons at schools including Stanford, MIT, UPenn, and Columbia, winning 7 awards."
+      "Hi there, I am Ariji or Percy. I'm a senior CS student at Drexel and an undergraduate researcher with ViLab and DIVA Lab, advised by Professor Feng Liu and Professor Tiffany D. Do, respectively.",
+      "My research sits at the intersection of generative AI, including diffusion models, LLMs, and VLMs, and human-computer interaction. I am especially interested in how agentic systems can be grounded in spatial, pedagogical, robotic, and digital AR/VR contexts.",
+      "I am also a long-time developer with experience across full-stack engineering, forward deployed engineering, AI/LLM engineering, and product engineering. I have participated in 20+ hackathons at universities including MIT, Stanford, Princeton, and others, winning 7+ awards so far.",
+      "I am always trying to live a meaningful, happy, and productive life, and I am always looking to make new friends. Feel free to reach out through any of the links here."
     ],
     "spotifyEmbed": ""
   },
@@ -428,6 +424,11 @@
         "label": "LinkedIn",
         "icon": "linkedin",
         "href": "https://www.linkedin.com/in/arijichakma/"
+      },
+      {
+        "label": "Instagram",
+        "icon": "instagram",
+        "href": "https://www.instagram.com/arigonn79/"
       },
       {
         "label": "X",
