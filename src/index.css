@@ -247,11 +247,22 @@
     .bio .muted { color: var(--muted); }
 
     .bio a {
-      color: var(--muted);
-      text-decoration: none;
+      color: var(--teal);
+      font-weight: 650;
+      text-decoration-line: underline;
+      text-decoration-color: color-mix(in oklab, var(--teal) 46%, transparent);
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease, text-decoration-color 0.15s ease, background 0.15s ease;
     }
 
-    .bio a:hover { color: var(--text); }
+    .bio a:hover,
+    .bio a:focus-visible {
+      color: var(--accent-2);
+      text-decoration-color: currentColor;
+      background: color-mix(in oklab, var(--accent) 16%, transparent);
+      outline: none;
+    }
 
     /* ── Sections ── */
     section { margin-bottom: 56px; }
@@ -3042,6 +3053,12 @@
       flex-wrap: wrap;
     }
 
+    .hero-nav-item {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
     .hero-nav-links a {
       display: inline-flex;
       align-items: center;
@@ -3054,6 +3071,51 @@
       background: transparent;
       transition: color 0.15s, opacity 0.15s;
       position: relative;
+    }
+
+    .hero-nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      min-width: 152px;
+      padding: 14px 8px 8px;
+      border: 1px solid color-mix(in oklab, var(--border) 78%, transparent);
+      border-radius: 12px;
+      background:
+        linear-gradient(135deg, color-mix(in oklab, var(--surface) 92%, transparent), color-mix(in oklab, var(--bg-2) 82%, transparent)),
+        radial-gradient(circle at 20% 0%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 44%);
+      backdrop-filter: blur(16px) saturate(1.22);
+      -webkit-backdrop-filter: blur(16px) saturate(1.22);
+      box-shadow: 0 18px 44px -28px oklch(0.1 0.04 150 / 0.78);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -4px);
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+
+    .hero-nav-item--has-menu:hover .hero-nav-dropdown,
+    .hero-nav-item--has-menu:focus-within .hero-nav-dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+    }
+
+    .hero-nav-dropdown a,
+    .hero-nav.is-scrolled .hero-nav-dropdown a {
+      width: 100%;
+      justify-content: flex-start;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      text-shadow: none;
+      white-space: nowrap;
+    }
+
+    .hero-nav-dropdown a:hover,
+    .hero-nav.is-scrolled .hero-nav-dropdown a:hover {
+      background: color-mix(in oklab, var(--accent) 14%, var(--surface));
+      color: var(--text);
     }
 
     body.dark .hero-nav-links a {
@@ -3634,7 +3696,7 @@
 
       .hero-nav-actions {
         position: absolute;
-        top: calc(100% + 8px);
+        top: 100%;
         right: 18px;
         width: min(240px, calc(100vw - 36px));
         margin-left: 0;
@@ -3642,7 +3704,7 @@
         flex-direction: column;
         align-items: stretch;
         gap: 10px;
-        padding: 10px;
+        padding: 18px 10px 10px;
         opacity: 0;
         pointer-events: none;
         transform: translateY(-6px);
@@ -3676,6 +3738,12 @@
         gap: 2px;
       }
 
+      .hero-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
       .hero-nav-links a,
       .hero-nav.is-scrolled .hero-nav-links a {
         width: 100%;
@@ -3684,6 +3752,32 @@
         border-radius: 8px;
         color: var(--text);
         text-shadow: none;
+      }
+
+      .hero-nav-dropdown {
+        position: static;
+        min-width: 0;
+        padding: 4px 0 4px 12px;
+        border: 0;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+      }
+
+      .hero-nav-item--has-menu:hover .hero-nav-dropdown,
+      .hero-nav-item--has-menu:focus-within .hero-nav-dropdown {
+        transform: none;
+      }
+
+      .hero-nav-dropdown a,
+      .hero-nav.is-scrolled .hero-nav-dropdown a {
+        padding: 7px 10px;
+        font-size: 12.5px;
+        color: var(--muted);
       }
 
       .hero-nav-links a.is-active::after {
@@ -4343,6 +4437,91 @@
     }
 
     /* ── Achievements & Awards (Translucent & Sleek) ── */
+    .standalone-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 96px;
+    }
+
+    .coming-soon {
+      background: color-mix(in oklab, var(--surface) 78%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid color-mix(in oklab, var(--border) 82%, transparent);
+      box-shadow: var(--shadow);
+    }
+
+    .coming-soon {
+      margin: 0;
+      width: 100%;
+      max-width: 860px;
+      min-height: 320px;
+      border-radius: 18px;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .standalone-page .coming-soon {
+      opacity: 1;
+      transform: none;
+    }
+
+    .coming-soon h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+      color: var(--text);
+      margin: 0 0 24px;
+    }
+
+    .coming-soon-back {
+      width: fit-content;
+      color: var(--teal);
+      font-weight: 700;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
+    }
+
+    .misc-hub {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .misc-card {
+      scroll-margin-top: 92px;
+      padding: 14px 16px;
+      background: color-mix(in oklab, var(--surface) 72%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+    .misc-card-kicker {
+      display: block;
+      margin-bottom: 6px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--subtle);
+    }
+    .misc-card-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+      color: var(--text);
+    }
     .ach-lead { font-size: 13.5px; color: var(--muted); margin: 0 0 18px; }
     .ach-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
     .ach-col-heading {
@@ -4548,6 +4727,11 @@
     @media (max-width: 560px) {
       .job { flex-direction: column; align-items: flex-start; }
       .job-top { width: 100%; }
+      .standalone-page {
+        justify-content: flex-start;
+        padding-top: 112px;
+      }
+      .misc-hub { grid-template-columns: 1fr; gap: 10px; }
       .ach-columns { grid-template-columns: 1fr; gap: 20px; }
     }
 
@@ -4774,29 +4958,331 @@
     }
 
     /* ══════════════════════════════════════════════════
-       Big screens (≥ 1280px) — use the gutters, keep the
-       reading measure (and the work timeline) as-is
+       Big screens (>= 1280px) - scale the portfolio for monitors
        ══════════════════════════════════════════════════ */
     @media (min-width: 1280px) {
-      .hero-center { width: min(1040px, 92vw); }
-      .terminal { max-width: 1040px; }
+      body {
+        font-size: 16px;
+      }
+
+      .page {
+        max-width: 900px;
+        padding: 96px 32px 108px;
+      }
+
+      .page-content {
+        padding-top: 64px;
+      }
+
+      section,
+      #about {
+        margin-bottom: 76px;
+      }
+
+      .section-label {
+        gap: 11px;
+        font-size: 11.5px;
+        margin-bottom: 24px;
+      }
+
+      .section-label::before {
+        width: 22px;
+      }
+
+      .hero-center {
+        width: min(1100px, 92vw);
+        padding: 128px 32px 116px;
+      }
+
+      .terminal {
+        max-width: 1100px;
+      }
+
+      .terminal-body {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.76fr);
+        min-height: 440px;
+      }
+
+      .terminal-heading {
+        font-size: clamp(3rem, 5.4cqi, 4.15rem);
+      }
+
+      .terminal-role {
+        font-size: clamp(1.05rem, 1.55cqi, 1.25rem);
+      }
+
+      .terminal-line--cmd {
+        font-size: clamp(0.88rem, 1.2cqi, 1rem);
+      }
+
+      .terminal-portrait img {
+        width: min(20vw, 280px);
+        max-height: 280px;
+      }
+
+      .about-main {
+        grid-template-columns: 340px 1fr;
+        gap: 56px;
+      }
+
+      .about-frame--static {
+        width: 320px;
+      }
+
+      .sp-card {
+        width: 280px;
+        padding: 14px;
+      }
+
+      .sp-art {
+        width: 54px;
+        height: 54px;
+      }
+
+      .sp-title { font-size: 14px; }
+      .sp-artist { font-size: 13px; }
+
+      .bio {
+        max-width: 700px;
+        font-size: 17.5px;
+        line-height: 1.78;
+      }
+
+      .about-facts-trigger {
+        font-size: 13px;
+      }
+
+      .about-facts-item {
+        font-size: 15.5px;
+      }
+
+      .job-timeline {
+        gap: 8px;
+      }
+
+      .job-row {
+        gap: 20px;
+      }
+
+      .job {
+        gap: 22px;
+        padding: 24px 28px;
+        margin-bottom: 20px;
+        border-radius: 18px;
+      }
+
+      .job-code {
+        width: 58px;
+        height: 58px;
+        font-size: 14px;
+      }
+
+      .job-company { font-size: 19px; }
+      .job-role { font-size: 15.5px; }
+      .job-meta { font-size: 13.5px; }
+      .job-skill-tag { font-size: 12px; padding: 3px 10px; }
+      .job-link { font-size: 12.5px; padding: 5px 12px; }
+      .job-badge { font-size: 11.5px; padding: 5px 12px; }
+
+      .pub-list {
+        gap: 22px;
+      }
+
+      .pub-row {
+        grid-template-columns: 220px 1fr;
+        gap: 28px;
+        padding: 24px 28px;
+        border-radius: 18px;
+      }
+
+      .pub-title { font-size: 18px; }
+      .pub-authors { font-size: 14.5px; }
+      .pub-venue { font-size: 13.5px; }
+      .pub-desc { font-size: 14.5px; }
+      .pub-pill { font-size: 12.5px; padding: 4px 12px; }
+
+      .proj-filters {
+        gap: 10px;
+        margin-bottom: 36px;
+      }
+
+      .proj-filter {
+        font-size: 13.5px;
+        padding: 9px 18px;
+      }
 
       /* Projects break out of the 740px column into 3 columns */
       .proj-polaroid-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 46px 30px;
-        width: min(86vw, 1120px);
-        margin-left: calc(50% - min(43vw, 560px));
-        margin-right: calc(50% - min(43vw, 560px));
+        gap: 52px 36px;
+        width: min(86vw, 1240px);
+        margin-left: calc(50% - min(43vw, 620px));
+        margin-right: calc(50% - min(43vw, 620px));
       }
 
-      .ach-columns { gap: 30px; }
+      .proj-polaroid-card {
+        padding: 18px 18px 22px;
+      }
+
+      .proj-card-footer {
+        padding-top: 18px;
+        gap: 8px;
+      }
+
+      .proj-sharpie-title { font-size: 25px; }
+      .proj-polaroid-desc { font-size: 14px; }
+      .proj-polaroid-tag { font-size: 11.5px; padding: 3px 9px; }
+
+      .ach-lead {
+        font-size: 15px;
+        margin-bottom: 24px;
+      }
+
+      .coming-soon {
+        max-width: 980px;
+        min-height: 420px;
+        padding: 56px;
+      }
+
+      .misc-hub {
+        gap: 16px;
+        margin-bottom: 30px;
+      }
+
+      .misc-card {
+        padding: 18px 20px;
+        border-radius: 18px;
+      }
+
+      .misc-card-kicker { font-size: 11px; }
+      .misc-card-title { font-size: 22px; }
+
+      .ach-columns { gap: 32px; }
+      .ach-col-heading { font-size: 13px; margin-bottom: 18px; }
+      .ach-list { gap: 16px; }
+
+      .ach {
+        gap: 18px;
+        padding: 18px 20px;
+        border-radius: 18px;
+      }
+
+      .ach-medal {
+        width: 52px;
+        height: 52px;
+      }
+
+      .ach-medal svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .ach-title { font-size: 15.5px; }
+      .ach-sub { font-size: 13px; }
+      .ach-org-tag { font-size: 11px; padding: 2px 7px; }
+      .ach-year { font-size: 11.5px; padding: 2px 8px; }
+
+      .contact-card {
+        grid-template-columns: 1fr 260px;
+        gap: 42px;
+        padding: 40px 36px;
+        border-radius: 18px;
+      }
+
+      .contact-heading { font-size: 30px; }
+      .contact-sub { font-size: 15px; }
+      .contact-link-row { font-size: 14px; padding: 11px 14px; }
+      .contact-link-icon { width: 34px; height: 34px; }
+      .contact-link-icon svg { width: 16px; height: 16px; }
+      .footer-copy { font-size: 13.5px; }
+
       .pixel-critter { opacity: 0.85; }
     }
 
     @media (min-width: 1600px) {
-      .hero-center { width: min(1180px, 88vw); }
-      .terminal { max-width: 1180px; }
+      body {
+        font-size: 17px;
+      }
+
+      .page {
+        max-width: 1060px;
+        padding-top: 116px;
+        padding-bottom: 132px;
+      }
+
+      .page-content {
+        padding-top: 78px;
+      }
+
+      section,
+      #about {
+        margin-bottom: 92px;
+      }
+
+      .hero-center {
+        width: min(1240px, 88vw);
+        padding: 144px 36px 132px;
+      }
+
+      .terminal {
+        max-width: 1240px;
+      }
+
+      .terminal-body {
+        min-height: 500px;
+      }
+
+      .terminal-heading {
+        font-size: clamp(3.5rem, 5.2cqi, 4.75rem);
+      }
+
+      .terminal-role {
+        font-size: clamp(1.18rem, 1.5cqi, 1.4rem);
+      }
+
+      .terminal-portrait img {
+        width: min(19vw, 320px);
+        max-height: 320px;
+      }
+
+      .about-main {
+        grid-template-columns: 380px 1fr;
+        gap: 68px;
+      }
+
+      .about-frame--static {
+        width: 360px;
+      }
+
+      .sp-card {
+        width: 310px;
+      }
+
+      .bio {
+        max-width: 780px;
+        font-size: 18.5px;
+      }
+
+      .job {
+        padding: 28px 32px;
+      }
+
+      .job-code {
+        width: 64px;
+        height: 64px;
+      }
+
+      .job-company { font-size: 20.5px; }
+      .job-role { font-size: 16.5px; }
+      .job-meta { font-size: 14px; }
+
+      .pub-row {
+        grid-template-columns: 250px 1fr;
+        padding: 28px 32px;
+      }
+
+      .pub-title { font-size: 19.5px; }
+      .pub-desc { font-size: 15.5px; }
 
       .proj-polaroid-grid {
         width: min(80vw, 1320px);
@@ -4804,4 +5290,37 @@
         margin-right: calc(50% - min(40vw, 660px));
         gap: 52px 36px;
       }
+
+      .proj-sharpie-title { font-size: 27px; }
+      .proj-polaroid-desc { font-size: 14.5px; }
+
+      .coming-soon {
+        max-width: 1100px;
+        min-height: 500px;
+        padding: 68px;
+      }
+
+      .misc-hub {
+        gap: 20px;
+        margin-bottom: 36px;
+      }
+
+      .misc-card {
+        padding: 22px 24px;
+      }
+
+      .misc-card-title { font-size: 24px; }
+
+      .ach-columns { gap: 38px; }
+      .ach { padding: 20px 22px; }
+      .ach-title { font-size: 16.5px; }
+      .ach-sub { font-size: 13.5px; }
+
+      .contact-card {
+        grid-template-columns: 1fr 300px;
+        padding: 46px 42px;
+      }
+
+      .contact-heading { font-size: 34px; }
+      .contact-sub { font-size: 16px; }
     }

@@ -4,6 +4,31 @@ import Spotify from './Spotify';
 import { useLanguage } from '../context/LanguageContext';
 
 const SPOTIFY_EMBED = info.about.spotifyEmbed;
+const LINKED_TEXT_RE = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
+
+function renderLinkedText(text) {
+  const nodes = [];
+  let lastIndex = 0;
+
+  for (const match of text.matchAll(LINKED_TEXT_RE)) {
+    if (match.index > lastIndex) {
+      nodes.push(text.slice(lastIndex, match.index));
+    }
+
+    nodes.push(
+      <a key={`${match[1]}-${match.index}`} href={match[2]} target="_blank" rel="noopener noreferrer">
+        {match[1]}
+      </a>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex));
+  }
+
+  return nodes;
+}
 
 export default function About() {
   const { t } = useLanguage();
@@ -35,8 +60,8 @@ export default function About() {
         <div className="about-text-col">
           <div className="section-label">{t.section.about}</div>
           <div className="bio">
-            {t.about.bio.map((line) => (
-              <p key={line}>{line}</p>
+            {t.about.bio.map((line, idx) => (
+              <p key={`${idx}-${line}`}>{renderLinkedText(line)}</p>
             ))}
           </div>
 

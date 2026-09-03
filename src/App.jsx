@@ -11,9 +11,45 @@ import PixelCritters from './components/PixelCritters';
 import info from './data/info.json';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
+const ROUTE_PAGES = {
+  '/blogs': { key: 'blogs' },
+  '/art': { key: 'art' },
+};
+
+function routePath() {
+  return window.location.pathname.replace(/\/$/, '') || '/';
+}
+
+function navigateHome(event) {
+  event.preventDefault();
+  window.history.pushState({}, '', '/');
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function ComingSoonPage({ page, dark, onToggleDark }) {
+  const { t } = useLanguage();
+
+  return (
+    <div className="portfolio-app-root">
+      <PixelBackground dark={dark} />
+      <PixelDrexelDragon />
+      <PixelCritters />
+      <Hero dark={dark} onToggleDark={onToggleDark} navOnly />
+      <main className="page standalone-page">
+        <section className="coming-soon" aria-labelledby="coming-soon-title">
+          <div className="section-label">{t.nav.miscLinks[page.key]}</div>
+          <h1 id="coming-soon-title">{t.misc.comingSoon}</h1>
+          <a className="coming-soon-back" href="/" onClick={navigateHome}>{t.misc.backHome}</a>
+        </section>
+      </main>
+    </div>
+  );
+}
 
 function AppContent() {
   const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark');
+  const [path, setPath] = useState(routePath);
   const { awards, profile } = info;
   const { t } = useLanguage();
 
@@ -23,6 +59,14 @@ function AppContent() {
   }, [dark]);
 
   useEffect(() => {
+    const onRouteChange = () => setPath(routePath());
+    window.addEventListener('popstate', onRouteChange);
+    return () => window.removeEventListener('popstate', onRouteChange);
+  }, []);
+
+  useEffect(() => {
+    if (path !== '/') return undefined;
+
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -50,7 +94,12 @@ function AppContent() {
     document.querySelectorAll('.bp-pass').forEach((el) => cardObserver.observe(el));
 
     return () => { sectionObserver.disconnect(); cardObserver.disconnect(); };
-  }, []);
+  }, [path]);
+
+  const routePage = ROUTE_PAGES[path];
+  if (routePage) {
+    return <ComingSoonPage page={routePage} dark={dark} onToggleDark={() => setDark((d) => !d)} />;
+  }
 
   return (
     <div className="portfolio-app-root">
