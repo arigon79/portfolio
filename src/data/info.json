@@ -212,64 +212,130 @@
       }
     ]
   },
-  "publication": {
-    "archive": "AIED",
-    "year": "2026",
-    "venue": "International Conference on Artificial Intelligence in Education",
-    "status": "In proceedings",
-    "image": "/assets/projects/drawsim.jpg",
-    "tags": [
-      "Applied AI",
-      "HCI",
-      "Multimodal LLMs",
-      "Science Education"
-    ],
-    "title": "DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning",
-    "authors": [
-      {
-        "name": "A. Chakma",
-        "isMe": true
-      },
-      {
-        "name": "P. He"
-      },
-      {
-        "name": "Z. Wang"
-      },
-      {
-        "name": "H. Liu"
-      },
-      {
-        "name": "T. Li"
-      },
-      {
-        "name": "T. D. Do"
-      },
-      {
-        "name": "F. Liu"
-      }
-    ],
-    "abstract": "A generative framework that simulates student-like science drawings, reasoning narratives, and diagnostic concept maps with realistic misconceptions to help K-12 teachers practice and improve their diagnostic reasoning skills.",
-    "highlights": [
-      "Simulates 10,000+ multimodal student science drawings across 100 NGSS curriculum standards.",
-      "Synthesizes first-person student reasoning narratives and diagnostic concept maps.",
-      "Designed & evaluated to calibrate K-12 educator visual diagnostic reasoning."
-    ],
-    "bibtex": "@inproceedings{chakma2026drawsim,\n  title={DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning},\n  author={Chakma, Arijit and He, Peng and Wang, Zeyuan and Liu, Honglu and Li, Tingting and Do, Tiffany D and Liu, Feng},\n  booktitle={In Proceedings of International Conference on AI in Education (AIED)},\n  year={2026}\n}",
-    "actions": [
-      {
-        "label": "Read Paper",
-        "href": "https://arxiv.org/abs/2602.01578",
-        "primary": true,
-        "icon": "pdf"
-      },
-      {
-        "label": "Project Page",
-        "href": "https://vilab-group.com/project/drawsim-pd/",
-        "icon": "web"
-      }
-    ]
-  },
+  "publications": [
+    {
+      "year": "2027",
+      "venue": "Research manuscript",
+      "status": "Under review",
+      "image": "/papers/Happo/teaser.png",
+      "imageFit": "contain",
+      "tags": [
+        "HCI",
+        "Mixed Reality",
+        "Pseudo-Haptics"
+      ],
+      "title": "Hand Outline Color Modulates Perceived Effort while Lifting Real-World Objects in Mixed Reality",
+      "authors": [
+        {
+          "name": "O. A. Khan"
+        },
+        {
+          "name": "N. Gomez"
+        },
+        {
+          "name": "A. Chakma",
+          "isMe": true
+        },
+        {
+          "name": "T. D. Do"
+        }
+      ],
+      "abstract": "A mixed reality study with 30 participants investigating how hand outline color and thickness influence perceived weight and lifting effort. Red outlines increased perceived effort compared with gray outlines, while perceived weight remained unchanged and thickness had no reliable effect.",
+      "actions": [
+        {
+          "label": "Read Paper",
+          "href": "/papers/Happo/HaPPO.pdf",
+          "primary": true,
+          "icon": "pdf"
+        }
+      ]
+    },
+    {
+      "year": "2027",
+      "venue": "Research manuscript",
+      "status": "Under review",
+      "image": "/papers/ICLR/fig_setup.png",
+      "imageFit": "contain",
+      "tags": [
+        "Generative AI",
+        "Representation Probing",
+        "Image Generation"
+      ],
+      "title": "Relational Probes Can Be Right for the Wrong Reasons: Identifying Their Evidence in Image Generators",
+      "authors": [
+        {
+          "name": "Anonymous authors"
+        }
+      ],
+      "abstract": "A controlled study of relational probing in Qwen-Image and Stable Diffusion 3.5 that separates genuine relational evidence from endpoint identity, global structure, and estimator artifacts. The work introduces nuisance-controlled stimuli, empirical nulls, and graded access interventions to identify what information supports a probe's predictions.",
+      "actions": [
+        {
+          "label": "Read Paper",
+          "href": "/papers/ICLR/Relational_Probes_Can_Be_Right_for_the_Wrong_Reasons__Identifying_Their_Evidence_in_Image_Generators.pdf",
+          "primary": true,
+          "icon": "pdf"
+        }
+      ]
+    },
+    {
+      "archive": "AIED",
+      "year": "2026",
+      "venue": "International Conference on Artificial Intelligence in Education",
+      "status": "In proceedings",
+      "image": "/assets/projects/drawsim.jpg",
+      "tags": [
+        "Applied AI",
+        "HCI",
+        "Multimodal LLMs",
+        "Science Education"
+      ],
+      "title": "DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning",
+      "authors": [
+        {
+          "name": "A. Chakma",
+          "isMe": true
+        },
+        {
+          "name": "P. He"
+        },
+        {
+          "name": "Z. Wang"
+        },
+        {
+          "name": "H. Liu"
+        },
+        {
+          "name": "T. Li"
+        },
+        {
+          "name": "T. D. Do"
+        },
+        {
+          "name": "F. Liu"
+        }
+      ],
+      "abstract": "A generative framework that simulates student-like science drawings, reasoning narratives, and diagnostic concept maps with realistic misconceptions to help K-12 teachers practice and improve their diagnostic reasoning skills.",
+      "highlights": [
+        "Simulates 10,000+ multimodal student science drawings across 100 NGSS curriculum standards.",
+        "Synthesizes first-person student reasoning narratives and diagnostic concept maps.",
+        "Designed & evaluated to calibrate K-12 educator visual diagnostic reasoning."
+      ],
+      "bibtex": "@inproceedings{chakma2026drawsim,\n  title={DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning},\n  author={Chakma, Arijit and He, Peng and Wang, Zeyuan and Liu, Honglu and Li, Tingting and Do, Tiffany D and Liu, Feng},\n  booktitle={In Proceedings of International Conference on AI in Education (AIED)},\n  year={2026}\n}",
+      "actions": [
+        {
+          "label": "Read Paper",
+          "href": "https://arxiv.org/abs/2602.01578",
+          "primary": true,
+          "icon": "pdf"
+        },
+        {
+          "label": "Project Page",
+          "href": "https://vilab-group.com/project/drawsim-pd/",
+          "icon": "web"
+        }
+      ]
+    }
+  ],
   "projects": [
     {
       "id": "phillynet-nexus",
