@@ -30,13 +30,17 @@ function PublicationRow({ publication }) {
 
       <div className="pub-content">
         <h3 className="pub-title">
-          <a
-            href={publication.actions?.[0]?.href || '#'}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {publication.title}
-          </a>
+          {publication.actions?.[0]?.href ? (
+            <a
+              href={publication.actions[0].href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {publication.title}
+            </a>
+          ) : (
+            publication.title
+          )}
         </h3>
 
         <p className="pub-authors">
@@ -61,7 +65,7 @@ function PublicationRow({ publication }) {
         <p className="pub-desc">{publication.abstract}</p>
 
         <div className="pub-links">
-          {publication.actions.map((action) => (
+          {publication.actions?.map((action) => (
             <a
               key={action.href}
               className="pub-pill"

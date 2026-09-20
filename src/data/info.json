@@ -241,14 +241,7 @@
         }
       ],
       "abstract": "A mixed reality study with 30 participants investigating how hand outline color and thickness influence perceived weight and lifting effort. Red outlines increased perceived effort compared with gray outlines, while perceived weight remained unchanged and thickness had no reliable effect.",
-      "actions": [
-        {
-          "label": "Read Paper",
-          "href": "/papers/Happo/HaPPO.pdf",
-          "primary": true,
-          "icon": "pdf"
-        }
-      ]
+      "actions": []
     },
     {
       "year": "2027",
@@ -268,14 +261,7 @@
         }
       ],
       "abstract": "A controlled study of relational probing in Qwen-Image and Stable Diffusion 3.5 that separates genuine relational evidence from endpoint identity, global structure, and estimator artifacts. The work introduces nuisance-controlled stimuli, empirical nulls, and graded access interventions to identify what information supports a probe's predictions.",
-      "actions": [
-        {
-          "label": "Read Paper",
-          "href": "/papers/ICLR/Relational_Probes_Can_Be_Right_for_the_Wrong_Reasons__Identifying_Their_Evidence_in_Image_Generators.pdf",
-          "primary": true,
-          "icon": "pdf"
-        }
-      ]
+      "actions": []
     },
     {
       "archive": "AIED",

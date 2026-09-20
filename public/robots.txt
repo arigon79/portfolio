@@ -1,0 +1,4 @@
+# Papers under review are not served from this domain.
+# Kept as a crawl guard in case anything lands under /papers/ again.
+User-agent: *
+Disallow: /papers/
