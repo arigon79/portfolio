@@ -1,8 +1,44 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import info from '../data/info.json';
 import { useLanguage } from '../context/LanguageContext';
 
 const WORK = info.work.items;
+
+function JobDetails({ description, courses, company, dates, labels }) {
+  const [expanded, setExpanded] = useState(false);
+  const descriptionId = useId();
+
+  return (
+    <div className="job-details">
+      <button
+        className="job-link job-toggle"
+        type="button"
+        aria-expanded={expanded}
+        aria-controls={descriptionId}
+        aria-label={`${expanded ? labels.showLess : labels.showMore}: ${company}, ${dates}`}
+        onClick={() => setExpanded((value) => !value)}
+      >
+        {expanded ? labels.showLess : labels.showMore}
+        <span aria-hidden="true">{expanded ? '−' : '+'}</span>
+      </button>
+      <div className="job-description" id={descriptionId} hidden={!expanded}>
+        {Array.isArray(description) ? description.map((section) => (
+          <p key={section.label}>
+            <strong>{section.label}:</strong> {section.text}{' '}
+            <a href={section.advisor.href} target="_blank" rel="noopener noreferrer">
+              {section.advisor.name}
+            </a>.
+          </p>
+        )) : <p>{description}</p>}
+        {courses && (
+          <ul className="job-courses">
+            {courses.map((course) => <li key={course}>{course}</li>)}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
 
 function JobLogo({ w }) {
   const [failed, setFailed] = useState(false);
@@ -33,25 +69,25 @@ export default function Work() {
 
       <div className="job-timeline">
         {WORK.map((w) => {
-          const Tag = w.href ? 'a' : 'div';
           return (
-            <div className="job-row" key={w.company} style={{ '--job-color': w.color }}>
+            <div className="job-row" key={`${w.company}-${w.dates}`} style={{ '--job-color': w.color }}>
               <div className="job-rail" aria-hidden="true">
                 <span className="job-dot" />
                 <span className="job-line" />
               </div>
 
-              <Tag
-                className="job"
-                href={w.href}
-                target={w.href ? '_blank' : undefined}
-                rel={w.href ? 'noopener noreferrer' : undefined}
-              >
+              <article className="job">
                 <JobLogo w={w} />
 
                 <div className="job-info">
                   <div className="job-top">
-                    <h3 className="job-company">{w.company}</h3>
+                    <h3 className="job-company">
+                      {w.href ? (
+                        <a className="job-company-link" href={w.href} target="_blank" rel="noopener noreferrer">
+                          {w.company} <span className="job-arrow" aria-hidden="true">↗</span>
+                        </a>
+                      ) : w.company}
+                    </h3>
                     <span className={`job-badge job-badge--${w.status}`}>
                       {w.status === 'active' && <span className="job-badge-dot" />}
                       {STATUS[w.status] ?? 'Past'}
@@ -59,14 +95,6 @@ export default function Work() {
                   </div>
                   <p className="job-role">{w.role}</p>
                   <p className="job-meta">{w.dates} · {w.location}</p>
-
-                  {w.skills && (
-                    <div className="job-skills">
-                      {w.skills.map((s) => (
-                        <span key={s} className="job-skill-tag">{s}</span>
-                      ))}
-                    </div>
-                  )}
 
                   {w.links && (
                     <div className="job-links">
@@ -84,10 +112,17 @@ export default function Work() {
                       ))}
                     </div>
                   )}
+                  {w.description && (
+                    <JobDetails
+                      description={w.description}
+                      courses={w.courses}
+                      company={w.company}
+                      dates={w.dates}
+                      labels={t.work}
+                    />
+                  )}
                 </div>
-
-                {w.href && <span className="job-arrow" aria-hidden="true">↗</span>}
-              </Tag>
+              </article>
             </div>
           );
         })}

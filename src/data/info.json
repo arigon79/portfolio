@@ -107,38 +107,6 @@
     },
     "items": [
       {
-        "company": "Nalanda Labs",
-        "role": "Founder",
-        "dates": "Aug 2026 – Present",
-        "code": "NAL",
-        "location": "Philadelphia, PA",
-        "href": "https://github.com/Nalanda-AI",
-        "logo": "/work_logos/nalanda-mark-1024.png",
-        "status": "active",
-        "color": "oklch(0.68 0.15 220)",
-        "skills": [
-          "Founding",
-          "Applied AI",
-          "Agentic Systems"
-        ]
-      },
-      {
-        "company": "KBRA",
-        "role": "Software Engineer Intern",
-        "dates": "Apr 2026 – Sep 2026",
-        "code": "KBR",
-        "location": "New York, NY",
-        "href": "https://www.kbra.com/",
-        "logo": "/work_logos/kbra.png",
-        "status": "active",
-        "color": "oklch(0.72 0.14 55)",
-        "skills": [
-          "Software Engineering",
-          "Full-Stack",
-          "Financial Tech"
-        ]
-      },
-      {
         "company": "VILab & DIVA Lab",
         "role": "Undergraduate Researcher",
         "dates": "Apr 2025 – Present",
@@ -147,6 +115,24 @@
         "logo": "/work_logos/drexel_logo.png",
         "status": "active",
         "color": "oklch(0.72 0.095 205)",
+        "description": [
+          {
+            "label": "ViLab",
+            "text": "Working on computer vision, multimodal and generative AI, and AI in education, advised by",
+            "advisor": {
+              "name": "Feng Liu",
+              "href": "https://liufeng2915.github.io/"
+            }
+          },
+          {
+            "label": "DIVA Lab",
+            "text": "Working on augmented and virtual reality (AR/VR) and human-computer interaction (HCI), advised by",
+            "advisor": {
+              "name": "Dr. Tiffany D. Do",
+              "href": "https://zyrcant.github.io/"
+            }
+          }
+        ],
         "skills": [
           "Generative AI",
           "HCI",
@@ -164,18 +150,59 @@
         ]
       },
       {
-        "company": "Drexel CCI",
+        "company": "Nalanda Labs",
+        "role": "Founder",
+        "dates": "Aug 2026 – Present",
+        "code": "NAL",
+        "location": "Philadelphia, PA",
+        "href": "https://github.com/Nalanda-AI",
+        "logo": "/work_logos/nalanda-mark-1024.png",
+        "status": "active",
+        "color": "oklch(0.68 0.15 220)",
+        "description": "Shipping open-source AI tools for academic and industry researchers.",
+        "skills": [
+          "Founding",
+          "Applied AI",
+          "Agentic Systems"
+        ]
+      },
+      {
+        "company": "Drexel SCIS",
         "role": "Teaching Assistant",
-        "dates": "Sep 2025 – Mar 2026",
-        "code": "CCI",
+        "dates": "Sep 2025 – Mar 2026; Sep 2026 – Present",
+        "code": "SCIS",
         "location": "Drexel",
         "logo": "/work_logos/drexel_logo.png",
-        "status": "completed",
+        "status": "active",
         "color": "oklch(0.65 0.14 145)",
+        "description": "Teaching assistant for the following courses:",
+        "courses": [
+          "CS281: Systems Architecture (Fall 2026)",
+          "CS164: Introduction to Computer Science (Fall 2026)",
+          "CS383: Machine Learning (Winter 2025)",
+          "CS380: Introduction to Artificial Intelligence (Fall 2025)"
+        ],
         "skills": [
           "Algorithms",
           "Data Structures",
           "Mentorship"
+        ]
+      },
+      {
+        "company": "KBRA",
+        "role": "Software Engineer Intern",
+        "dates": "Apr 2026 – Sep 2026",
+        "code": "KBR",
+        "location": "New York, NY",
+        "href": "https://www.kbra.com/",
+        "logo": "/work_logos/kbra.png",
+        "status": "completed",
+        "color": "oklch(0.72 0.14 55)",
+        "description": "Worked on both the legacy and new versions of Direct Lending Deals (DLD), a proprietary data, news, and research platform for private credit. Focused on full-stack development with C#, ASP.NET, Next.js, and TypeScript.",
+        "skills": [
+          "Software Engineering",
+          "Full-Stack",
+          "Financial Tech"
         ]
       },
       {
@@ -188,6 +215,7 @@
         "logo": "/work_logos/bms_logo.png",
         "status": "completed",
         "color": "oklch(0.68 0.18 25)",
+        "description": "Worked on the Cloud and AI team, automating business workflows with AWS Step Functions, Lambda, CloudFormation (CFT), DynamoDB, Glue Crawler, and API Gateway, alongside Python and React.",
         "skills": [
           "Cloud Infrastructure",
           "APIs",
@@ -204,6 +232,7 @@
         "logo": "/work_logos/dfg.png",
         "status": "completed",
         "color": "oklch(0.72 0.14 295)",
+        "description": "Volunteered as a software engineer for Change4Arts, a New York City nonprofit focused on promoting local arts events and arts education. Built with React, JavaScript, TypeScript, and Firebase.",
         "skills": [
           "Non-Profit Tech",
           "Web Applications",
@@ -214,7 +243,38 @@
   },
   "publications": [
     {
-      "year": "2027",
+      "year": "2026",
+      "venue": "Research manuscript",
+      "status": "Under review",
+      "image": "/papers/ICLR/fig_setup.png",
+      "imageFit": "contain",
+      "tags": [
+        "Generative AI",
+        "Representation Probing",
+        "Image Generation"
+      ],
+      "title": "Encoded Where It Is Drawn, Absent Where It Is Read: Relational Evidence in Scientific Diagrams",
+      "authors": [
+        {
+          "name": "A. Chakma",
+          "isMe": true
+        },
+        {
+          "name": "F. Liu"
+        }
+      ],
+      "abstract": "We study how Qwen-Image and Stable Diffusion 3.5 encode arrow relations across seven scientific systems. Under controlled edits, a Qwen-Image probe reaches 99.6% accuracy on held-out systems, yet redraws and targeted attention blocking reveal dependence on specific visual evidence. Other settings show strong local direction signals but weak target readouts, while multi-arrow readouts often favor one arrow. Accurate decoding alone cannot establish which evidence supports a prediction or whether all relevant arrows contribute.",
+      "actions": [
+        {
+          "label": "Read Paper",
+          "href": "https://drive.google.com/drive/folders/1oDsz0JCy__vZCY1JXe0gZHaK9gVy4_yw?usp=sharing",
+          "primary": true,
+          "icon": "pdf"
+        }
+      ]
+    },
+    {
+      "year": "2026",
       "venue": "Research manuscript",
       "status": "Under review",
       "image": "/papers/Happo/teaser.png",
@@ -245,33 +305,6 @@
         {
           "label": "Read Paper",
           "href": "https://drive.google.com/drive/folders/1D51qV-MSkE1W7carJtqTYrXazyLzRjcw?usp=drive_link",
-          "primary": true,
-          "icon": "pdf"
-        }
-      ]
-    },
-    {
-      "year": "2027",
-      "venue": "Research manuscript",
-      "status": "Under review",
-      "image": "/papers/ICLR/fig_setup.png",
-      "imageFit": "contain",
-      "tags": [
-        "Generative AI",
-        "Representation Probing",
-        "Image Generation"
-      ],
-      "title": "Relational Probes Can Be Right for the Wrong Reasons: Identifying Their Evidence in Image Generators",
-      "authors": [
-        {
-          "name": "Anonymous authors"
-        }
-      ],
-      "abstract": "A controlled study of relational probing in Qwen-Image and Stable Diffusion 3.5 that separates genuine relational evidence from endpoint identity, global structure, and estimator artifacts. The work introduces nuisance-controlled stimuli, empirical nulls, and graded access interventions to identify what information supports a probe's predictions.",
-      "actions": [
-        {
-          "label": "Read Paper",
-          "href": "https://drive.google.com/drive/folders/1oDsz0JCy__vZCY1JXe0gZHaK9gVy4_yw?usp=sharing",
           "primary": true,
           "icon": "pdf"
         }

@@ -39,6 +39,8 @@ export const translations = {
     },
     work: {
       status: { upcoming: 'Upcoming', active: 'Current', completed: 'Past' },
+      showMore: 'Show more',
+      showLess: 'Show less',
     },
     projects: {
       filters: { Featured: 'Featured', All: 'All' },
@@ -103,6 +105,8 @@ export const translations = {
     },
     work: {
       status: { upcoming: '即将开始', active: '进行中', completed: '已完成' },
+      showMore: '展开详情',
+      showLess: '收起详情',
     },
     projects: {
       filters: { Featured: '精选', All: '全部' },

@@ -3891,14 +3891,14 @@
     .job-line { flex: 1; width: 1.5px; background: var(--border); margin: 4px 0; }
     .job-row:last-child .job-line { display: none; }
     .job {
-      display: flex; align-items: flex-start; gap: 18px; flex: 1;
+      display: flex; align-items: flex-start; gap: 18px; flex: 1; min-width: 0;
       padding: 18px 22px; margin-bottom: 16px; background: var(--surface);
       border: 1px solid var(--border); border-radius: 16px;
       text-decoration: none; color: var(--text); box-shadow: var(--shadow);
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       position: relative;
     }
-    a.job:hover {
+    .job:hover {
       transform: translateY(-3px);
       border-color: var(--border-strong);
       box-shadow: 0 10px 30px -10px oklch(0 0 0 / 0.15);
@@ -3916,6 +3916,8 @@
     .job-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
     .job-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
     .job-company { font-size: 16.5px; font-weight: 700; margin: 0; color: var(--text); }
+    .job-company-link { color: inherit; text-decoration: none; }
+    .job-company-link:hover { color: var(--accent); }
     .job-role { font-size: 14px; font-weight: 500; color: var(--text); margin: 0; }
     .job-meta { font-size: 12.5px; color: var(--muted); margin: 0; font-family: "JetBrains Mono", monospace; }
     .job-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
@@ -3931,8 +3933,27 @@
       background: var(--bg); transition: color 0.15s, border-color 0.15s, transform 0.15s;
     }
     .job-link:hover { color: var(--text); border-color: var(--border-strong); transform: translateY(-1px); }
+    .job-details { margin-top: 8px; }
+    .job-toggle {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 36px;
+      font-family: inherit; cursor: pointer;
+    }
+    .job-toggle:focus-visible, .job-company-link:focus-visible, .job-link:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: 4px;
+    }
+    .job-description {
+      margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--border);
+      font-size: 14px; line-height: 1.7; color: var(--muted); overflow-wrap: anywhere;
+    }
+    .job-description p { margin: 0; }
+    .job-description p + p { margin-top: 12px; }
+    .job-description a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+    .job-description a:hover { color: var(--accent); }
+    .job-description a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .job-courses { margin: 8px 0 0; padding-left: 20px; }
+    .job-courses li + li { margin-top: 4px; }
     .job-arrow { color: var(--subtle); font-size: 16px; flex-shrink: 0; transition: color 0.15s, transform 0.15s; margin-top: 2px; }
-    a.job:hover .job-arrow { color: var(--accent); transform: translate(3px, -3px); }
+    .job-company-link:hover .job-arrow { color: var(--accent); }
     .job-badge {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
