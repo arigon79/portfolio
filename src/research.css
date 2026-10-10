@@ -165,18 +165,13 @@ body.dark { --research-ink: #b7d7b2; --glass-edge: #ffffff1f; --glass-glow: #fff
   /* Nav edges match the card's 16px gutter. */
   .hero-nav { padding: 16px; }
   .hero-nav.is-scrolled { padding: 10px 16px; }
-  /* Small screens: photo on top, everything centred down the middle. */
-  .research-profile-main { display: flex; flex-direction: column-reverse; justify-content: center; align-items: stretch; padding: 36px 28px; gap: 28px; text-align: center; }
-  .research-portrait-col { display: flex; justify-content: center; width: 100%; }
+  /* Small screens: photo on top, then left-aligned text sharing one left edge. */
+  .research-profile-main { display: flex; flex-direction: column-reverse; justify-content: center; align-items: stretch; padding: 36px 28px; gap: 28px; }
+  .research-portrait-col { display: flex; align-items: flex-start; width: 100%; }
   .research-portrait-col .research-portrait-frame { width: 168px; margin-top: 16px; }
   .research-portrait { border-width: 6px; }
   .research-bio { font-size: 16px; }
   .research-portrait-col .sp-card { display: none; }
-  .research-greeting { justify-content: center; }
-  .research-bio { margin-inline: auto; }
-  .research-socials { justify-content: center; }
-  .research-personal summary { margin-inline: auto; }
-  .research-personal ul { padding-left: 0; list-style-position: inside; }
   .page-content { padding: 64px 20px 100px; }
   .page-content > section { margin-bottom: 88px; }
   .page-content .section-label { font-size: 29px; }
