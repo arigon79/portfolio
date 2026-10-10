@@ -37,8 +37,8 @@ function DragonItem({ d }) {
       title="🐉 Drexel Dragon · Click to spin!"
       style={{
         top: d.top,
-        left: d.left,
-        right: d.right,
+        left: d.left ? 'var(--ambient-edge)' : undefined,
+        right: d.right ? 'var(--ambient-edge)' : undefined,
         width: `${d.size}px`,
         height: `${Math.round(d.size * 0.83)}px`,
         opacity: d.opacity,

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Hero from './components/Hero';
-import About from './components/About';
 import ProjectCards from './components/ProjectCards';
 import Work from './components/Work';
 import Publication from './components/Publication';
@@ -109,16 +108,14 @@ function AppContent() {
       <Hero dark={dark} onToggleDark={() => setDark((d) => !d)} />
 
       <main className="page page-content">
-        <About />
-
-        <Work />
-
         <Publication />
 
         <ProjectCards />
 
+        <Work />
+
         <section id="miscellaneous">
-          <div className="section-label">{t.section.achievements}</div>
+          <h2 className="section-label">{t.section.achievements}</h2>
           <p className="ach-lead">{t.achievements.lead(awards.length)}</p>
           <div className="ach-columns">
             {[

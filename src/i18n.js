@@ -2,6 +2,7 @@ export const translations = {
   en: {
     nav: {
       about: 'About',
+      research: 'Research',
       experience: 'Experience',
       projects: 'Projects',
       misc: 'Misc',
@@ -12,12 +13,19 @@ export const translations = {
       },
     },
     section: {
-      about: 'About me',
-      work: 'Work',
-      research: 'Research',
-      projects: 'Projects',
-      achievements: 'Achievements',
-      contact: 'Contact',
+      about: '👋 About me',
+      work: '💼 Research & experience',
+      research: '📄 Publications & preprints',
+      projects: '🚀 Selected projects',
+      achievements: '🏆 Achievements',
+      contact: '💬 Contact',
+    },
+    researchProfile: {
+      seePublications: 'See publications',
+      beyond: 'A little beyond research',
+      publicationsNote: 'Exploring how AI represents, generates, and interacts with the world.',
+      scholar: 'Google Scholar',
+      abstract: '📝 Abstract',
     },
     resume: 'Résumé',
     darkToggle: { light: 'Light', dark: 'Dark' },
@@ -25,7 +33,7 @@ export const translations = {
     about: {
       bio: [
         "Hi there, I am Ariji or Percy. I'm a senior CS student at Drexel and an undergraduate researcher with [ViLab](https://vilab-group.com/) and [DIVA Lab](https://divalab.cci.drexel.edu/), advised by [Professor Feng Liu](https://liufeng2915.github.io/) and [Professor Tiffany D. Do](https://zyrcant.github.io/), respectively.",
-        "My research sits at the intersection of generative AI, including diffusion models, LLMs, and VLMs, and human-computer interaction. I am especially interested in how agentic systems can be grounded in spatial, pedagogical, robotic, and digital AR/VR contexts.",
+        "My research interests are generative models and agentic systems, including LLMs, VLMs, and diffusion models, for spatial reasoning, education, robotics, and AR/VR; human–AI interaction; and how internal model representations relate to generated outputs. I am also interested in accessibility, learning, and social good.",
         "I am also a long-time developer with experience across full-stack engineering, forward deployed engineering, AI/LLM engineering, and product engineering. I have participated in 20+ hackathons at universities including MIT, Stanford, Princeton, and others, winning 7+ awards so far.",
         "I am always trying to live a meaningful, happy, and productive life, and I am always looking to make new friends. Feel free to reach out through any of the links here.",
       ],
@@ -46,9 +54,9 @@ export const translations = {
       filters: { Featured: 'Featured', All: 'All' },
     },
     achievements: {
-      lead: (n) => `${n} awards across hackathons and scholarships.`,
-      hackathons: 'Hackathons & Competitions',
-      academic: 'Academic & Scholarships',
+      lead: (n) => `🏅 ${n} awards across hackathons and scholarships.`,
+      hackathons: '💻 Hackathons & Competitions',
+      academic: '🎓 Academic & Scholarships',
     },
     misc: {
       blogsMeta: 'Writing',
@@ -61,13 +69,14 @@ export const translations = {
     },
     contact: {
       availability: 'Open to opportunities',
-      tagline: "Let's build something together.",
+      tagline: "Let's build something together 🤝",
       sub: 'Open to 2027 full-time roles in SWE, ML engineering, and product. Also always happy to chat about research, hackathons, or side projects.',
     },
   },
   zh: {
     nav: {
       about: '关于',
+      research: '研究',
       experience: '经历',
       projects: '项目',
       misc: '更多',
@@ -78,12 +87,19 @@ export const translations = {
       },
     },
     section: {
-      about: '关于我',
-      work: '工作经历',
-      research: '研究',
-      projects: '项目',
-      achievements: '成就',
-      contact: '联系方式',
+      about: '👋 关于我',
+      work: '💼 研究与工作经历',
+      research: '📄 论文与预印本',
+      projects: '🚀 精选项目',
+      achievements: '🏆 成就',
+      contact: '💬 联系方式',
+    },
+    researchProfile: {
+      seePublications: '查看论文',
+      beyond: '研究之外的我',
+      publicationsNote: '探索 AI 如何表征、生成并与世界交互。',
+      scholar: 'Google Scholar',
+      abstract: '📝 摘要',
     },
     resume: '简历',
     darkToggle: { light: '浅色', dark: '深色' },
@@ -91,7 +107,7 @@ export const translations = {
     about: {
       bio: [
         '你好，我是 Ariji，也叫 Percy。我是德雷塞尔大学计算机科学专业的大四学生，也是 [ViLab](https://vilab-group.com/) 和 [DIVA Lab](https://divalab.cci.drexel.edu/) 的本科研究员，分别由 [Feng Liu 教授](https://liufeng2915.github.io/) 和 [Tiffany D. Do 教授](https://zyrcant.github.io/) 指导。',
-        '我的研究位于生成式 AI 与人机交互的交叉领域，包括扩散模型、LLM 和 VLM。我尤其关注智能体系统如何扎根于空间、教学、机器人以及 AR/VR 等数字情境。',
+        '我的研究兴趣包括：面向空间推理、教育、机器人与 AR/VR 的生成式模型与智能体系统（包括 LLM、VLM 和扩散模型）；人机交互；以及模型内部表征与生成结果之间的关系。我也关注无障碍、学习与社会公益。',
         '我也是一名长期开发者，经验涵盖全栈工程、前沿部署工程、AI/LLM 工程和产品工程。我参加过 20 多场黑客松，足迹遍布 MIT、斯坦福、普林斯顿等高校，目前已获得 7 项以上奖项。',
         '我一直努力过有意义、快乐且高效的生活，也一直期待结识新朋友。欢迎通过这里的任何链接联系我。',
       ],
@@ -112,9 +128,9 @@ export const translations = {
       filters: { Featured: '精选', All: '全部' },
     },
     achievements: {
-      lead: (n) => `${n} 项黑客松与奖学金奖项。`,
-      hackathons: '黑客松与竞赛',
-      academic: '学术与奖学金',
+      lead: (n) => `🏅 ${n} 项黑客松与奖学金奖项。`,
+      hackathons: '💻 黑客松与竞赛',
+      academic: '🎓 学术与奖学金',
     },
     misc: {
       blogsMeta: '写作',
@@ -127,7 +143,7 @@ export const translations = {
     },
     contact: {
       availability: '欢迎合作机会',
-      tagline: '让我们一起打造点什么。',
+      tagline: '让我们一起打造点什么 🤝',
       sub: '正在寻找 2027 年全职软件工程、机器学习工程和产品方向的机会。也很乐意聊聊研究、黑客松或副业项目。',
     },
   },

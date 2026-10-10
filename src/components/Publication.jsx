@@ -3,6 +3,7 @@ import info from '../data/info.json';
 import { useLanguage } from '../context/LanguageContext';
 
 function PublicationRow({ publication }) {
+  const { t, lang } = useLanguage();
   const [showBibtex, setShowBibtex] = useState(false);
   const [copied, setCopied] = useState(false);
   const citationLabel = [publication.archive, publication.year].filter(Boolean).join(' ');
@@ -49,7 +50,7 @@ function PublicationRow({ publication }) {
               key={author.name}
               className={author.isMe ? 'pub-author is-me' : 'pub-author'}
             >
-              {author.name}{author.isMe ? '*' : ''}
+              {author.name}
               {i < publication.authors.length - 1 ? ', ' : ''}
             </span>
           ))}
@@ -62,7 +63,16 @@ function PublicationRow({ publication }) {
           )}
         </p>
 
-        <p className="pub-desc">{publication.abstract}</p>
+        {publication.takeaway && (
+          <p className="research-paper-takeaway">{publication.takeaway[lang] ?? publication.takeaway.en}</p>
+        )}
+        <div className="research-paper-tags">
+          {publication.tags?.map((tag) => <span key={tag}>{tag}</span>)}
+        </div>
+        <details className="research-abstract">
+          <summary>{t.researchProfile.abstract}</summary>
+          <p className="pub-desc">{publication.abstract}</p>
+        </details>
 
         <div className="pub-links">
           {publication.actions?.map((action) => (
@@ -81,6 +91,7 @@ function PublicationRow({ publication }) {
             <button
               type="button"
               className={`pub-pill pub-pill--btn${showBibtex ? ' is-active' : ''}`}
+              aria-expanded={showBibtex}
               onClick={() => setShowBibtex((s) => !s)}
             >
               {showBibtex ? 'BibTeX ▴' : 'BibTeX ▾'}
@@ -113,7 +124,14 @@ export default function Publication() {
 
   return (
     <section id="research">
-      <div className="section-label">{t.section.research}</div>
+      <div className="research-section-heading">
+        <div>
+          <h2 className="section-label">{t.section.research}</h2>
+          <p>{t.researchProfile.publicationsNote}</p>
+        </div>
+        <a href={info.profile.socials.find((social) => social.icon === 'scholar').href}
+          target="_blank" rel="noopener noreferrer">{t.researchProfile.scholar} ↗</a>
+      </div>
       <div className="pub-list">
         {info.publications.map((publication) => (
           <PublicationRow key={publication.title} publication={publication} />

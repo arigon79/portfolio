@@ -48,12 +48,16 @@
         "href": "#about"
       },
       {
-        "label": "Experience",
-        "href": "#experience"
+        "label": "Research",
+        "href": "#research"
       },
       {
         "label": "Projects",
         "href": "#projects"
+      },
+      {
+        "label": "Experience",
+        "href": "#experience"
       },
       {
         "label": "Misc",
@@ -254,6 +258,10 @@
         "Image Generation"
       ],
       "title": "Encoded Where It Is Drawn, Absent Where It Is Read: Relational Evidence in Scientific Diagrams",
+    "takeaway": {
+      "en": "Accurate decoding of arrow relations does not establish which visual evidence a model uses.",
+      "zh": "准确解码箭头关系，并不能确定模型使用了哪些视觉证据。"
+    },
       "authors": [
         {
           "name": "A. Chakma",
@@ -285,6 +293,10 @@
         "Pseudo-Haptics"
       ],
       "title": "Hand Outline Color Modulates Perceived Effort while Lifting Real-World Objects in Mixed Reality",
+    "takeaway": {
+      "en": "Red hand outlines increased perceived lifting effort, without changing perceived weight.",
+      "zh": "红色手部轮廓增加了感知的抬举用力程度，但未改变感知重量。"
+    },
       "authors": [
         {
           "name": "O. A. Khan"
@@ -323,6 +335,10 @@
         "Science Education"
       ],
       "title": "DrawSim-PD: Simulating Student Science Drawings to Support NGSS-Aligned Teacher Diagnostic Reasoning",
+    "takeaway": {
+      "en": "Simulated student drawings and misconceptions provide practice material for teacher diagnostic reasoning.",
+      "zh": "模拟学生绘图及其错误概念，为教师练习诊断推理提供材料。"
+    },
       "authors": [
         {
           "name": "A. Chakma",

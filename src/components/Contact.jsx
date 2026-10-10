@@ -68,7 +68,7 @@ export default function Contact() {
 
   return (
     <section id="contact">
-      <div className="section-label">{t.section.contact}</div>
+      <h2 className="section-label">{t.section.contact}</h2>
 
       <div className="contact-card">
         <div className="contact-left">

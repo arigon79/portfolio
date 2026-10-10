@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import info from '../data/info.json';
+import About from './About';
 import { useLanguage } from '../context/LanguageContext';
 
 function EmailIcon() {
@@ -64,11 +65,9 @@ const heroIconMap = {
   instagram: InstagramIcon,
   scholar: ScholarIcon,
 };
-const TYPING_LINES = [{ key: 'cmd', text: hero.command, speed: 70 }];
-const ROLE_LINES = hero.roles;
-const HEADING_TRANSLATIONS = hero.headingTranslations;
 const NAV_KEY_BY_HREF = {
   '#about': 'about',
+  '#research': 'research',
   '#experience': 'experience',
   '#projects': 'projects',
   '#miscellaneous': 'misc',
@@ -110,16 +109,8 @@ function navigateToHome() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function wait(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 export default function Hero({ dark, onToggleDark, navOnly = false }) {
   const { t, lang, toggleLang } = useLanguage();
-  const [typed, setTyped] = useState({ cmd: '', heading: '', role: '' });
-  const [typingDone, setTypingDone] = useState(false);
-  const [cursorOn, setCursorOn] = useState(true);
-  const [showCursor, setShowCursor] = useState(false);
   const [navScrolled, setNavScrolled] = useState(navOnly);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
@@ -137,82 +128,6 @@ export default function Hero({ dark, onToggleDark, navOnly = false }) {
     window.dispatchEvent(new PopStateEvent('popstate'));
     scrollToWhenReady(href);
   };
-
-  useEffect(() => {
-    if (navOnly) return undefined;
-
-    let cancelled = false;
-
-    const typeLine = async (key, text, speed) => {
-      for (let i = 1; i <= text.length; i += 1) {
-        if (cancelled) return;
-        setTyped((prev) => ({ ...prev, [key]: text.slice(0, i) }));
-        await wait(speed);
-      }
-    };
-
-    const deleteLine = async (key, text, speed) => {
-      for (let i = text.length - 1; i >= 0; i -= 1) {
-        if (cancelled) return;
-        setTyped((prev) => ({ ...prev, [key]: text.slice(0, i) }));
-        await wait(speed);
-      }
-    };
-
-    const run = async () => {
-      await wait(400);
-      if (cancelled) return;
-
-      await typeLine('cmd', TYPING_LINES[0].text, TYPING_LINES[0].speed);
-      if (cancelled) return;
-      await wait(280);
-
-      setShowCursor(true);
-      await typeLine('heading', HEADING_TRANSLATIONS[0], 82);
-      if (cancelled) return;
-      await wait(280);
-
-      await typeLine('role', ROLE_LINES[0], 48);
-      if (!cancelled) setTypingDone(true);
-
-      const loopHeading = async () => {
-        let index = 0;
-        while (!cancelled) {
-          await wait(1800);
-          if (cancelled) return;
-          await deleteLine('heading', HEADING_TRANSLATIONS[index], 36);
-          index = (index + 1) % HEADING_TRANSLATIONS.length;
-          if (cancelled) return;
-          await typeLine('heading', HEADING_TRANSLATIONS[index], 70);
-        }
-      };
-
-      const loopRole = async () => {
-        let index = 0;
-        while (!cancelled) {
-          await wait(2200);
-          if (cancelled) return;
-          await deleteLine('role', ROLE_LINES[index], 30);
-          index = (index + 1) % ROLE_LINES.length;
-          if (cancelled) return;
-          await typeLine('role', ROLE_LINES[index], 46);
-        }
-      };
-
-      await Promise.all([loopHeading(), loopRole()]);
-    };
-
-    run();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [navOnly]);
-
-  useEffect(() => {
-    const id = setInterval(() => setCursorOn((v) => !v), 530);
-    return () => clearInterval(id);
-  }, []);
 
   useEffect(() => {
     if (navOnly) {
@@ -257,7 +172,7 @@ export default function Hero({ dark, onToggleDark, navOnly = false }) {
 
   const header = (
     <header className={`hero-nav${navScrolled ? ' is-scrolled' : ''}${menuOpen ? ' is-menu-open' : ''}`}>
-      <a href="/" className="hero-brand" onClick={(e) => { e.preventDefault(); navigateToHome(); }}>
+      <a href="/" className="hero-brand" aria-label="Ariji Chakma — home" onClick={(e) => { e.preventDefault(); navigateToHome(); }}>
         <span className="hero-logo" aria-hidden="true">
           <img src={hero.logoSrc} alt="" />
         </span>
@@ -283,6 +198,7 @@ export default function Hero({ dark, onToggleDark, navOnly = false }) {
               <a
                 href={link.href}
                 className={activeSection === link.href.slice(1) ? 'is-active' : ''}
+                aria-current={activeSection === link.href.slice(1) ? 'location' : undefined}
                 aria-haspopup={isMisc ? 'true' : undefined}
                 onClick={(e) => { e.preventDefault(); revealAndScrollTo(link.href); }}
               >
@@ -339,74 +255,31 @@ export default function Hero({ dark, onToggleDark, navOnly = false }) {
   if (navOnly) return header;
 
   return (
-    <section className="hero" aria-label="Introduction">
+    <div className="hero research-hero">
       <div className="hero-bg" aria-hidden="true" />
       <div className="hero-fade" aria-hidden="true" />
       {header}
-
-      <div className="hero-center">
-        <div className="terminal">
-          <div className="terminal-bar">
-            <span className="terminal-dot terminal-dot--red" />
-            <span className="terminal-dot terminal-dot--yellow" />
-            <span className="terminal-dot terminal-dot--green" />
-            <span className="terminal-title">{hero.terminalTitle}</span>
+      <div className="research-intro">
+        <About>
+          <div className="research-socials">
+            {hero.socials.map((social) => {
+              const Icon = heroIconMap[social.icon];
+              const isExternal = !social.href.startsWith('mailto:');
+              return (
+                <a key={social.label} href={social.href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}>
+                  {Icon && <Icon />}
+                  <span>{social.label}</span>
+                </a>
+              );
+            })}
+            <a href={info.profile.resumeHref} target="_blank" rel="noopener noreferrer">
+              {t.resume} <span aria-hidden="true">↗</span>
+            </a>
           </div>
-          <div className="terminal-body">
-            <div className="terminal-portrait" aria-hidden="true">
-              <img src={hero.portraitSrc} alt="" />
-            </div>
-            <div className="terminal-content">
-              <p className="terminal-line terminal-line--cmd">
-                <span className="terminal-prompt">{hero.promptUser}</span>
-                <span className="terminal-muted"> ~ </span>
-                <span className="terminal-prompt">%</span>
-                <span className="terminal-typewriter">{typed.cmd}</span>
-              </p>
-              <h1 className="terminal-heading">
-                <span className="terminal-wave" aria-hidden="true">👋</span>
-                <span className="terminal-typewriter">{typed.heading}</span>
-                {showCursor && (
-                  <span className={`terminal-cursor${cursorOn ? ' is-on' : ''}`} aria-hidden="true" />
-                )}
-                <span className="sr-only">Hi, I am Ariji. I am Ariji in Chinese, Korean, Japanese, and Spanish.</span>
-              </h1>
-              <p className={`terminal-role${typingDone ? ' is-complete' : ''}`}>
-                <span className="terminal-role-prompt">&gt; </span>
-                <span className="terminal-typewriter">{typed.role}</span>
-              </p>
-              <div className={`terminal-actions${typingDone ? ' is-visible' : ''}`}>
-                <div className="hero-socials">
-                  {hero.socials.map((social) => {
-                    const Icon = heroIconMap[social.icon];
-                    const isExternal = !social.href.startsWith('mailto:');
-                    return (
-                      <a
-                        key={social.label}
-                        className={`hero-social-btn hero-social-btn--${social.icon}`}
-                        href={social.href}
-                        target={isExternal ? '_blank' : undefined}
-                        rel={isExternal ? 'noopener noreferrer' : undefined}
-                        aria-label={social.label}
-                      >
-                        {Icon && <Icon />}
-                      </a>
-                    );
-                  })}
-                  <a
-                    className="hero-resume-btn"
-                    href={info.profile.resumeHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t.resume}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </About>
       </div>
-    </section>
+    </div>
   );
 }

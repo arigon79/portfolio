@@ -1,0 +1,231 @@
+/* Research portfolio: the original landscape and pixel world, with an editorial layout. */
+/* Type system: Inter for reading, Fraunces for display titles, JetBrains Mono for the typewriter and labels. */
+:root { --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; --font-display: "Fraunces", Georgia, "Times New Roman", serif; --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace; }
+body { font-family: var(--font-sans); font-optical-sizing: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+button, input, select, textarea { font-family: inherit; }
+:root { --page-column: 1232px; --ambient-edge: max(8px, calc((100vw - 1280px) / 4 - 24px)); --research-ink: #315d49; --research-rule: color-mix(in oklab, var(--text) 18%, transparent); }
+body.dark { --research-ink: #b7d7b2; --glass-edge: #ffffff1f; --glass-glow: #ffffff12; --glass-shadow: #00000080; }
+
+/* The landscape fills the whole first screen; the card floats centred inside it. */
+.research-hero { min-height: 100vh; min-height: 100svh; overflow: visible; margin: 0; color: var(--text); }
+.research-hero .hero-bg { transform: none; }
+.research-hero .hero-fade { background: linear-gradient(180deg, color-mix(in oklab, var(--bg) 18%, transparent), color-mix(in oklab, var(--bg) 8%, transparent) 72%, color-mix(in oklab, var(--bg) 45%, transparent) 92%, var(--bg)); }
+/* The intro card fills the first screen: nav above, everything else below the fold. */
+.research-intro { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; width: min(1280px, 100%); margin: 0 auto; padding: 92px 24px 40px; }
+/* The logo PNG has wide transparent margins (ink spans x 351-1216, y 328-732 of 1536x1024),
+   so crop to the ink: the visible wordmark then starts exactly on the page column. */
+.hero-logo, .hero-nav.is-scrolled .hero-logo { --logo-h: 18px; position: relative; width: calc(var(--logo-h) * 2.141); height: var(--logo-h); }
+.hero-logo img { position: absolute; left: calc(var(--logo-h) * -.869); top: calc(var(--logo-h) * -.812); width: calc(var(--logo-h) * 3.802); max-width: none; height: calc(var(--logo-h) * 2.535); object-fit: fill; }
+/* Frosted glass: the landscape shows through, softened by blur, so the card sits in the scene. */
+:root { --glass-edge: #ffffffb3; --glass-glow: #ffffff8c; --glass-shadow: #1d3b2f4d; }
+#about.research-profile { display: flex; flex-direction: column; min-height: max(520px, calc(100svh - 200px)); margin: 0; border: 1px solid var(--glass-edge); border-radius: 24px; background: linear-gradient(165deg, color-mix(in oklab, var(--surface) 80%, transparent), color-mix(in oklab, var(--surface) 64%, transparent) 70%); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); box-shadow: inset 0 1px 0 var(--glass-glow), 0 1px 3px #1d3b2f14, 0 32px 80px -40px var(--glass-shadow); }
+.research-profile-main { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 380px); align-items: center; gap: clamp(40px, 6vw, 88px); padding: clamp(40px, 5vw, 72px); }
+/* The typewriter greeting is the headline. It scales with its column so the longest
+   greeting (Korean) stays on one line; min-height holds the line while it types. */
+.research-profile-copy { container-type: inline-size; }
+.research-greeting { display: flex; align-items: center; min-height: 1.3em; margin: 0 0 28px; font: 500 clamp(17px, 7.9cqi, 64px)/1.3 var(--font-mono); letter-spacing: -.035em; color: var(--text); white-space: nowrap; }
+.research-greeting-wave { display: inline-block; flex-shrink: 0; margin-right: .55em; font-size: .82em; letter-spacing: 0; transform-origin: 70% 75%; animation: greeting-wave 2.6s ease-in-out infinite; }
+@keyframes greeting-wave { 0%, 45%, 100% { transform: rotate(0); } 9%, 27% { transform: rotate(16deg); } 18%, 36% { transform: rotate(-8deg); } }
+.research-greeting-name { color: var(--research-ink); font-weight: 600; }
+.research-greeting-cursor { display: inline-block; width: .5em; height: .16em; margin-left: .08em; background: var(--research-ink); vertical-align: -.12em; animation: greeting-cursor 1s step-end infinite; }
+@keyframes greeting-cursor { 50% { opacity: 0; } }
+.research-bio { max-width: 60ch; font-size: 17px; line-height: 1.75; }
+.research-bio p + p { margin-top: 16px; }
+.research-bio a, .research-personal a { color: var(--research-ink); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.research-socials { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+.research-socials a { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 1px solid color-mix(in oklab, var(--text) 14%, transparent); border-radius: 999px; background: color-mix(in oklab, var(--surface) 55%, transparent); font-size: 14px; font-weight: 500; color: var(--text); text-decoration: none; transition: border-color .2s ease, color .2s ease, background-color .2s ease, transform .2s ease; }
+.research-socials svg { width: 16px; height: 16px; }
+.research-socials a:hover { color: var(--research-ink); border-color: var(--research-ink); transform: translateY(-1px); }
+.research-socials a:last-child { background: var(--research-ink); border-color: var(--research-ink); color: var(--surface); }
+.research-socials a:last-child:hover { color: var(--surface); background: color-mix(in oklab, var(--research-ink) 85%, var(--text)); }
+.research-personal { margin-top: 24px; font-size: 15px; line-height: 1.8; color: var(--muted); }
+.research-personal summary { cursor: pointer; width: fit-content; color: var(--muted); font-size: 14px; }
+.research-personal p { margin-top: 12px; }
+.research-personal ul { padding-left: 18px; margin-top: 12px; }
+.research-portrait-col { min-width: 0; display: flex; flex-direction: column; align-items: center; }
+.research-portrait-col .research-portrait-frame { width: min(100%, 380px); }
+/* Smoke drifts behind the photo and ripples spread out from it; isolation keeps
+   the negative z-index layers inside the frame instead of behind the card. */
+.research-portrait-frame { position: relative; isolation: isolate; border-radius: 50%; transition: transform .35s ease; }
+.research-portrait-frame:hover { transform: translateY(-3px); }
+.portrait-smoke { position: absolute; inset: -16%; z-index: -1; pointer-events: none; filter: blur(18px); opacity: .9; animation: portrait-smoke 16s linear infinite; }
+.portrait-smoke--1 { background: radial-gradient(circle at 30% 35%, color-mix(in oklab, var(--lime) 70%, transparent), transparent 62%); }
+.portrait-smoke--2 { inset: -14%; background: radial-gradient(circle at 72% 40%, color-mix(in oklab, var(--teal) 60%, transparent), transparent 60%); animation-duration: 22s; animation-direction: reverse; }
+.portrait-smoke--3 { inset: -8%; background: radial-gradient(circle at 50% 78%, color-mix(in oklab, var(--accent) 55%, transparent), transparent 58%); animation-duration: 28s; animation-delay: -9s; }
+@keyframes portrait-smoke {
+  0%, 100% { border-radius: 58% 42% 36% 64% / 55% 38% 62% 45%; }
+  0% { transform: rotate(0) scale(1); }
+  33% { border-radius: 38% 62% 64% 36% / 42% 60% 40% 58%; transform: rotate(120deg) scale(1.06); }
+  66% { border-radius: 64% 36% 46% 54% / 60% 44% 56% 40%; transform: rotate(240deg) scale(.96); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+.portrait-ripple { position: absolute; inset: 0; z-index: -1; border: 1.5px solid color-mix(in oklab, var(--research-ink) 60%, transparent); border-radius: 50%; pointer-events: none; animation: portrait-ripple 6s cubic-bezier(.2, .6, .35, 1) infinite; }
+.portrait-ripple--late { animation-delay: -3s; }
+@keyframes portrait-ripple {
+  0% { transform: scale(1); opacity: .7; border-radius: 50%; }
+  50% { border-radius: 46% 54% 52% 48% / 52% 46% 54% 48%; }
+  100% { transform: scale(1.24); opacity: 0; border-radius: 54% 46% 48% 52% / 46% 54% 46% 54%; }
+}
+.research-portrait { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; object-position: center 20%; border: 8px solid var(--surface); border-radius: 50%; box-shadow: 0 0 0 1px var(--research-rule), 0 18px 40px -24px #172b2a80; }
+.research-portrait-col .sp-card { width: 100%; margin-top: 28px; }
+/* Bottom-centre cue pointing down to the publications. */
+.research-scroll-cue { align-self: center; display: inline-flex; flex-direction: column; align-items: center; gap: 8px; margin: 0 0 28px; font-size: 13px; font-weight: 500; letter-spacing: .02em; color: var(--muted); text-decoration: none; transition: color .2s ease; }
+.research-scroll-cue-arrow { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid color-mix(in oklab, var(--text) 16%, transparent); border-radius: 50%; background: color-mix(in oklab, var(--surface) 55%, transparent); font-size: 15px; color: var(--research-ink); animation: scroll-cue-bob 2s ease-in-out infinite; transition: border-color .2s ease, background-color .2s ease; }
+.research-scroll-cue:hover { color: var(--research-ink); }
+.research-scroll-cue:hover .research-scroll-cue-arrow { border-color: var(--research-ink); background: color-mix(in oklab, var(--research-ink) 10%, transparent); }
+@keyframes scroll-cue-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+
+/* Lower sections share the intro card's column so every left edge lines up. */
+.page-content { max-width: 1280px; padding: 88px 24px 96px; position: relative; }
+.page-content > section { margin-bottom: 112px; scroll-margin-top: 72px; }
+.page-content .section-label { font: 600 36px/1.15 var(--font-display); text-transform: none; letter-spacing: -.02em; color: var(--text); gap: 14px; margin-bottom: 28px; }
+/* Section titles lead with an emoji now, which replaces the square bullet. */
+.page-content .section-label::before { display: none; }
+.research-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--research-rule); padding-bottom: 24px; }
+.research-section-heading .section-label { margin-bottom: 10px; }
+.research-section-heading p { font-size: 15px; color: var(--muted); }
+.research-section-heading > a { font-size: 13px; white-space: nowrap; color: var(--research-ink); text-decoration: none; border-bottom: 1px solid var(--research-rule); padding-bottom: 3px; }
+
+.pub-list { gap: 0; }
+.pub-row { grid-template-columns: 260px minmax(0, 1fr); gap: 36px; border: 0; border-bottom: 1px solid var(--research-rule); border-radius: 0; box-shadow: none; background: transparent; padding: 36px 0; backdrop-filter: none; }
+.pub-row:hover { transform: none; box-shadow: none; border-color: var(--research-rule); }
+.pub-thumb { border-radius: 6px; aspect-ratio: 4 / 3; margin-top: 4px; }
+.pub-thumb-badge { top: auto; bottom: 8px; border-radius: 3px; font-size: 11px; }
+.pub-content { display: flex; flex-direction: column; gap: 8px; }
+.pub-title { font-size: 19px; line-height: 1.4; font-weight: 600; letter-spacing: -.02em; margin: 0; }
+.pub-title a:hover { color: var(--research-ink); }
+/* Block (not flex) so the ", " between author spans is not trimmed away. */
+.pub-authors { display: block; margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); }
+.pub-author { font: inherit; color: inherit; }
+.pub-author.is-me { color: var(--text); font-weight: 600; background: transparent; padding: 0; text-decoration: underline; text-decoration-color: var(--research-ink); text-underline-offset: 3px; }
+.pub-venue { margin: 0; font-size: 13.5px; line-height: 1.7; }
+.pub-status-tag { font-size: 11.5px; border-radius: 4px; }
+.research-paper-takeaway { margin-top: 2px; color: var(--text); font-size: 15px; line-height: 1.7; }
+.research-paper-tags { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.research-paper-tags span { font: 12px/1.5 var(--font-mono); color: var(--research-ink); }
+.research-abstract summary { width: fit-content; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--muted); }
+.research-abstract .pub-desc { font-size: 14.5px; line-height: 1.8; margin-top: 8px; }
+.pub-links { margin-top: 6px; }
+.pub-pill { border-radius: 6px; font-size: 13px; padding: 6px 12px; background: transparent; }
+.pub-pill:hover { color: var(--research-ink); border-color: var(--research-ink); }
+
+.proj-polaroid-gallery { padding: 0; }
+.proj-polaroid-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 0; width: 100%; margin-inline: 0; }
+.proj-polaroid-wrap, .proj-polaroid-wrap:hover { transform: none; }
+.proj-polaroid-card, body.dark .proj-polaroid-card { height: 100%; border-radius: 8px; border: 1px solid var(--research-rule); padding: 10px 10px 16px; background: color-mix(in oklab, var(--surface) 82%, transparent); box-shadow: none; }
+.proj-polaroid-wrap:hover .proj-polaroid-card, body.dark .proj-polaroid-wrap:hover .proj-polaroid-card { box-shadow: 0 6px 20px -12px #0004; border-color: var(--research-ink); }
+.proj-tape { display: none; }
+.proj-photo-box { aspect-ratio: 16 / 10; border-radius: 4px; }
+.proj-sharpie-title { font: 600 21px/1.3 var(--font-display); letter-spacing: -.01em; transform: none; }
+.proj-polaroid-desc { font-size: 14px; line-height: 1.7; }
+.proj-polaroid-tag { font-size: 11.5px; }
+.proj-filter { min-height: 34px; font-size: 13px; }
+
+.job-timeline { gap: 12px; }
+.job { border-radius: 8px; padding: 22px 26px; margin-bottom: 14px; box-shadow: none; }
+.job:hover { transform: none; box-shadow: none; }
+.job-company { font-size: 18px; }
+.job-role { font-size: 15px; }
+.job-meta { font-size: 13px; }
+.job-link, .job-skill-tag { font-size: 12.5px; }
+
+.ach-lead { font-size: 15px; margin-bottom: 28px; }
+/* Stack the two groups and grid their cards, so the long hackathon list
+   doesn't leave the scholarship column half empty. */
+.ach-columns { grid-template-columns: 1fr; gap: 36px; }
+.ach-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.ach { height: 100%; align-items: flex-start; border-radius: 8px; padding: 16px 18px; box-shadow: none; }
+.ach:hover { transform: none; box-shadow: none; }
+.ach-col-heading { color: var(--muted); font-size: 12.5px; word-spacing: .2em; margin-bottom: 16px; }
+.ach-title { font-size: 15px; }
+.ach-sub { font-size: 13px; }
+
+.contact-card { border-radius: 8px; box-shadow: none; padding: 40px 44px; grid-template-columns: minmax(0, 1fr) 260px; gap: 48px; align-items: center; }
+.contact-heading { font: 600 36px/1.15 var(--font-display); letter-spacing: -.02em; }
+.contact-sub { font-size: 15px; line-height: 1.75; max-width: 52ch; }
+:where(a, button, summary):focus-visible { outline: 2px solid var(--research-ink); outline-offset: 5px; }
+
+@media (min-width: 769px) {
+  .hero-nav { padding: 20px max(24px, calc((100vw - var(--page-column)) / 2)); gap: 24px; }
+  .hero-nav.is-scrolled { padding: 10px max(24px, calc((100vw - var(--page-column)) / 2)); }
+  .hero-nav-links { gap: 20px; }
+  .hero-nav-links a { font-size: 12px; }
+  .hero-nav-actions { gap: 24px; }
+}
+@media (max-width: 1000px) {
+  .research-profile-main { grid-template-columns: minmax(0, 1fr) 240px; gap: 40px; padding: 40px; }
+  .hero-nav-links { gap: 12px; }
+  .hero-nav-actions { gap: 16px; }
+  .proj-polaroid-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-card { grid-template-columns: minmax(0, 1fr) 220px; padding: 32px; gap: 32px; }
+}
+@media (max-width: 768px) {
+  .research-intro { padding: 84px 16px 32px; }
+  #about.research-profile { min-height: calc(100svh - 150px); border-radius: 20px; }
+  /* Nav edges match the card's 16px gutter. */
+  .hero-nav { padding: 16px; }
+  .hero-nav.is-scrolled { padding: 10px 16px; }
+  /* Small screens: photo on top, everything centred down the middle. */
+  .research-profile-main { display: flex; flex-direction: column-reverse; justify-content: center; align-items: stretch; padding: 36px 28px; gap: 28px; text-align: center; }
+  .research-portrait-col { display: flex; justify-content: center; width: 100%; }
+  .research-portrait-col .research-portrait-frame { width: 168px; margin-top: 16px; }
+  .research-portrait { border-width: 6px; }
+  .research-bio { font-size: 16px; }
+  .research-portrait-col .sp-card { display: none; }
+  .research-greeting { justify-content: center; }
+  .research-bio { margin-inline: auto; }
+  .research-socials { justify-content: center; }
+  .research-personal summary { margin-inline: auto; }
+  .research-personal ul { padding-left: 0; list-style-position: inside; }
+  .page-content { padding: 64px 20px 100px; }
+  .page-content > section { margin-bottom: 88px; }
+  .page-content .section-label { font-size: 29px; }
+  .contact-card { grid-template-columns: 1fr; }
+  .pub-row { grid-template-columns: 180px minmax(0, 1fr); gap: 20px; }
+  .hero-nav-actions { visibility: hidden; }
+  .hero-nav.is-menu-open .hero-nav-actions { visibility: visible; }
+}
+@media (max-width: 560px) {
+  .research-intro { padding-inline: 16px; }
+  .research-profile-main { padding: 28px 20px 24px; gap: 24px; }
+  .research-portrait-col .research-portrait-frame { width: 140px; }
+  .research-portrait { border-width: 5px; }
+  .portrait-smoke { filter: blur(10px); }
+  .research-socials { gap: 8px; margin-top: 28px; }
+  .research-socials a { height: 38px; padding: 0 14px; font-size: 13.5px; }
+  .page-content { padding-inline: 16px; padding-top: 48px; }
+  .page-content > section { margin-bottom: 72px; }
+  .page-content .section-label { font-size: 27px; }
+  .ach-list { grid-template-columns: 1fr; }
+  .contact-card { padding: 24px 20px; }
+  .contact-heading { font-size: 27px; }
+  .research-section-heading { flex-wrap: wrap; gap: 12px; }
+  .pub-row { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+  .pub-thumb { width: 100%; max-width: none; aspect-ratio: 16 / 9; }
+  .pub-title { font-size: 17px; }
+  .pub-pill { min-height: 32px; display: inline-flex; align-items: center; }
+  .research-abstract summary { padding-block: 6px; }
+  .proj-polaroid-grid { grid-template-columns: 1fr; gap: 20px; }
+  .job { padding: 18px; }
+  .job-row { gap: 10px; }
+  .research-personal, .pub-content { overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .research-greeting-cursor { display: none; }
+  .research-portrait-frame:hover { transform: none; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Keep animated cells visible at the edges without competing with paper text. */
+.page-content { background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--bg) 94%, transparent) 5%, color-mix(in oklab, var(--bg) 94%, transparent) 95%, transparent); }
+.page-content > section, .page-content > section.is-revealed { opacity: 1; transform: none; transition: none; }
+
+
+/* Reserve the reading column; characters live only in the available gutters. */
+.critter-strip { position: absolute; bottom: 16px; }
+@media (max-width: 1399px) {
+  .pixel-critter-layer, .pixel-dragon-constellation { display: none; }
+  .critter-strip { display: flex; }
+  .page-content { padding-bottom: 116px; }
+}

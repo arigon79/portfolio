@@ -28,7 +28,7 @@ export default function ProjectCards() {
 
   return (
     <section id="projects">
-      <div className="section-label">{t.section.projects}</div>
+      <h2 className="section-label">{t.section.projects}</h2>
 
       <div className="proj-filters">
         {FILTERS.map((f) => (
@@ -36,6 +36,7 @@ export default function ProjectCards() {
             key={f}
             type="button"
             className={`proj-filter${filter === f ? ' is-active' : ''}`}
+            aria-pressed={filter === f}
             onClick={() => setFilter(f)}
           >
             {t.projects.filters[f] ?? f}

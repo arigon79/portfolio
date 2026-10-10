@@ -158,7 +158,7 @@
     }
 
     .header-text .role {
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
       font-size: 12px;
       color: var(--muted);
       margin-top: 4px;
@@ -416,7 +416,7 @@
     }
 
     .bp-airline {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 9.5px;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -427,7 +427,7 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -475,7 +475,7 @@
     .bp-route-col { min-width: 0; }
 
     .bp-route-label {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 8.5px;
       font-weight: 700;
       letter-spacing: 0.15em;
@@ -484,7 +484,7 @@
     }
 
     .bp-route-code {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 22px;
       font-weight: 800;
       letter-spacing: -0.02em;
@@ -540,7 +540,7 @@
     .bp-meta { min-width: 0; }
 
     .bp-meta-label {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 8.5px;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -556,7 +556,7 @@
     }
 
     .bp-meta-value--mono {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
     }
 
@@ -595,7 +595,7 @@
     }
 
     .bp-stub-label {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 8.5px;
       font-weight: 700;
       letter-spacing: 0.15em;
@@ -603,7 +603,7 @@
     }
 
     .bp-stub-seat {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 26px;
       font-weight: 800;
       letter-spacing: -0.03em;
@@ -617,7 +617,7 @@
     }
 
     .bp-stub-code {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 9.5px;
       color: var(--muted);
       letter-spacing: 0.1em;
@@ -688,7 +688,7 @@
       padding: 10px 18px 10px 22px;
       background: color-mix(in oklab, var(--teal) 5%, var(--surface));
       border-bottom: 1px solid var(--border);
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
     }
 
     .pub-header-left {
@@ -766,7 +766,7 @@
     }
 
     .pub-meta-pill {
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
       font-size: 9.5px;
       font-weight: 600;
       letter-spacing: 0.06em;
@@ -795,7 +795,7 @@
     }
 
     .pub-author {
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
       color: var(--muted);
     }
@@ -838,7 +838,7 @@
     .pub-cite-body {
       margin: 0;
       padding: 12px 14px;
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
       line-height: 1.55;
       color: var(--text);
@@ -1001,7 +1001,7 @@
     }
 
     .project-tags span {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 10.5px;
       color: var(--tag);
       background: color-mix(in oklab, var(--accent) 9%, var(--bg-2));
@@ -1173,7 +1173,7 @@
 
     .mac-proj-tags {
       font-size: 10px;
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
       color: rgba(255,255,255,0.45);
     }
 
@@ -1277,7 +1277,7 @@
     }
 
     .pc-counter {
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
       font-size: 11.5px;
       color: var(--muted);
       min-width: 52px;
@@ -1331,7 +1331,7 @@
     }
 
     .pk-dex-count {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 11.5px;
       color: var(--muted);
     }
@@ -1457,7 +1457,7 @@
 
     /* number below ball */
     .pk-num {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 9.5px;
       color: var(--muted);
       letter-spacing: 0.05em;
@@ -1514,7 +1514,7 @@
     }
 
     .pk-type {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 8.5px;
       font-weight: 700;
       letter-spacing: 0.07em;
@@ -1531,7 +1531,7 @@
     .pk-type--premier  { background: #888; }
 
     .pk-card-year {
-      font-family: “SF Mono”, “Fira Mono”, “Consolas”, monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       color: var(--subtle);
     }
@@ -1633,7 +1633,7 @@
       padding: 6px 12px;
       background: color-mix(in oklab, var(--teal) 6%, var(--bg-2));
       border-bottom: 1px solid var(--border);
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
     }
 
     .pub-cite-head-left {
@@ -1646,7 +1646,7 @@
       font-size: 9.5px;
       font-weight: 700;
       letter-spacing: 0.06em;
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
       padding: 2px 9px;
       border-radius: 4px;
       border: 1px solid var(--border);
@@ -1878,7 +1878,7 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -1977,7 +1977,7 @@
 
     .contact-link-hint {
       font-size: 10px;
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
       color: var(--subtle);
       letter-spacing: 0.04em;
     }
@@ -2020,7 +2020,7 @@
     }
 
     .contact-wechat-label {
-      font-family: "SF Mono", "Fira Mono", "Consolas", monospace;
+      font-family: var(--font-mono);
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.06em;
@@ -2482,7 +2482,7 @@
       border: 0;
       background: transparent;
       color: var(--text);
-      font-family: "JetBrains Mono", monospace;
+      font-family: var(--font-mono);
       font-size: 12px;
       font-weight: 750;
       letter-spacing: 0.08em;
@@ -3300,7 +3300,7 @@
     .terminal-title {
       flex: 1;
       text-align: center;
-      font-family: "JetBrains Mono", "SF Mono", "Fira Mono", Consolas, monospace;
+      font-family: var(--font-mono);
       font-size: clamp(0.6rem, 0.5rem + 0.55cqi, 0.75rem);
       color: var(--muted);
       margin-right: clamp(28px, 5cqi, 50px);
@@ -3317,7 +3317,7 @@
       gap: clamp(16px, 3cqi, 32px);
       min-height: clamp(280px, 220px + 20cqi, 400px);
       padding: 0 clamp(12px, 2.5cqi, 28px) 0 0;
-      font-family: "JetBrains Mono", "SF Mono", "Fira Mono", Consolas, monospace;
+      font-family: var(--font-mono);
     }
 
     .terminal-portrait {
@@ -3919,7 +3919,7 @@
     .job-company-link { color: inherit; text-decoration: none; }
     .job-company-link:hover { color: var(--accent); }
     .job-role { font-size: 14px; font-weight: 500; color: var(--text); margin: 0; }
-    .job-meta { font-size: 12.5px; color: var(--muted); margin: 0; font-family: "JetBrains Mono", monospace; }
+    .job-meta { font-size: 12.5px; color: var(--muted); margin: 0; font-family: var(--font-mono); }
     .job-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
     .job-skill-tag {
       font-size: 11px; font-weight: 500; padding: 2px 9px; border-radius: 12px;
@@ -3958,7 +3958,7 @@
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
       padding: 4px 11px; border-radius: 20px; text-transform: uppercase;
-      font-family: "JetBrains Mono", monospace;
+      font-family: var(--font-mono);
     }
     .job-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: pub-blink 2s ease-out infinite; }
     .job-badge--active { color: oklch(0.55 0.14 150); background: color-mix(in oklab, var(--lime) 26%, transparent); border: 1px solid color-mix(in oklab, var(--lime) 40%, transparent); }
@@ -4136,7 +4136,7 @@
       position: absolute;
       top: 10px;
       left: 10px;
-      font-family: "JetBrains Mono", monospace;
+      font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 700;
       color: #fff;
@@ -4215,7 +4215,7 @@
     }
 
     .proj-polaroid-tag {
-      font-family: "JetBrains Mono", monospace;
+      font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 600;
       padding: 2px 8px;
@@ -4279,7 +4279,7 @@
       position: absolute;
       top: 6px;
       left: 6px;
-      font-family: "JetBrains Mono", monospace;
+      font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 700;
       color: #fff;
@@ -4345,7 +4345,7 @@
     }
 
     .pub-status-tag {
-      font-family: "JetBrains Mono", monospace;
+      font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 600;
       padding: 1px 7px;
@@ -4407,7 +4407,7 @@
       border-radius: 8px;
       background: var(--bg-2);
       overflow: hidden;
-      font-family: "JetBrains Mono", monospace;
+      font-family: var(--font-mono);
     }
 
     .pub-bibtex-top {
@@ -4530,7 +4530,7 @@
     .misc-card-kicker {
       display: block;
       margin-bottom: 6px;
-      font-family: "JetBrains Mono", monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -4598,7 +4598,7 @@
     .ach-sub { font-size: 12px; color: var(--muted); margin: 0; line-height: 1.4; }
     .ach-footer-row { display: flex; align-items: center; gap: 8px; margin-top: 2px; }
     .ach-org-tag {
-      font-family: "JetBrains Mono", monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 600;
       color: var(--muted);
@@ -4607,7 +4607,7 @@
       border-radius: 4px;
     }
     .ach-year {
-      font-family: "JetBrains Mono", monospace;
+      font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 700;
       color: var(--subtle);

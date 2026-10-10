@@ -127,8 +127,7 @@ const CRITTERS = [
   { id: 'c17', kind: 'panda', skin: 'panda',  top: '97%', left: '3vw',    size: 38, anim: 'hop',    duration: 3.8, delay: 0.5, flip: false },
 ];
 
-// Phone-sized screens have no gutters, so a few critters walk a strip
-// pinned to the bottom of the viewport instead.
+// Narrow screens have no gutters, so a few critters live by the footer.
 const STRIP_CRITTERS = [
   { id: 's1', kind: 'cat',   skin: 'ginger', size: 34, anim: 'hop',    duration: 3.2, delay: 0.2, flip: false },
   { id: 's2', kind: 'dog',   skin: 'shiba',  size: 32, anim: 'bob',    duration: 4.0, delay: 1.1, flip: true },
@@ -192,8 +191,8 @@ function CritterItem({ c, variant = 'gutter' }) {
       }
       style={{
         top: strip ? undefined : c.top,
-        left: strip ? undefined : c.left,
-        right: strip ? undefined : c.right,
+        left: !strip && c.left ? 'var(--ambient-edge)' : undefined,
+        right: !strip && c.right ? 'var(--ambient-edge)' : undefined,
         width: `${c.size}px`,
         height: `${c.size}px`,
         animationDuration: `${c.duration}s`,

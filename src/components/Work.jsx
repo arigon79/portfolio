@@ -65,7 +65,7 @@ export default function Work() {
 
   return (
     <section id="experience">
-      <div className="section-label">{t.section.work}</div>
+      <h2 className="section-label">{t.section.work}</h2>
 
       <div className="job-timeline">
         {WORK.map((w) => {
