@@ -4,9 +4,6 @@ import ProjectCards from './components/ProjectCards';
 import Work from './components/Work';
 import Publication from './components/Publication';
 import Contact from './components/Contact';
-import PixelBackground from './components/PixelBackground';
-import PixelDrexelDragon from './components/PixelDrexelDragon';
-import PixelCritters from './components/PixelCritters';
 import info from './data/info.json';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
@@ -31,9 +28,6 @@ function ComingSoonPage({ page, dark, onToggleDark }) {
 
   return (
     <div className="portfolio-app-root">
-      <PixelBackground dark={dark} />
-      <PixelDrexelDragon />
-      <PixelCritters />
       <Hero dark={dark} onToggleDark={onToggleDark} navOnly />
       <main className="page standalone-page">
         <section className="coming-soon" aria-labelledby="coming-soon-title">
@@ -102,9 +96,6 @@ function AppContent() {
 
   return (
     <div className="portfolio-app-root">
-      <PixelBackground dark={dark} />
-      <PixelDrexelDragon />
-      <PixelCritters />
       <Hero dark={dark} onToggleDark={() => setDark((d) => !d)} />
 
       <main className="page page-content">

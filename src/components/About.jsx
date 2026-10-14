@@ -38,11 +38,18 @@ export default function About({ children }) {
       <div className="research-profile-main">
         <div className="research-profile-copy">
           <h1 id="profile-name" className="sr-only">{info.profile.name}</h1>
+          <p className="research-eyebrow">{t.researchProfile.eyebrow}</p>
           <TypingGreeting />
           <div className="research-bio">
             {t.about.bio.slice(0, 2).map((line, idx) => (
               <p key={idx}>{renderLinkedText(line)}</p>
             ))}
+          </div>
+          <div className="research-focus" aria-label={t.researchProfile.focusLabel}>
+            <span className="research-focus-label">{t.researchProfile.focusLabel}</span>
+            <ul>
+              {t.researchProfile.focusAreas.map((area) => <li key={area}>{area}</li>)}
+            </ul>
           </div>
           {children}
           <details className="research-personal">
@@ -53,13 +60,10 @@ export default function About({ children }) {
         </div>
         <div className="research-portrait-col">
           <div className="research-portrait-frame">
-            <span className="portrait-smoke portrait-smoke--1" aria-hidden="true" />
-            <span className="portrait-smoke portrait-smoke--2" aria-hidden="true" />
-            <span className="portrait-smoke portrait-smoke--3" aria-hidden="true" />
-            <span className="portrait-ripple" aria-hidden="true" />
-            <span className="portrait-ripple portrait-ripple--late" aria-hidden="true" />
             <img src={info.about.photo} alt="Ariji Chakma" className="research-portrait" />
+            <span className="research-portrait-mark" aria-hidden="true">FIG. 00</span>
           </div>
+          <p className="research-portrait-caption">{t.researchProfile.portraitCaption}</p>
           <Spotify />
         </div>
       </div>
