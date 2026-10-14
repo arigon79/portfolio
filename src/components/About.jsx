@@ -42,10 +42,8 @@ export default function About({ children }) {
         </div>
         <div className="research-portrait-col">
           <div className="research-portrait-frame">
-            <span className="portrait-ripples" aria-hidden="true">
-              <span />
-              <span />
-              <span />
+            <span className="portrait-fireflies" aria-hidden="true">
+              {Array.from({ length: 8 }, (_, index) => <span key={index} />)}
             </span>
             <img src={info.about.photo} alt="Ariji Chakma" className="research-portrait" />
           </div>
