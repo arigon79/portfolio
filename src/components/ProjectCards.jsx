@@ -93,7 +93,6 @@ export default function ProjectCards() {
                   {/* Polaroid Bottom Signature & Details */}
                   <div className="proj-card-footer">
                     <div className="proj-head">
-                      <span className="proj-index">Prototype {String(i + 1).padStart(2, '0')}</span>
                       <h3 className="proj-sharpie-title">{p.title}</h3>
                     </div>
 
