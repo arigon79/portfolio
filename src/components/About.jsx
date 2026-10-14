@@ -63,7 +63,6 @@ export default function About({ children }) {
             <img src={info.about.photo} alt="Ariji Chakma" className="research-portrait" />
             <span className="research-portrait-mark" aria-hidden="true">FIG. 00</span>
           </div>
-          <p className="research-portrait-caption">{t.researchProfile.portraitCaption}</p>
           <Spotify />
         </div>
       </div>

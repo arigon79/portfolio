@@ -8,7 +8,6 @@
   --signal-soft: #efd8cf;
   --rule: #b8b9ae;
   --rule-light: #d8d7ce;
-  --grid: rgba(23, 33, 31, 0.055);
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-display: "Fraunces", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -23,16 +22,11 @@ body.dark {
   --signal-soft: #4b2922;
   --rule: #46504b;
   --rule-light: #303936;
-  --grid: rgba(238, 242, 233, 0.045);
 }
 
 body {
   color: var(--ink);
-  background-color: var(--paper);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background: var(--paper);
 }
 
 .portfolio-app-root { position: relative; z-index: 1; }
@@ -253,7 +247,6 @@ body.dark .hero-nav-links a.is-active { color: var(--signal); }
   font: 600 9px/1 var(--font-mono);
   letter-spacing: .1em;
 }
-.research-portrait-caption { margin-top: 16px; color: var(--ink-soft); font: 400 11px/1.65 var(--font-mono); }
 .research-portrait-col .sp-card { margin-top: 24px; border-radius: 2px; }
 
 .research-scroll-cue {
@@ -473,7 +466,7 @@ body.dark .proj-polaroid-wrap:hover .proj-polaroid-card { border: 0; background:
   border-radius: 0;
   color: var(--ink);
   background: var(--paper-raised);
-  box-shadow: 10px 10px 0 var(--signal-soft);
+  box-shadow: none;
 }
 .contact-status { color: var(--signal); font-family: var(--font-mono); }
 .contact-status-dot { background: var(--signal); }
@@ -504,9 +497,8 @@ footer { color: var(--ink-soft); border-top-color: var(--rule); font-family: var
   #about.research-profile { min-height: 0; }
   .research-profile-main { display: flex; flex-direction: column-reverse; }
   .research-profile-copy { padding: 38px 0 40px; border-top: 1px solid var(--rule); border-right: 0; }
-  .research-portrait-col { display: grid; grid-template-columns: 160px 1fr; align-items: end; gap: 20px; padding: 32px 0; }
+  .research-portrait-col { display: block; padding: 32px 0; }
   .research-portrait-col .research-portrait-frame { width: 160px; }
-  .research-portrait-caption { margin: 0; }
   .research-portrait-col .sp-card { display: none; }
   .research-focus { grid-template-columns: 110px 1fr; }
   .page-content { padding: 72px 18px 72px; }
@@ -534,7 +526,7 @@ footer { color: var(--ink-soft); border-top-color: var(--rule); font-family: var
   .job-row { gap: 10px; }
   .job { padding: 22px 0; }
   .job-code { display: none; }
-  .contact-card { padding: 28px 20px; box-shadow: 6px 6px 0 var(--signal-soft); }
+  .contact-card { padding: 28px 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
