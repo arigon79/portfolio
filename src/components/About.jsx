@@ -59,6 +59,19 @@ export default function About({ children }) {
         </div>
         <div className="research-portrait-col">
           <div className="research-portrait-frame">
+            <svg className="portrait-orbit" viewBox="0 0 220 220" aria-hidden="true">
+              <defs>
+                <path
+                  id="portrait-orbit-path"
+                  d="M 110,110 m -92,0 a 92,92 0 1,1 184,0 a 92,92 0 1,1 -184,0"
+                />
+              </defs>
+              <text>
+                <textPath href="#portrait-orbit-path" startOffset="2%">
+                  RESEARCH • ENGINEERING • MAKING • RESEARCH • ENGINEERING • MAKING •
+                </textPath>
+              </text>
+            </svg>
             <img src={info.about.photo} alt="Ariji Chakma" className="research-portrait" />
           </div>
           <Spotify />
