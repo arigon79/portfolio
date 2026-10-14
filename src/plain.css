@@ -160,9 +160,10 @@ body.dark .hero-nav-links a.is-active { color: var(--plain-text); }
   background: transparent;
 }
 .research-portrait-col .research-portrait-frame { width: 210px; }
-@keyframes portrait-mist-drift {
-  0%, 100% { border-radius: 58% 42% 48% 52% / 46% 58% 42% 54%; transform: rotate(0) scale(.92); }
-  50% { border-radius: 42% 58% 60% 40% / 60% 44% 56% 40%; transform: rotate(180deg) scale(1.08); }
+@keyframes portrait-ripple-expand {
+  0% { opacity: 0; transform: scale(.84); }
+  18% { opacity: .62; }
+  100% { opacity: 0; transform: scale(1.42); }
 }
 .research-portrait-frame {
   position: relative;
@@ -171,36 +172,23 @@ body.dark .hero-nav-links a.is-active { color: var(--plain-text); }
   transform: none;
 }
 .research-portrait-frame:hover { transform: none; }
-.portrait-mist {
+.portrait-ripples {
   position: absolute;
-  inset: -28%;
+  inset: -12%;
   z-index: 0;
-  overflow: visible;
   pointer-events: none;
 }
-.portrait-mist span {
+.portrait-ripples span {
   position: absolute;
-  filter: blur(22px);
-  opacity: .32;
-  animation: portrait-mist-drift 14s ease-in-out infinite;
+  inset: 0;
+  border: 1px solid color-mix(in srgb, #9fd8aa 72%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 12px color-mix(in srgb, #79cbbd 18%, transparent);
+  opacity: 0;
+  animation: portrait-ripple-expand 5.4s cubic-bezier(.2, .6, .35, 1) infinite;
 }
-.portrait-mist span:nth-child(1) {
-  inset: 4% 30% 34% 0;
-  background: #b9e56e;
-}
-.portrait-mist span:nth-child(2) {
-  inset: 18% 0 8% 34%;
-  background: #68cdbc;
-  animation-duration: 18s;
-  animation-direction: reverse;
-}
-.portrait-mist span:nth-child(3) {
-  inset: 48% 28% 0 18%;
-  background: #f0c978;
-  opacity: .22;
-  animation-duration: 21s;
-  animation-delay: -7s;
-}
+.portrait-ripples span:nth-child(2) { animation-delay: -1.8s; }
+.portrait-ripples span:nth-child(3) { animation-delay: -3.6s; }
 .research-portrait-frame::after { display: none; }
 .research-portrait {
   position: relative;
@@ -363,5 +351,5 @@ footer { color: var(--plain-muted); border-top: 1px solid var(--plain-border); f
 
 @media (prefers-reduced-motion: reduce) {
   .research-greeting-cursor { display: none; }
-  .portrait-mist span { animation: none; }
+  .portrait-ripples { display: none; }
 }

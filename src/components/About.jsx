@@ -42,7 +42,7 @@ export default function About({ children }) {
         </div>
         <div className="research-portrait-col">
           <div className="research-portrait-frame">
-            <span className="portrait-mist" aria-hidden="true">
+            <span className="portrait-ripples" aria-hidden="true">
               <span />
               <span />
               <span />
