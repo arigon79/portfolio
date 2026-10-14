@@ -2,7 +2,7 @@ import { useState } from 'react';
 import info from '../data/info.json';
 import { useLanguage } from '../context/LanguageContext';
 
-function PublicationRow({ publication }) {
+function PublicationRow({ publication, index }) {
   const { t, lang } = useLanguage();
   const [showBibtex, setShowBibtex] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -17,6 +17,10 @@ function PublicationRow({ publication }) {
 
   return (
     <article className="pub-row">
+      <div className="pub-index" aria-hidden="true">
+        <span>Study</span>
+        {String(index + 1).padStart(2, '0')}
+      </div>
       {publication.image && (
         <div className="pub-thumb">
           <img
@@ -133,8 +137,8 @@ export default function Publication() {
           target="_blank" rel="noopener noreferrer">{t.researchProfile.scholar} ↗</a>
       </div>
       <div className="pub-list">
-        {info.publications.map((publication) => (
-          <PublicationRow key={publication.title} publication={publication} />
+        {info.publications.map((publication, index) => (
+          <PublicationRow key={publication.title} publication={publication} index={index} />
         ))}
       </div>
     </section>
