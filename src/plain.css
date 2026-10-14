@@ -182,7 +182,7 @@ body.dark .hero-nav-links a.is-active { color: var(--plain-text); }
 }
 .portrait-orbit {
   position: absolute;
-  top: -10%;
+  top: -18%;
   left: -18%;
   z-index: 1;
   width: 136%;

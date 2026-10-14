@@ -49,8 +49,8 @@ export default function About({ children }) {
                   d="M 110,110 m -92,0 a 92,92 0 1,1 184,0 a 92,92 0 1,1 -184,0"
                 />
               </defs>
-              <text>
-                <textPath href="#portrait-orbit-path" startOffset="2%">
+              <text textLength="578" lengthAdjust="spacing">
+                <textPath href="#portrait-orbit-path" startOffset="0%">
                   RESEARCH • ENGINEERING • MAKING • RESEARCH • ENGINEERING • MAKING •
                 </textPath>
               </text>
