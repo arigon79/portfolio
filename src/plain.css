@@ -278,7 +278,7 @@ footer { color: var(--plain-muted); border-top: 1px solid var(--plain-border); f
   .research-profile-main { display: flex; flex-direction: column-reverse; align-items: stretch; gap: 28px; }
   .research-profile-copy { width: 100%; }
   .research-portrait-col { padding: 0; }
-  .research-portrait-col .research-portrait-frame { width: 112px; }
+  .research-portrait-col .research-portrait-frame { width: 112px; margin-inline: auto; }
   .research-greeting { font-size: clamp(20px, 7.2cqi, 30px); }
   .page-content { padding: 16px 16px 64px; }
   .page-content > section { margin-bottom: 56px; }
