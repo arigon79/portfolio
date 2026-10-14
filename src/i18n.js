@@ -21,7 +21,6 @@ export const translations = {
       contact: 'Contact',
     },
     researchProfile: {
-      eyebrow: 'Research folio / Philadelphia / 2026',
       focusLabel: 'Current questions',
       focusAreas: ['How models represent space', 'How people experience AI', 'How agents learn in the world'],
       seePublications: 'See publications',
@@ -98,7 +97,6 @@ export const translations = {
       contact: '联系方式',
     },
     researchProfile: {
-      eyebrow: '研究档案 / 费城 / 2026',
       focusLabel: '当前问题',
       focusAreas: ['模型如何表征空间', '人如何体验人工智能', '智能体如何在现实世界中学习'],
       seePublications: '查看论文',

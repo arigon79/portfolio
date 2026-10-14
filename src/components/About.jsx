@@ -38,7 +38,6 @@ export default function About({ children }) {
       <div className="research-profile-main">
         <div className="research-profile-copy">
           <h1 id="profile-name" className="sr-only">{info.profile.name}</h1>
-          <p className="research-eyebrow">{t.researchProfile.eyebrow}</p>
           <TypingGreeting />
           <div className="research-bio">
             {t.about.bio.slice(0, 2).map((line, idx) => (

@@ -104,7 +104,7 @@ body.dark .hero-nav-links a.is-active { color: var(--signal); }
   border-top: 2px solid var(--ink);
   border-bottom: 1px solid var(--ink);
   border-radius: 0;
-  background: color-mix(in srgb, var(--paper) 82%, transparent);
+  background: transparent;
   box-shadow: none;
   backdrop-filter: none;
 }
@@ -124,14 +124,6 @@ body.dark .hero-nav-links a.is-active { color: var(--signal); }
   padding: clamp(40px, 6vw, 76px) clamp(28px, 6vw, 80px) clamp(40px, 5vw, 64px) 0;
   border-right: 1px solid var(--rule);
   container-type: inline-size;
-}
-
-.research-eyebrow {
-  margin-bottom: 24px;
-  color: var(--signal);
-  font: 600 11px/1.4 var(--font-mono);
-  letter-spacing: .14em;
-  text-transform: uppercase;
 }
 
 .research-greeting {
@@ -198,7 +190,7 @@ body.dark .hero-nav-links a.is-active { color: var(--signal); }
   justify-content: flex-start;
   align-items: center;
   padding: clamp(28px, 4vw, 48px);
-  background: var(--paper-raised);
+  background: transparent;
 }
 
 .research-portrait-col .research-portrait-frame { width: min(100%, 280px); max-width: none; }
@@ -351,19 +343,19 @@ body.dark .hero-nav-links a.is-active { color: var(--signal); }
 }
 .proj-filter:hover, .proj-filter.is-active { color: var(--paper-raised); border-color: var(--ink); background: var(--ink); }
 .proj-polaroid-gallery { padding: 0; }
-.proj-polaroid-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; padding: 1px; background: var(--rule); }
+.proj-polaroid-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding: 0; background: transparent; }
 .proj-polaroid-wrap, .proj-polaroid-wrap:hover { transform: none; }
 .proj-polaroid-card,
 body.dark .proj-polaroid-card {
   min-height: 100%;
-  padding: 18px;
+  padding: 0;
   border: 0;
   border-radius: 0;
-  background: var(--paper-raised);
+  background: transparent;
   box-shadow: none;
 }
 .proj-polaroid-wrap:hover .proj-polaroid-card,
-body.dark .proj-polaroid-wrap:hover .proj-polaroid-card { border: 0; background: color-mix(in srgb, var(--paper-raised) 92%, var(--signal-soft)); box-shadow: none; }
+body.dark .proj-polaroid-wrap:hover .proj-polaroid-card { border: 0; background: transparent; box-shadow: none; }
 .proj-tape, .proj-viewfinder { display: none; }
 .proj-photo-box { aspect-ratio: 16 / 8.5; border-radius: 0; background: var(--paper); }
 .proj-photo-img { filter: saturate(.78) contrast(1.03); transition: filter .25s ease, transform .35s ease; }
@@ -401,16 +393,16 @@ body.dark .proj-polaroid-wrap:hover .proj-polaroid-card { border: 0; background:
 .ach-lead { color: var(--ink-soft); }
 .ach-columns { grid-template-columns: 1fr; gap: 44px; }
 .ach-col-heading { color: var(--signal); font: 600 10px/1.5 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
-.ach-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; padding: 1px; background: var(--rule); }
+.ach-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 32px; padding: 0; background: transparent; }
 .ach {
   min-height: 100%;
-  padding: 18px;
+  padding: 12px 0;
   border: 0;
   border-radius: 0;
-  background: var(--paper-raised);
+  background: transparent;
   box-shadow: none;
 }
-.ach:hover { transform: none; background: color-mix(in srgb, var(--paper-raised) 92%, var(--signal-soft)); box-shadow: none; }
+.ach:hover { transform: none; background: transparent; box-shadow: none; }
 .ach-medal { color: var(--signal); background: transparent; }
 .ach-title { color: var(--ink); }
 .ach-sub, .ach-year { color: var(--ink-soft); }
@@ -419,11 +411,11 @@ body.dark .proj-polaroid-wrap:hover .proj-polaroid-card { border: 0; background:
 .contact-card {
   grid-template-columns: minmax(0, 1fr) 280px;
   gap: 64px;
-  padding: clamp(28px, 5vw, 58px);
-  border: 1px solid var(--ink);
+  padding: 0;
+  border: 0;
   border-radius: 0;
   color: var(--ink);
-  background: var(--paper-raised);
+  background: transparent;
   box-shadow: none;
 }
 .contact-status { color: var(--signal); font-family: var(--font-mono); }
@@ -478,11 +470,11 @@ footer { color: var(--ink-soft); border-top-color: var(--rule); font-family: var
   .research-section-heading > a { margin-top: 2px; }
   .pub-row { grid-template-columns: 1fr; gap: 14px; padding: 28px 0; }
   .proj-polaroid-grid, .ach-list { grid-template-columns: 1fr; }
-  .proj-polaroid-card, body.dark .proj-polaroid-card { padding: 12px; }
+  .proj-polaroid-card, body.dark .proj-polaroid-card { padding: 0; }
   .job-row { gap: 10px; }
   .job { padding: 22px 0; }
   .job-code { display: none; }
-  .contact-card { padding: 28px 20px; }
+  .contact-card { padding: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
