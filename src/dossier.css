@@ -61,7 +61,8 @@ body {
 
 .hero-logo,
 .hero-nav.is-scrolled .hero-logo { --logo-h: 17px; filter: grayscale(1) contrast(1.4); }
-body.dark .hero-logo { filter: grayscale(1) contrast(1.4) invert(1); }
+/* The legacy dark-theme rule already inverts the PNG itself. */
+body.dark .hero-logo { filter: grayscale(1) contrast(1.4); }
 
 .hero-nav-links a,
 .hero-nav.is-scrolled .hero-nav-links a,
