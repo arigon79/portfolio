@@ -131,7 +131,18 @@ body.dark .hero-nav-links a.is-active { color: var(--plain-text); }
 .research-personal summary { color: var(--plain-muted); font-size: 13px; }
 .research-portrait-col { display: block; padding: 0; background: transparent; }
 .research-portrait-col .research-portrait-frame { width: 180px; }
-.research-portrait-frame { border-radius: 50%; }
+@keyframes portrait-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.research-portrait-frame {
+  border-radius: 50%;
+  animation: portrait-float 6s ease-in-out infinite;
+}
+.research-portrait-frame:hover {
+  animation: none;
+  transform: translateY(-3px);
+}
 .research-portrait-frame::before, .research-portrait-frame::after { display: none; }
 .research-portrait {
   display: block;
@@ -290,4 +301,6 @@ footer { color: var(--plain-muted); border-top: 1px solid var(--plain-border); f
 
 @media (prefers-reduced-motion: reduce) {
   .research-greeting-cursor { display: none; }
+  .research-portrait-frame { animation: none; }
+  .research-portrait-frame:hover { transform: none; }
 }
