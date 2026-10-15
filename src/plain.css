@@ -160,12 +160,6 @@ body.dark .hero-nav-links a.is-active { color: var(--plain-text); }
   background: transparent;
 }
 .research-portrait-col .research-portrait-frame { width: 210px; }
-@keyframes portrait-firefly-drift {
-  0%, 100% { opacity: .16; transform: translate(0, 0) scale(.75); }
-  24% { opacity: 1; transform: translate(var(--fly-x), var(--fly-y)) scale(1.2); }
-  52% { opacity: .32; transform: translate(var(--fly-x2), var(--fly-y2)) scale(.85); }
-  78% { opacity: .8; transform: translate(var(--fly-x3), var(--fly-y3)) scale(1); }
-}
 .research-portrait-frame {
   position: relative;
   isolation: isolate;
@@ -173,30 +167,6 @@ body.dark .hero-nav-links a.is-active { color: var(--plain-text); }
   transform: none;
 }
 .research-portrait-frame:hover { transform: none; }
-.portrait-fireflies {
-  position: absolute;
-  inset: -30%;
-  z-index: 0;
-  pointer-events: none;
-}
-.portrait-fireflies span {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 1px;
-  background: #dcff88;
-  box-shadow: 0 0 10px 2px #c5f66eaa;
-  image-rendering: pixelated;
-  animation: portrait-firefly-drift var(--fly-time) ease-in-out infinite;
-}
-.portrait-fireflies span:nth-child(1) { top: 9%; left: 18%; --fly-x: 12px; --fly-y: -14px; --fly-x2: -5px; --fly-y2: -8px; --fly-x3: 7px; --fly-y3: 5px; --fly-time: 5.2s; }
-.portrait-fireflies span:nth-child(2) { top: 12%; right: 13%; --fly-x: -14px; --fly-y: 10px; --fly-x2: 6px; --fly-y2: -7px; --fly-x3: -4px; --fly-y3: 13px; --fly-time: 6.4s; animation-delay: -2.1s; }
-.portrait-fireflies span:nth-child(3) { top: 43%; left: 2%; --fly-x: -11px; --fly-y: -12px; --fly-x2: 8px; --fly-y2: 5px; --fly-x3: 3px; --fly-y3: -9px; --fly-time: 5.8s; animation-delay: -3.5s; }
-.portrait-fireflies span:nth-child(4) { top: 46%; right: 1%; --fly-x: 13px; --fly-y: 11px; --fly-x2: -7px; --fly-y2: -4px; --fly-x3: 5px; --fly-y3: -13px; --fly-time: 7s; animation-delay: -1.2s; }
-.portrait-fireflies span:nth-child(5) { bottom: 8%; left: 16%; --fly-x: 14px; --fly-y: 8px; --fly-x2: -6px; --fly-y2: 4px; --fly-x3: 9px; --fly-y3: -10px; --fly-time: 6.1s; animation-delay: -4.4s; }
-.portrait-fireflies span:nth-child(6) { right: 16%; bottom: 6%; --fly-x: -12px; --fly-y: -10px; --fly-x2: 5px; --fly-y2: 6px; --fly-x3: -8px; --fly-y3: 3px; --fly-time: 5.5s; animation-delay: -2.7s; }
-.portrait-fireflies span:nth-child(7) { top: 0; left: 48%; width: 4px; height: 4px; --fly-x: 7px; --fly-y: -13px; --fly-x2: -6px; --fly-y2: 5px; --fly-x3: 3px; --fly-y3: 10px; --fly-time: 7.3s; animation-delay: -5.1s; }
-.portrait-fireflies span:nth-child(8) { bottom: 0; left: 49%; width: 5px; height: 5px; --fly-x: -8px; --fly-y: 12px; --fly-x2: 7px; --fly-y2: -5px; --fly-x3: -4px; --fly-y3: -11px; --fly-time: 6.7s; animation-delay: -3.1s; }
 .research-portrait-frame::after { display: none; }
 .research-portrait {
   position: relative;
@@ -359,5 +329,4 @@ footer { color: var(--plain-muted); border-top: 1px solid var(--plain-border); f
 
 @media (prefers-reduced-motion: reduce) {
   .research-greeting-cursor { display: none; }
-  .portrait-fireflies { display: none; }
 }
