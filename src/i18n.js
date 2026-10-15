@@ -29,7 +29,7 @@ export const translations = {
       scholar: 'Google Scholar',
       abstract: 'Abstract',
     },
-    resume: 'Résumé',
+    resume: 'CV',
     darkToggle: { light: 'Light', dark: 'Dark' },
     langToggle: { label: '中文', ariaLabel: 'Switch to Chinese' },
     about: {
