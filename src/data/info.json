@@ -394,8 +394,8 @@
       "link": "https://arijitchakma79.github.io/phillynet-nexus-page/",
       "featured": true,
       "tags": [
-        "AI",
-        "Maps"
+        "Full Stack",
+        "AI"
       ]
     },
     {
@@ -406,8 +406,8 @@
       "link": "https://devpost.com/software/tickermaster",
       "featured": true,
       "tags": [
-        "AI",
-        "Finance"
+        "Full Stack",
+        "AI"
       ]
     },
     {
@@ -417,7 +417,10 @@
       "image": "carbon0.jpg",
       "link": "https://devpost.com/software/carbon0-0brfc1",
       "featured": false,
-      "tags": []
+      "tags": [
+        "Full Stack",
+        "AI"
+      ]
     },
     {
       "id": "woundwatch",
@@ -427,8 +430,7 @@
       "link": "https://devpost.com/software/deepcare-ai",
       "featured": true,
       "tags": [
-        "AI",
-        "Healthcare"
+        "CV"
       ]
     },
     {
@@ -438,7 +440,10 @@
       "image": "ventureahead.png",
       "link": "https://github.com/arijitchakma79/PhillyCodefest25",
       "featured": false,
-      "tags": []
+      "tags": [
+        "AI",
+        "Full Stack"
+      ]
     },
     {
       "id": "collegebuddy",
@@ -447,7 +452,9 @@
       "image": "collegebuddy.png",
       "link": "https://github.com/arijitchakma79/CollegeBuddy",
       "featured": false,
-      "tags": []
+      "tags": [
+        "Full Stack"
+      ]
     },
     {
       "id": "skyhigh",
@@ -456,7 +463,11 @@
       "image": "skyhigh.jpg",
       "link": "https://devpost.com/software/skyhigh-hf13ec",
       "featured": false,
-      "tags": []
+      "tags": [
+        "AI",
+        "CV",
+        "Hardware"
+      ]
     },
     {
       "id": "pigeonpost",
@@ -465,7 +476,10 @@
       "image": "pigeonpost.png",
       "link": "https://dorahacks.io/buidl/19412",
       "featured": false,
-      "tags": []
+      "tags": [
+        "AI",
+        "Full Stack"
+      ]
     },
     {
       "id": "deneyes",
@@ -476,7 +490,7 @@
       "featured": true,
       "tags": [
         "CV",
-        "Robotics"
+        "Hardware"
       ]
     },
     {
@@ -487,8 +501,9 @@
       "link": "https://devpost.com/software/soundsheild",
       "featured": true,
       "tags": [
-        "Hardware",
-        "ML"
+        "AI",
+        "CV",
+        "Hardware"
       ]
     },
     {
@@ -498,7 +513,11 @@
       "image": "visualed.jpg",
       "link": "https://devpost.com/software/visual-ed",
       "featured": false,
-      "tags": []
+      "tags": [
+        "CV",
+        "AI",
+        "Hardware"
+      ]
     },
     {
       "id": "scout",
@@ -507,7 +526,11 @@
       "image": "scout.jpg",
       "link": "https://devpost.com/software/scout-campus-security",
       "featured": false,
-      "tags": []
+      "tags": [
+        "Hardware",
+        "CV",
+        "App Dev"
+      ]
     },
     {
       "id": "thrifthub",
@@ -516,7 +539,9 @@
       "image": "thrifthub.jpg",
       "link": "https://github.com/arijitchakma79/ThriftHub",
       "featured": false,
-      "tags": []
+      "tags": [
+        "Full Stack"
+      ]
     }
   ],
   "contact": {
