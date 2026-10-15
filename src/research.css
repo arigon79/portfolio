@@ -1,6 +1,6 @@
 /* Research portfolio: the original landscape and pixel world, with an editorial layout. */
-/* Type system: Inter for reading, Fraunces for display titles, JetBrains Mono for the typewriter and labels. */
-:root { --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; --font-display: "Fraunces", Georgia, "Times New Roman", serif; --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace; }
+/* Type system: Source Sans for reading, Source Serif for editorial titles, IBM Plex Mono for technical details. */
+:root { --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; --font-display: "Source Serif 4", Georgia, "Times New Roman", serif; --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Consolas, monospace; }
 body { font-family: var(--font-sans); font-optical-sizing: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
 button, input, select, textarea { font-family: inherit; }
 :root { --page-column: 1232px; --ambient-edge: max(8px, calc((100vw - 1280px) / 4 - 24px)); --research-ink: #315d49; --research-rule: color-mix(in oklab, var(--text) 18%, transparent); }

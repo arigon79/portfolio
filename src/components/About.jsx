@@ -37,7 +37,7 @@ export default function About({ children }) {
     <section id="about" className="research-profile" aria-labelledby="profile-name">
       <div className="research-banner">
         <div className="research-banner-copy">
-          <h1 id="profile-name" className="research-banner-title">{info.profile.name}</h1>
+          <h1 id="profile-name" className="sr-only">{info.profile.name}</h1>
           <TypingGreeting />
         </div>
         <div className="research-portrait-col">
