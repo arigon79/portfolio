@@ -125,11 +125,6 @@ body.dark .hero-nav-links a.is-active { color: var(--plain-text); }
 .research-bio p:first-child { font: inherit; }
 .research-bio p + p { margin-top: 14px; }
 .research-bio a, .research-personal a { color: var(--plain-link); }
-.research-focus { display: block; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--plain-border); }
-.research-focus-label { display: block; margin-bottom: 8px; color: var(--plain-muted); font-size: 12px; font-weight: 600; text-transform: none; letter-spacing: 0; }
-.research-focus ul { display: block; margin: 0; padding-left: 18px; list-style: disc; }
-.research-focus li { color: var(--plain-text); font: inherit; }
-.research-focus li::before { display: none; }
 .research-socials { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
 .research-socials a,
 .research-socials a:last-child {

@@ -53,12 +53,6 @@ export default function About({ children }) {
             <p key={idx}>{renderLinkedText(line)}</p>
           ))}
         </div>
-        <div className="research-focus" aria-label={t.researchProfile.focusLabel}>
-          <span className="research-focus-label">{t.researchProfile.focusLabel}</span>
-          <ul>
-            {t.researchProfile.focusAreas.map((area) => <li key={area}>{area}</li>)}
-          </ul>
-        </div>
         {children}
         <details className="research-personal">
           <summary>{t.researchProfile.beyond}</summary>
