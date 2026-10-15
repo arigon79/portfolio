@@ -55,6 +55,15 @@ function ScholarIcon() {
   );
 }
 
+function CvIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 2h9l5 5v15H6z" />
+      <path d="M14 2v6h6M9 13h6M9 17h6" />
+    </svg>
+  );
+}
+
 const hero = info.hero;
 const navLinks = hero.navLinks;
 const heroIconMap = {
@@ -275,7 +284,8 @@ export default function Hero({ dark, onToggleDark, navOnly = false }) {
               );
             })}
             <a href={info.profile.resumeHref} target="_blank" rel="noopener noreferrer">
-              {t.resume} <span aria-hidden="true">↗</span>
+              <CvIcon />
+              <span>{t.resume}</span>
             </a>
           </div>
         </About>
