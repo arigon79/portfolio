@@ -1,6 +1,7 @@
 import info from '../data/info.json';
 import Spotify from './Spotify';
 import TypingGreeting from './TypingGreeting';
+import PortraitReveal from './PortraitReveal';
 import { useLanguage } from '../context/LanguageContext';
 
 const SPOTIFY_EMBED = info.about.spotifyEmbed;
@@ -42,7 +43,7 @@ export default function About({ children }) {
         </div>
         <div className="research-portrait-col">
           <div className="research-portrait-frame">
-            <img src={info.about.photo} alt="Ariji Chakma" className="research-portrait" />
+            <PortraitReveal src={info.about.photo} alt="Ariji Chakma" />
           </div>
           <Spotify />
         </div>
