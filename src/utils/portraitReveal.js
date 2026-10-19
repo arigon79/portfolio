@@ -14,6 +14,14 @@ function pixelHash(x, y) {
   return Math.abs((x * 17) + (y * 31));
 }
 
+export function getNextTouchReveal(current, pointerType) {
+  return pointerType === 'touch' ? !current : current;
+}
+
+export function shouldRevealPortrait({ pointerInside, focusInside, touchRevealed }) {
+  return pointerInside || focusInside || touchRevealed;
+}
+
 export function stylizePixel(red, green, blue, x, y, phase = 0) {
   const luminance = (red * 0.2126) + (green * 0.7152) + (blue * 0.0722);
   const shade = Math.min(PIXEL_PALETTE.length - 1, Math.floor(luminance / 52));

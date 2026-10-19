@@ -2,7 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   getCoverCrop,
+  getNextTouchReveal,
   getPixelOpacity,
+  shouldRevealPortrait,
   stylizePixel,
 } from './portraitReveal.js';
 
@@ -62,4 +64,22 @@ test('getPixelOpacity reveals different blocks at different points in the wave',
   ]);
 
   assert.ok(opacities.size > 1);
+});
+
+test('touch taps toggle a persistent portrait reveal', () => {
+  assert.equal(getNextTouchReveal(false, 'touch'), true);
+  assert.equal(getNextTouchReveal(true, 'touch'), false);
+});
+
+test('mouse input does not toggle the touch reveal state', () => {
+  assert.equal(getNextTouchReveal(false, 'mouse'), false);
+  assert.equal(getNextTouchReveal(true, 'mouse'), true);
+});
+
+test('a touch toggle can reveal the portrait without hover or focus', () => {
+  assert.equal(shouldRevealPortrait({
+    pointerInside: false,
+    focusInside: false,
+    touchRevealed: true,
+  }), true);
 });

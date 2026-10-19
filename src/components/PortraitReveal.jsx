@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef } from 'react';
 import {
   getCoverCrop,
+  getNextTouchReveal,
   getPixelOpacity,
+  shouldRevealPortrait,
   stylizePixel,
 } from '../utils/portraitReveal';
 
@@ -17,6 +19,8 @@ export default function PortraitReveal({ src, alt }) {
   const revealProgressRef = useRef(0);
   const pointerInsideRef = useRef(false);
   const focusInsideRef = useRef(false);
+  const touchRevealedRef = useRef(false);
+  const lastTouchAtRef = useRef(-Infinity);
 
   const paintPixels = useCallback((phase = 0, revealProgress = 0) => {
     const canvas = canvasRef.current;
@@ -113,7 +117,11 @@ export default function PortraitReveal({ src, alt }) {
   }, [paintPixels]);
 
   const updateRevealTarget = () => {
-    revealTargetRef.current = pointerInsideRef.current || focusInsideRef.current ? 1 : 0;
+    revealTargetRef.current = shouldRevealPortrait({
+      pointerInside: pointerInsideRef.current,
+      focusInside: focusInsideRef.current,
+      touchRevealed: touchRevealedRef.current,
+    }) ? 1 : 0;
   };
 
   return (
@@ -121,20 +129,34 @@ export default function PortraitReveal({ src, alt }) {
       type="button"
       className="portrait-reveal"
       aria-label={`Show original portrait of ${alt}`}
-      onPointerEnter={() => {
+      onPointerEnter={(event) => {
+        if (event.pointerType === 'touch') return;
         pointerInsideRef.current = true;
         updateRevealTarget();
       }}
-      onPointerLeave={() => {
+      onPointerLeave={(event) => {
+        if (event.pointerType === 'touch') return;
         pointerInsideRef.current = false;
         updateRevealTarget();
       }}
+      onPointerDown={(event) => {
+        if (event.pointerType === 'touch') lastTouchAtRef.current = performance.now();
+      }}
+      onPointerUp={(event) => {
+        touchRevealedRef.current = getNextTouchReveal(
+          touchRevealedRef.current,
+          event.pointerType,
+        );
+        updateRevealTarget();
+      }}
       onFocus={() => {
+        if (performance.now() - lastTouchAtRef.current < 700) return;
         focusInsideRef.current = true;
         updateRevealTarget();
       }}
       onBlur={() => {
         focusInsideRef.current = false;
+        touchRevealedRef.current = false;
         updateRevealTarget();
       }}
     >
