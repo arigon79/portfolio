@@ -1,16 +1,26 @@
-export function clampReveal(value) {
-  return Math.min(100, Math.max(0, value));
+function clampUnit(value) {
+  return Math.min(1, Math.max(0, value));
 }
 
-export function revealFromPointer(clientY, bounds) {
-  if (!bounds.height) return 0;
-  return clampReveal(((clientY - bounds.top) / bounds.height) * 100);
-}
+export function getCoverCrop(sourceWidth, sourceHeight, targetWidth, targetHeight, focusX = 0.5, focusY = 0.5) {
+  const sourceRatio = sourceWidth / sourceHeight;
+  const targetRatio = targetWidth / targetHeight;
 
-export function revealFromKey(key, current, step = 5) {
-  if (key === 'ArrowDown' || key === 'ArrowRight') return clampReveal(current + step);
-  if (key === 'ArrowUp' || key === 'ArrowLeft') return clampReveal(current - step);
-  if (key === 'Home') return 0;
-  if (key === 'End') return 100;
-  return null;
+  if (sourceRatio > targetRatio) {
+    const sw = sourceHeight * targetRatio;
+    return {
+      sx: (sourceWidth - sw) * clampUnit(focusX),
+      sy: 0,
+      sw,
+      sh: sourceHeight,
+    };
+  }
+
+  const sh = sourceWidth / targetRatio;
+  return {
+    sx: 0,
+    sy: (sourceHeight - sh) * clampUnit(focusY),
+    sw: sourceWidth,
+    sh,
+  };
 }
