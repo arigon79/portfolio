@@ -6,8 +6,8 @@ import {
 } from '../utils/portraitReveal';
 
 const PIXEL_GRID_SIZE = 30;
-const REVEAL_DURATION = 520;
-const SHIMMER_INTERVAL = 180;
+const REVEAL_DURATION = 900;
+const SHIMMER_INTERVAL = 320;
 
 export default function PortraitReveal({ src, alt }) {
   const imageRef = useRef(null);
