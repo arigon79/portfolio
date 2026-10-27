@@ -1,4 +1,5 @@
 :root {
+  --content-width: 920px;
   --plain-bg: #ffffff;
   --plain-text: #181818;
   --plain-muted: #666666;
@@ -29,7 +30,7 @@ a { color: var(--plain-link); }
 .hero-nav,
 .hero-nav.is-scrolled {
   min-height: 58px;
-  padding: 10px max(20px, calc((100vw - 920px) / 2));
+  padding: 10px max(20px, calc((100vw - var(--content-width)) / 2));
   border-bottom: 1px solid var(--plain-border);
   background: color-mix(in srgb, var(--plain-bg) 96%, transparent);
   box-shadow: none;
@@ -65,10 +66,10 @@ body.dark .hero-nav-links a.is-active { color: var(--plain-text); }
 .research-hero { min-height: 0; margin: 0; color: var(--plain-text); background: var(--plain-bg); }
 .research-intro {
   display: block;
-  width: min(1120px, 100%);
+  width: min(var(--content-width), 100%);
   min-height: 0;
   margin: 0 auto;
-  padding: 96px 24px 64px;
+  padding: 96px 20px 64px;
 }
 #about.research-profile {
   display: block;
@@ -214,7 +215,7 @@ body.dark .hero-nav-links a.is-active { color: var(--plain-text); }
 .research-scroll-cue { display: none; }
 
 .page-content {
-  max-width: 920px;
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 24px 20px 80px;
   background: transparent;
