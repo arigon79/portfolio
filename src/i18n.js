@@ -41,7 +41,7 @@ export const translations = {
       ],
       factTrigger: 'Some facts about me',
       facts: [
-        'ENFJ-T',
+        'ENTP',
         'polymath',
         'speak 6 languages',
         'Things I pour my time into: swimming, taekwondo, illustration, One Piece, K-dramas, gym.',
@@ -117,7 +117,7 @@ export const translations = {
       ],
       factTrigger: '关于我的一些趣事',
       facts: [
-        'ENFJ-T',
+        'ENTP',
         '跨领域学习者',
         '会说 6 种语言',
         '我投入时间的事：游泳、跆拳道、插画、One Piece、韩剧、健身。',
