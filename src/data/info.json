@@ -95,7 +95,7 @@
     "photo": "/profile_pic/profile.jpg",
     "bio": [
       "Hi there, I am Ariji or Percy. I'm a senior CS student at Drexel and an undergraduate researcher with ViLab and DIVA Lab, advised by Professor Feng Liu and Professor Tiffany D. Do, respectively.",
-      "Generative models and agentic systems, including LLMs, VLMs, and diffusion models for spatial reasoning, education, robotics, and AR/VR. Human–AI interaction for learning and social good, and how internal model representations relate to generated outputs.",
+      "My research lies at the intersection of generative AI, multimodal learning, and human–AI interaction. I am interested in building controllable and reliable AI systems that reason about visual and spatial information, and in how they can support intelligent interfaces, embodied agents, and real-world applications.",
       "I am also a long-time developer with experience across full-stack engineering, forward deployed engineering, AI/LLM engineering, and product engineering. I have participated in 20+ hackathons at universities including MIT, Stanford, Princeton, and others, winning 7+ awards so far.",
       "I am always trying to live a meaningful, happy, and productive life, and I am always looking to make new friends. Feel free to reach out through any of the links here."
     ],
