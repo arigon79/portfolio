@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import * as portraitReveal from './portraitReveal.js';
 import {
   getCoverCrop,
   getNextTouchReveal,
@@ -82,4 +83,10 @@ test('a touch toggle can reveal the portrait without hover or focus', () => {
     focusInside: false,
     touchRevealed: true,
   }), true);
+});
+
+test('losing focus preserves an active touch reveal', () => {
+  assert.equal(typeof portraitReveal.getTouchRevealAfterBlur, 'function');
+  assert.equal(portraitReveal.getTouchRevealAfterBlur(true), true);
+  assert.equal(portraitReveal.getTouchRevealAfterBlur(false), false);
 });

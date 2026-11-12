@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   getCoverCrop,
   getNextTouchReveal,
   getPixelOpacity,
+  getTouchRevealAfterBlur,
   shouldRevealPortrait,
   stylizePixel,
 } from '../utils/portraitReveal';
@@ -12,6 +13,7 @@ const REVEAL_DURATION = 900;
 const SHIMMER_INTERVAL = 320;
 
 export default function PortraitReveal({ src, alt }) {
+  const [touchRevealed, setTouchRevealed] = useState(false);
   const imageRef = useRef(null);
   const canvasRef = useRef(null);
   const sourcePixelsRef = useRef(null);
@@ -127,8 +129,9 @@ export default function PortraitReveal({ src, alt }) {
   return (
     <button
       type="button"
-      className="portrait-reveal"
+      className={`portrait-reveal${touchRevealed ? ' is-touch-revealed' : ''}`}
       aria-label={`Show original portrait of ${alt}`}
+      aria-pressed={touchRevealed}
       onPointerEnter={(event) => {
         if (event.pointerType === 'touch') return;
         pointerInsideRef.current = true;
@@ -143,10 +146,12 @@ export default function PortraitReveal({ src, alt }) {
         if (event.pointerType === 'touch') lastTouchAtRef.current = performance.now();
       }}
       onPointerUp={(event) => {
-        touchRevealedRef.current = getNextTouchReveal(
+        const nextTouchReveal = getNextTouchReveal(
           touchRevealedRef.current,
           event.pointerType,
         );
+        touchRevealedRef.current = nextTouchReveal;
+        setTouchRevealed(nextTouchReveal);
         updateRevealTarget();
       }}
       onFocus={() => {
@@ -156,7 +161,9 @@ export default function PortraitReveal({ src, alt }) {
       }}
       onBlur={() => {
         focusInsideRef.current = false;
-        touchRevealedRef.current = false;
+        const nextTouchReveal = getTouchRevealAfterBlur(touchRevealedRef.current);
+        touchRevealedRef.current = nextTouchReveal;
+        setTouchRevealed(nextTouchReveal);
         updateRevealTarget();
       }}
     >

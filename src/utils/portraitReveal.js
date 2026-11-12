@@ -18,6 +18,10 @@ export function getNextTouchReveal(current, pointerType) {
   return pointerType === 'touch' ? !current : current;
 }
 
+export function getTouchRevealAfterBlur(touchRevealed) {
+  return touchRevealed;
+}
+
 export function shouldRevealPortrait({ pointerInside, focusInside, touchRevealed }) {
   return pointerInside || focusInside || touchRevealed;
 }

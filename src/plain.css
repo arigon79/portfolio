@@ -206,7 +206,8 @@ body.dark .hero-nav-links a.is-active { color: var(--plain-text); }
   pointer-events: none;
 }
 .portrait-reveal:hover .portrait-reveal-original,
-.portrait-reveal:focus .portrait-reveal-original {
+.portrait-reveal:focus .portrait-reveal-original,
+.portrait-reveal.is-touch-revealed .portrait-reveal-original {
   transform: scale(1.01);
   filter: blur(0) saturate(1);
 }
