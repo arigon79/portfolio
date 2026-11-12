@@ -95,7 +95,7 @@
     "photo": "/profile_pic/profile.jpg",
     "bio": [
       "Hi there, I am Ariji or Percy. I'm a senior CS student at Drexel and an undergraduate researcher with ViLab and DIVA Lab, advised by Professor Feng Liu and Professor Tiffany D. Do, respectively.",
-      "My research lies at the intersection of generative AI, multimodal learning, and human–AI interaction. I am interested in building controllable and reliable AI systems that reason about visual and spatial information, and in how they can support intelligent interfaces, embodied agents, and real-world applications.",
+      "My research interests lie at the intersection of generative AI, multimodal learning, AR/VR, and human–AI interaction. I am interested in building AI systems that reason across language, visual, and spatial information and interact with people and environments in real-world applications.",
       "I am also a long-time developer with experience across full-stack engineering, forward deployed engineering, AI/LLM engineering, and product engineering. I have participated in 20+ hackathons at universities including MIT, Stanford, Princeton, and others, winning 7+ awards so far.",
       "I am always trying to live a meaningful, happy, and productive life, and I am always looking to make new friends. Feel free to reach out through any of the links here."
     ],
@@ -151,23 +151,6 @@
             "label": "DIVA Lab",
             "href": "https://divalab.cci.drexel.edu/"
           }
-        ]
-      },
-      {
-        "company": "Nalanda Labs",
-        "role": "Founder",
-        "dates": "Aug 2026 – Present",
-        "code": "NAL",
-        "location": "Philadelphia, PA",
-        "href": "https://github.com/Nalanda-AI",
-        "logo": "/work_logos/nalanda-mark-1024.png",
-        "status": "active",
-        "color": "oklch(0.68 0.15 220)",
-        "description": "Shipping open-source AI tools for academic and industry researchers.",
-        "skills": [
-          "Founding",
-          "Applied AI",
-          "Agentic Systems"
         ]
       },
       {
@@ -249,7 +232,6 @@
     {
       "year": "2026",
       "venue": "Manuscript",
-      "status": "Under review",
       "image": "/papers/ICLR/fig_setup.png",
       "imageFit": "contain",
       "tags": [
@@ -283,8 +265,7 @@
     },
     {
       "year": "2026",
-      "venue": "Research manuscript",
-      "status": "Under review",
+      "venue": "Manuscript",
       "image": "/papers/Happo/teaser.png",
       "imageFit": "contain",
       "tags": [

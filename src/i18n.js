@@ -35,7 +35,7 @@ export const translations = {
     about: {
       bio: [
         "Hi there, I am Ariji or Percy. I'm a senior CS student at Drexel and an undergraduate researcher with [ViLab](https://vilab-group.com/) and [DIVA Lab](https://divalab.cci.drexel.edu/), advised by [Professor Feng Liu](https://liufeng2915.github.io/) and [Professor Tiffany D. Do](https://zyrcant.github.io/), respectively.",
-        "My research lies at the intersection of generative AI, multimodal learning, and human–AI interaction. I am interested in building controllable and reliable AI systems that reason about visual and spatial information, and in how they can support intelligent interfaces, embodied agents, and real-world applications.",
+        "My research interests lie at the intersection of generative AI, multimodal learning, AR/VR, and human–AI interaction. I am interested in building AI systems that reason across language, visual, and spatial information and interact with people and environments in real-world applications.",
         "I am also a long-time developer with experience across full-stack engineering, forward deployed engineering, AI/LLM engineering, and product engineering. I have participated in 20+ hackathons at universities including MIT, Stanford, Princeton, and others, winning 7+ awards so far.",
         "I am always trying to live a meaningful, happy, and productive life, and I am always looking to make new friends. Feel free to reach out through any of the links here.",
       ],
@@ -111,7 +111,7 @@ export const translations = {
     about: {
       bio: [
         '你好，我是 Ariji，也叫 Percy。我是德雷塞尔大学计算机科学专业的大四学生，也是 [ViLab](https://vilab-group.com/) 和 [DIVA Lab](https://divalab.cci.drexel.edu/) 的本科研究员，分别由 [Feng Liu 教授](https://liufeng2915.github.io/) 和 [Tiffany D. Do 教授](https://zyrcant.github.io/) 指导。',
-        '我的研究处于生成式人工智能、多模态学习与人机交互的交汇处。我致力于构建能够对视觉与空间信息进行推理、可控且可靠的人工智能系统，并探索它们如何支持智能界面、具身智能体与现实世界应用。',
+        '我的研究兴趣位于生成式人工智能、多模态学习、AR/VR 与人机交互的交汇处。我致力于构建能够综合理解语言、视觉与空间信息，并与人和环境交互、服务于现实世界应用的人工智能系统。',
         '我也是一名长期开发者，经验涵盖全栈工程、前沿部署工程、AI/LLM 工程和产品工程。我参加过 20 多场黑客松，足迹遍布 MIT、斯坦福、普林斯顿等高校，目前已获得 7 项以上奖项。',
         '我一直努力过有意义、快乐且高效的生活，也一直期待结识新朋友。欢迎通过这里的任何链接联系我。',
       ],
