@@ -366,6 +366,32 @@
       ]
     }
   ],
+  "ongoingResearch": [
+    {
+      "title": "Geometry-Controlled Interventions for Monocular 3D",
+      "status": "Ongoing",
+      "lab": "ViLab",
+      "description": "Using controlled CAD-based interventions to study whether monocular 3D models distinguish changes in object size from changes in distance.",
+      "tags": [
+        "Monocular 3D",
+        "Computer Vision",
+        "Causal Analysis"
+      ],
+      "graphic": "monocular3d"
+    },
+    {
+      "title": "Gaze-Aware AI Coding Assistant",
+      "status": "Ongoing",
+      "lab": "DIVA Lab",
+      "description": "Combining eye tracking, code edits, and execution feedback to detect developer struggle and deliver spoken guidance through an LLM agent.",
+      "tags": [
+        "Human–AI Interaction",
+        "Eye Tracking",
+        "LLM Agents"
+      ],
+      "graphic": "gaze"
+    }
+  ],
   "projects": [
     {
       "id": "phillynet-nexus",
