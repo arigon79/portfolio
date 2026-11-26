@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add two visually distinct ongoing-research cards for Monocular 3D and gaze-aware AI work beneath the portfolio's publication list.
+**Goal:** Add two visually distinct ongoing-research entries for Monocular 3D and gaze-aware AI work beneath the portfolio's publication list.
 
-**Architecture:** Store the two entries in `info.json`, render them through a focused `OngoingResearch` component, and compose that component into the existing Research section. Use component-owned inline SVG graphics keyed by a small data field, with responsive and dark-mode styling in the existing stylesheet.
+**Architecture:** Store the two entries in `info.json`, render them through a focused `OngoingResearch` component, and compose that component into the existing Research section. Reuse the publication-row box classes for layout and add component-owned inline SVG graphics keyed by a small data field, with responsive and dark-mode styling in the existing stylesheet.
 
 **Tech Stack:** React 19, JSON content data, inline SVG, CSS, Node test runner, Vite
 
@@ -17,6 +17,7 @@
 - Do not add external links, publication claims, raster images, packages, or runtime dependencies.
 - SVG graphics are decorative (`aria-hidden="true"`) and must remain legible in light and dark themes.
 - Preserve the existing Research section, responsive behavior, and visual language.
+- Use the same full-width thumbnail-and-content box layout as the publication entries.
 
 ## Review Focus
 
@@ -91,7 +92,7 @@ Import and render `<OngoingResearch />` immediately after the existing publicati
 
 - [ ] **Step 4: Add responsive, dark-mode-aware styles**
 
-Add styles for the subsection heading, two-column grid, cards, visual panels, status/lab metadata, descriptions, and tags. At narrow widths, use a single column; allow titles and descriptions to wrap naturally without fixed heights.
+Add styles for the subsection heading, publication-style rows, visual panels, status/lab metadata, descriptions, and tags. Reuse the existing publication responsive behavior; allow titles and descriptions to wrap naturally without fixed heights.
 
 - [ ] **Step 5: Run tests and build**
 
