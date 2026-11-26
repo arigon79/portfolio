@@ -4457,6 +4457,185 @@
       }
     }
 
+    /* ── Ongoing Research ── */
+    .ongoing-research {
+      margin-top: clamp(42px, 7vw, 68px);
+    }
+
+    .ongoing-research-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .ongoing-research-heading h3 {
+      margin: 0;
+      font-size: clamp(20px, 3vw, 25px);
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text);
+    }
+
+    .ongoing-research-kicker {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      border: 1px solid color-mix(in oklab, var(--accent) 42%, var(--border));
+      background: color-mix(in oklab, var(--accent) 9%, transparent);
+      border-radius: 999px;
+      padding: 4px 8px 3px;
+    }
+
+    .ongoing-research-grid {
+      gap: 0;
+    }
+
+    .pub-thumb.ongoing-research-visual {
+      position: relative;
+      overflow: hidden;
+      color: color-mix(in oklab, var(--accent) 82%, var(--text));
+      background:
+        radial-gradient(circle at 74% 20%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 36%),
+        linear-gradient(145deg, color-mix(in oklab, var(--surface) 92%, var(--bg)), var(--bg-2));
+    }
+
+    .ongoing-research-visual--gaze {
+      color: color-mix(in oklab, var(--lime) 68%, var(--text));
+      background:
+        radial-gradient(circle at 20% 50%, color-mix(in oklab, var(--lime) 18%, transparent), transparent 34%),
+        linear-gradient(145deg, color-mix(in oklab, var(--surface) 92%, var(--bg)), var(--bg-2));
+    }
+
+    .ongoing-research-visual svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .ongoing-graphic-grid,
+    .ongoing-graphic-rays,
+    .ongoing-graphic-gaze-path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      opacity: 0.28;
+    }
+
+    .ongoing-graphic-grid {
+      stroke-dasharray: 5 7;
+      opacity: 0.14;
+    }
+
+    .ongoing-graphic-camera,
+    .ongoing-graphic-eye,
+    .ongoing-graphic-code-panel,
+    .ongoing-graphic-fallback {
+      fill: color-mix(in oklab, currentColor 8%, transparent);
+      stroke: currentColor;
+      stroke-width: 2.5;
+    }
+
+    .ongoing-graphic-camera circle,
+    .ongoing-graphic-eye circle,
+    .ongoing-graphic-code-panel path,
+    .ongoing-graphic-code-panel circle,
+    .ongoing-graphic-fallback path {
+      fill: none;
+      stroke: currentColor;
+    }
+
+    .ongoing-graphic-cube {
+      fill: color-mix(in oklab, currentColor 7%, transparent);
+      stroke: currentColor;
+      stroke-width: 2;
+    }
+
+    .ongoing-graphic-cube--near {
+      opacity: 0.62;
+    }
+
+    .ongoing-graphic-cube--far {
+      opacity: 0.94;
+    }
+
+    .ongoing-graphic-measure {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-dasharray: 5 5;
+    }
+
+    .ongoing-graphic-pulse,
+    .ongoing-graphic-gaze-path circle {
+      fill: var(--surface);
+      stroke: currentColor;
+      stroke-width: 3;
+    }
+
+    .ongoing-graphic-agent {
+      fill: color-mix(in oklab, currentColor 12%, var(--surface));
+      stroke: currentColor;
+      stroke-width: 2.4;
+    }
+
+    .ongoing-graphic-agent path + path {
+      fill: none;
+      stroke-width: 2.8;
+    }
+
+    .ongoing-research-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+    }
+
+    .ongoing-research-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      color: oklch(0.54 0.15 150);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .ongoing-research-status > span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--lime) 18%, transparent);
+    }
+
+    body.dark .ongoing-research-status {
+      color: oklch(0.82 0.14 150);
+    }
+
+    .ongoing-research-lab {
+      color: var(--muted);
+    }
+
+    .ongoing-research-card .pub-title {
+      overflow-wrap: anywhere;
+    }
+
+    .ongoing-research-tags {
+      margin-top: auto;
+    }
+
+    @media (max-width: 640px) {
+      .pub-thumb.ongoing-research-visual {
+        max-width: none;
+      }
+    }
+
     /* ── Achievements & Awards (Translucent & Sleek) ── */
     .standalone-page {
       min-height: 100vh;

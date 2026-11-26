@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import info from '../data/info.json';
 import { useLanguage } from '../context/LanguageContext';
+import OngoingResearch from './OngoingResearch';
 
 function PublicationRow({ publication }) {
   const { t, lang } = useLanguage();
@@ -137,6 +138,7 @@ export default function Publication() {
           <PublicationRow key={publication.title} publication={publication} />
         ))}
       </div>
+      <OngoingResearch />
     </section>
   );
 }
